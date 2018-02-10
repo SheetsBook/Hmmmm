@@ -5,7 +5,7 @@ const prefix = "e.";
 
 client.on("ready", () => {
   console.log("Bot is online!");
-  client.setActivity(`e.help in ${client.guilds.size} servers!`);
+  client.user.setActivity(`e.help in ${client.guilds.size} servers!`);
 });
 
 client.on("message", async(message) => {
