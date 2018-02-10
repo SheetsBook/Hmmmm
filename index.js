@@ -3,6 +3,11 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const prefix = "e.";
 
+client.on("ready", () => {
+  console.log("Bot is online!");
+  client.setActivity(`e.help in ${client.guilds.size} servers!`);
+});
+
 client.on("message", async(message) => {
 	if(!message.content.startsWith(prefix) || message.author.bot) return;
 	const args = message.content.slice(prefix.length).trim().split(/ +/g);
