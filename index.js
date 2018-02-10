@@ -1,4 +1,5 @@
 const Discord = require("discord.js");
+const { inspect } = require("util");
 
 const client = new Discord.Client();
 const prefix = "e.";
