@@ -54,7 +54,7 @@ for safety the invite link does not add any permissions to the bot it's up to yo
 		message.reply("By inviting me to your server you agree that i'm not responsible for any damage on your server for safety the URL doesn't grant the bot any permissions\nhttps://discordapp.com/api/oauth2/authorize?client_id=411952600586649602&permissions=0&scope=bot")
 	} else if(command === "beval") {
     try {
-  let evaled = vm.runInContext("args.join(" ")", codeContext);
+  let evaled = vm.runInContext(args.join(" "), codeContext);
   message.channel.send(evaled, {code:"js","split:"\n"});
 } catch(e) {
  message.channel.send(e, {code:"js","split:"\n"});
