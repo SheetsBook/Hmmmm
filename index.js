@@ -55,7 +55,7 @@ for safety the invite link does not add any permissions to the bot it's up to yo
 	} else if(command === "beval") {
     try {
   let evaled = vm.runInContext(args.join(" "), codeContext);
-  message.channel.send(evaled, {code:"js","split:"\n"});
+  message.channel.send(evaled, {code:"js",split:"\n"});
 } catch(e) {
  message.channel.send(e, {code:"js",split:"\n"});
 }
