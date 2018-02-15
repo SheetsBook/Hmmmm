@@ -1,6 +1,8 @@
 const Discord = require("discord.js");
 const { inspect } = require("util");
-
+const vm = require("vm");
+const codeContext =  {};
+vm.createContext(codeContext);
 const client = new Discord.Client();
 const prefix = "e.";
 
@@ -50,7 +52,14 @@ This bot is an eval which runs ANY javascript code which is like users can even 
 for safety the invite link does not add any permissions to the bot it's up to you to give it permissions if you want but as i said at your own risk i'm not responsible for bad things happening in your server. KEEP IT NO PERMISSIONS FOR SAFETY, and those hackers reading this don't think of hacking me, the token is safe, and i'm using heroku which doesn't give access to my files and it's free host thing idc much.`, {code: "asciidoc"});
 	} else if(command === "invite") {
 		message.reply("By inviting me to your server you agree that i'm not responsible for any damage on your server for safety the URL doesn't grant the bot any permissions\nhttps://discordapp.com/api/oauth2/authorize?client_id=411952600586649602&permissions=0&scope=bot")
-	}
+	} else if(command === "beval") {
+    try {
+  let evaled = vm.runInContext("args.join(" ")", codeContext);
+  message.channel.send(evaled, {code:"js","split:"\n"});
+} catch(e) {
+ message.channel.send(e, {code:"js","split:"\n"});
+}
+	
 });
 
 client.login(process.env.TOKEN);
