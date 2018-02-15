@@ -59,6 +59,7 @@ for safety the invite link does not add any permissions to the bot it's up to yo
 } catch(e) {
  message.channel.send(e, {code:"js",split:"\n"});
 }
+}
 	
 });
 
