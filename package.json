@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/freetnt5852/EvalBot.git"
+    "url": "git+https://github.com/x-49/EvalX.git"
   },
   "keywords": [
     "eval",
@@ -18,7 +18,7 @@
     "discord.js":"^11.3.0",
     "superagent":"^3.8.2"
   },
-  "author": "Free TNT",
+  "author": "X-49",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/freetnt5852/EvalBot/issues"
