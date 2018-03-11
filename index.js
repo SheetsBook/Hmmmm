@@ -42,8 +42,8 @@ client.on("message", async(message) => {
    }
 	} else if(command === 'report') {
 		const embed = new Discord.RichEmbed()
-.setTitle('бла-бла-бла, название эмбэда')
-.setDescription('Тут текст эмбэда');
+            .setDescription(args.join(' '))
+            .addField('Автор', message.author)
 let nick = message.author.username;
 if (message.member.nickname != null) nick = message.member.nickname;
 client.fetchWebhook('422457004171460635', 'A_VCM4iSilk7MCdY97w3M-M-g3sylzQ91CDwBVLyZfTlQCdHjeGiWyb6qD4m7nCzGp4e').then(webhook => {
