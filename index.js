@@ -4,11 +4,11 @@ const vm = require("vm");
 const codeContext =  {};
 vm.createContext(codeContext);
 const client = new Discord.Client();
-const prefix = "e.";
+const prefix = "cv!";
 
 client.on("ready", () => {
   console.log("Bot is online!");
-  client.user.setActivity(`e.help на ${client.guilds.size} серверах!`);
+  client.user.setActivity(`cv!help на ${client.guilds.size} серверах!`);
 });
 
 client.on("message", async(message) => {
