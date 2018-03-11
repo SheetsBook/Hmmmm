@@ -40,13 +40,15 @@ client.on("message", async(message) => {
       .replace(/`/g, "`" + String.fromCharCode(8203))
       .replace(/@/g, "@" + String.fromCharCode(8203));
    }
-	} else if(command === 'help') {
-		message.channel.send(`== Help ==
-Команды:
-invite :: Тут могла быть ваша реклама =D
-eval :: эмулировать js code
-help :: показать эту вкладку
-Предупреждение:Бот находится на платформе Heroku и его токен спрятан.`, {code: "asciidoc"});
+	} else if(command === 'report') {
+		const embed = new Discord.RichEmbed()
+.setTitle('бла-бла-бла, название эмбэда')
+.setDescription('Тут текст эмбэда');
+let nick = message.author.username;
+if (message.member.nickname != null) nick = message.member.nickname;
+client.fetchWebhook('422457004171460635', 'A_VCM4iSilk7MCdY97w3M-M-g3sylzQ91CDwBVLyZfTlQCdHjeGiWyb6qD4m7nCzGp4e').then(webhook => {
+            webhook.send('', {username: nick, avatarURL: message.author.avatarURL, embeds: [embed]}).catch(console.error);
+        }).catch(console.error);
 	} else if(command === "invite") {
 		message.reply("Тут могла быть ваша реклама =D")
 	} else if(command === "beval") {
