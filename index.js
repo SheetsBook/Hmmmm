@@ -41,7 +41,8 @@ client.on("message", async(message) => {
       .replace(/@/g, "@" + String.fromCharCode(8203));
    }
 	} else if(command === 'report') {
-		const embed = new Discord.RichEmbed()
+		const embed = new Discord
+	.RichEmbed().setColor("#ff0000")
             .setDescription(args.join(' '))
             .addField('Автор', message.author)
 let nick = message.author.username;
