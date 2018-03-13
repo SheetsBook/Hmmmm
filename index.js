@@ -52,6 +52,8 @@ if (message.member.nickname != null) nick = message.member.nickname;
 client.fetchWebhook('422457004171460635', 'A_VCM4iSilk7MCdY97w3M-M-g3sylzQ91CDwBVLyZfTlQCdHjeGiWyb6qD4m7nCzGp4e').then(webhook => {
             webhook.send('', {username: nick, avatarURL: message.author.avatarURL, embeds: [embed]}).catch(console.error);
         }).catch(console.error);
+		message.channel.send(`**Репорт пользователя ${message.author} успешно принят**`);
+	    message.delete();
 	} else if((command === "скажи" || command === "say" || command === "s") && (creators.includes(message.author.id) || message.member.roles.some(r=>[rule.own].includes(r.id)))) {
     const sayMessage = args.join(" ");
     message.delete().catch(O_o=>{});
