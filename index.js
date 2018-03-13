@@ -58,14 +58,15 @@ client.fetchWebhook('422457004171460635', 'A_VCM4iSilk7MCdY97w3M-M-g3sylzQ91CDwB
     const sayMessage = args.join(" ");
     message.delete().catch(O_o=>{});
     let msg = message.channel.send(sayMessage).catch(()=>{message.reply('ты ебобо?');});
-	} else if(command === "help") {
- const embed = new Discord.RichEmbed()
-	  .setTitle('Команды бота CloudBot')
-	  .setColor("#42f4aa")
-	  .setDescription("cv!say - бот вам что-то скажет \ncv!eval эмулировать код \ncv!report написатт репорт на человека
-	  .setFooter("Префикс бота - cv! ; Помощь - cv!help")
-	  .setTimestamp();
-	  message.channel.send({embed});
+	} else if(command === "beval") {
+    try {
+  let evaled = vm.runInContext(args.join(" "), codeContext);
+  message.channel.send(evaled, {code:"js",split:"\n"});
+} catch(e) {
+ message.channel.send(e, {code:"js",split:"\n"});
+}
+}
+	
 });
 
 client.login(process.env.TOKEN);
