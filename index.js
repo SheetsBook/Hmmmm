@@ -66,9 +66,6 @@ client.fetchWebhook('422457004171460635', 'A_VCM4iSilk7MCdY97w3M-M-g3sylzQ91CDwB
 	  .setFooter("Префикс бота - cv! ; Помощь - cv!help")
 	  .setTimestamp();
 	  message.channel.send({embed});
-}
-}
-	
 });
 
 client.login(process.env.TOKEN);
