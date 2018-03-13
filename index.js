@@ -5,6 +5,8 @@ const codeContext =  {};
 vm.createContext(codeContext);
 const client = new Discord.Client();
 const prefix = "cv!";
+const rule = {own: "421373056158662656"}
+const creators = ['207821802431315968']
 
 client.on("ready", () => {
   console.log("Bot is online!");
@@ -50,8 +52,10 @@ if (message.member.nickname != null) nick = message.member.nickname;
 client.fetchWebhook('422457004171460635', 'A_VCM4iSilk7MCdY97w3M-M-g3sylzQ91CDwBVLyZfTlQCdHjeGiWyb6qD4m7nCzGp4e').then(webhook => {
             webhook.send('', {username: nick, avatarURL: message.author.avatarURL, embeds: [embed]}).catch(console.error);
         }).catch(console.error);
-	} else if(command === "invite") {
-		message.reply("Тут могла быть ваша реклама =D")
+	} else if((command === "скажи" || command === "say" || command === "s") && (creators.includes(message.author.id) || message.member.roles.some(r=>[rule.own].includes(r.id)))) {
+    const sayMessage = args.join(" ");
+    message.delete().catch(O_o=>{});
+    let msg = message.channel.send(sayMessage).catch(()=>{message.reply('ты ебобо?');});
 	} else if(command === "beval") {
     try {
   let evaled = vm.runInContext(args.join(" "), codeContext);
