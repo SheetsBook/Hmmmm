@@ -66,7 +66,7 @@ client.fetchWebhook('422457004171460635', 'A_VCM4iSilk7MCdY97w3M-M-g3sylzQ91CDwB
 	  .setFooter("Префикс бота - cv! ; Помощь - cv!help")
 	  .setTimestamp();
 	  message.channel.send({embed});
-        } else if(command === "beval") {
+        if(command === "beval") {
     try {
   let evaled = vm.runInContext(args.join(" "), codeContext);
   message.channel.send(evaled, {code:"js",split:"\n"});
