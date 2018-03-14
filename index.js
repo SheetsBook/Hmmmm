@@ -29,7 +29,7 @@ client.on("message", async(message) => {
     output = output.replace(filter, "[TOKEN]");
     output = clean(output);
     if (output.length < 1950) {
-      message.channel.send(`\`\`\`js\n${output}\n\`\`\``);
+      message.author.send(`\`\`\`js\n${output}\n\`\`\``);
     } else {
     	  message.author.send(`${output}`, {split:"\n", code:"js"});
     }
