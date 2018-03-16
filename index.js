@@ -55,7 +55,7 @@ client.fetchWebhook('422457004171460635', 'A_VCM4iSilk7MCdY97w3M-M-g3sylzQ91CDwB
 		message.channel.send(`**Репорт пользователя ${message.author} успешно принят**`);
 	    message.delete();
 	} else if((command === "help" || command === "h" || command === "хелп") {
-} else if((command === "help" || command === "хелп")
+} else if(command === "help" || command === "хелп")
 		  const embed = new Discord.RichEmbed()
 	  .setTitle('Команды бота CloudBot')
 	  .setColor("#42f4aa")
