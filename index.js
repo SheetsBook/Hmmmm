@@ -62,6 +62,27 @@ client.fetchWebhook('422457004171460635', 'A_VCM4iSilk7MCdY97w3M-M-g3sylzQ91CDwB
 	  .setFooter("Префикс бота - cv! ; Помощь - cv!help")
 	  .setTimestamp();
 	  message.channel.send({embed});
+	} else if(command === "say") {
+		if(!message.member.roles.some(r=>[rule.own].includes(r.id)) && !creators.includes(message.author.id))
+  			return message.reply("Извините, прав нет!");
+		let content = message.content.slice(process.env.PREFIX.length + 8);
+		let messagecount = parseInt(args[0])+1;
+		let msc = messagecount -1;
+		if (messagecount > 2) {
+			message.channel.fetchMessages({limit: messagecount}).then(messages => message.channel.bulkDelete(messages));
+		let lol = declOfNum(msc, ['сообщение', 'сообщения', 'сообщений']);
+		message.channel.send(`Удалено ${msc} ${lol}!`).then(msg => {msg.delete(5000)});
+		message.delete();
+		} else {
+			message.author.send({embed: {
+				color: 16711680,
+				title: "Ошибка удаления сообщений",
+				description: `\`${content}\` либо меньше двух, либо не является числом.`,
+				footer: {
+				  	text: "CloudVoice",
+			  	},
+			}});
+		}
 	} else if(command === "beval") {
     try {
   let evaled = vm.runInContext(args.join(" "), codeContext);
