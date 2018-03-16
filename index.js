@@ -54,10 +54,15 @@ client.fetchWebhook('422457004171460635', 'A_VCM4iSilk7MCdY97w3M-M-g3sylzQ91CDwB
         }).catch(console.error);
 		message.channel.send(`**Репорт пользователя ${message.author} успешно принят**`);
 	    message.delete();
-	} else if((command === "скажи" || command === "say" || command === "s") && (creators.includes(message.author.id) || message.member.roles.some(r=>[rule.own].includes(r.id)))) {
-    const sayMessage = args.join(" ");
-    message.delete().catch(O_o=>{});
-    let msg = message.channel.send(sayMessage).catch(()=>{message.reply('ты ебобо?');});
+	} else if((command === "help" || command === "h" || command === "хелп") {
+} else if((command === "help" || command === "хелп")
+		  const embed = new Discord.RichEmbed()
+	  .setTitle('Команды бота CloudBot')
+	  .setColor("#42f4aa")
+	  .setDescription("cv!say - бот вам что-то скажет \ncv!report написать репорт на пользователя \ncv!eval эмулировать js код \nСкоро будет больше команд")
+	  .setFooter("Префикс бота - cv! ; Помощь - cv!help")
+	  .setTimestamp();
+	  message.channel.send({embed});
 	} else if(command === "beval") {
     try {
   let evaled = vm.runInContext(args.join(" "), codeContext);
