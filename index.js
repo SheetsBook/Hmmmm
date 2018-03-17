@@ -55,13 +55,19 @@ client.fetchWebhook('422457004171460635', 'A_VCM4iSilk7MCdY97w3M-M-g3sylzQ91CDwB
 		message.channel.send(`**Репорт пользователя ${message.author} успешно принят**`);
 	    message.delete();
         } else if(command === "help" || command === "хелп") {
-		  const embed = new Discord.RichEmbed()
-	  .setTitle('Команды бота CloudBot')
-	  .setColor("#42f4aa")
-	  .setDescription("cv!say - бот вам что-то скажет \ncv!report написать репорт на пользователя \ncv!eval эмулировать js код \nСкоро будет больше команд")
-	  .setFooter("Префикс бота - cv! ; Помощь - cv!help")
-	  .setTimestamp();
-	  message.channel.send({embed});
+let embed = new Discord.RichEmbed()
+    .setColor(0xFFFFFF)
+    .setTitle(`$(msg.gild) Информация.`)
+    .setDescription("Информация")
+    .addField("id", msg.guild.id, true)
+    .addField("Создатель", msg.guild.owner, true)
+    .addField("id создателя", msg.guild.ownerID, true)
+    .addField("Количество ролей", msg.guild.roles.size, true)
+    .addField("Регион", msg.guild.region, true)
+    .setThumbnail(msg.guild.iconURL);
+    msg.channel.send(embed)
+   }
+)};
 	} else if(command === "say") {
 		if(!message.member.roles.some(r=>[rule.own].includes(r.id)) && !creators.includes(message.author.id))
   			return message.reply("Извините, прав нет!");
