@@ -42,18 +42,20 @@ client.on("message", async(message) => {
       .replace(/`/g, "`" + String.fromCharCode(8203))
       .replace(/@/g, "@" + String.fromCharCode(8203));
    }
-	} else if(command === 'report') {
-		const embed = new Discord
-	.RichEmbed().setColor("#ff0000")
-            .setDescription(args.join(' '))
-            .addField('Автор', message.author)
-let nick = message.author.username;
-if (message.member.nickname != null) nick = message.member.nickname;
-client.fetchWebhook('422457004171460635', 'A_VCM4iSilk7MCdY97w3M-M-g3sylzQ91CDwBVLyZfTlQCdHjeGiWyb6qD4m7nCzGp4e').then(webhook => {
-            webhook.send('', {username: nick, avatarURL: message.author.avatarURL, embeds: [embed]}).catch(console.error);
-        }).catch(console.error);
-		message.channel.send(`**Репорт пользователя ${message.author} успешно принят**`);
-	    message.delete();
+	} else if(command === 'si') {
+		const embed = new Discord.RichEmbed()
+    .setColor(0xFFFFFF)
+    .setTitle(`$(msg.gild) Информация.`)
+    .setDescription("Информация")
+    .addField("id", msg.guild.id, true)
+    .addField("Создатель", msg.guild.owner, true)
+    .addField("id создателя", msg.guild.ownerID, true)
+    .addField("Количество ролей", msg.guild.roles.size, true)
+    .addField("Регион", msg.guild.region, true)
+    .setThumbnail(msg.guild.iconURL);
+    msg.channel.send(embed)
+   }
+)};
         } else if(command === "help" || command === "хелп") {
 		  const embed = new Discord.RichEmbed()
 	  .setTitle('Команды бота CloudBot')
