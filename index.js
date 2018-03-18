@@ -44,7 +44,7 @@ client.on("message", async(message) => {
    }
 	} else if(command === 'report') {
 		const embed = new Discord
-	.RichEmbed().setColor("#ff0000")
+	.RichEmbed().setColor(getRandomInt)
             .setDescription(args.join(' '))
             .addField('Автор', message.author)
 let nick = message.author.username;
