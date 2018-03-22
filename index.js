@@ -7,7 +7,8 @@ const client = new Discord.Client();
 const prefix = "cv!";
 const rule = {own: "421373056158662656"}
 const creators = ['207821802431315968']
-const emojis = {mila:'406432316680962048'}
+const emojis = {mila:'418748638081318912'}
+
 
 client.on("ready", () => {
   console.log("Bot is online!");
