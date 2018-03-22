@@ -7,6 +7,7 @@ const client = new Discord.Client();
 const prefix = "cv!";
 const rule = {own: "421373056158662656"}
 const creators = ['207821802431315968']
+const emojis = {mila:'406432316680962048'}
 
 client.on("ready", () => {
   console.log("Bot is online!");
@@ -43,17 +44,8 @@ client.on("message", async(message) => {
       .replace(/@/g, "@" + String.fromCharCode(8203));
    }
 	} else if(command === 'report') {
-		const embed = new Discord
-	.RichEmbed().setColor("ff0000")
-            .setDescription(args.join(' '))
-            .addField('Автор', message.author)
-let nick = message.author.username;
-if (message.member.nickname != null) nick = message.member.nickname;
-client.fetchWebhook('422457004171460635', 'A_VCM4iSilk7MCdY97w3M-M-g3sylzQ91CDwBVLyZfTlQCdHjeGiWyb6qD4m7nCzGp4e').then(webhook => {
-            webhook.send('', {username: nick, avatarURL: message.author.avatarURL, embeds: [embed]}).catch(console.error);
-        }).catch(console.error);
-		message.channel.send(`**Репорт пользователя ${message.author} успешно принят**`);
-	    message.delete();
+const emoj = client.emojis.get(emojis.mila);
+        message.channel.send(`${emoj} ${message.author}`);
         } else if(command === "help" || command === "хелп") {
 		  const embed = new Discord.RichEmbed()
 	  .setTitle('Команды бота CloudBot')
