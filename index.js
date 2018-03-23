@@ -4,7 +4,7 @@ const vm = require("vm");
 const codeContext =  {};
 vm.createContext(codeContext);
 const client = new Discord.Client();
-const prefix = "cv!";
+const prefix = "x!";
 const rule = {own: "421373056158662656"}
 const creators = ['207821802431315968']
 const emojis = {mila:'418748638081318912'}
@@ -12,7 +12,7 @@ const emojis = {mila:'418748638081318912'}
 
 client.on("ready", () => {
   console.log("Bot is online!");
-  client.user.setActivity(`cv!help на ${client.guilds.size} серверах!`);
+  client.user.setActivity(`x!help |${client.guilds.size} серверов.`);
 });
 
 client.on("message", async(message) => {
