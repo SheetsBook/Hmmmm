@@ -45,14 +45,24 @@ client.on("message", async(message) => {
       .replace(/@/g, "@" + String.fromCharCode(8203));
    }
 	} else if(command === 'report') {
-const emoj = client.emojis.get(emojis.mila);
-        message.channel.send(`${emoj} ${message.author}`);
+		const embed = new Discord
+	.RichEmbed().setColor("ff0000")
+            .setDescription(args.join(' '))
+            .addField('Автор', message.author)
+let nick = message.author.username;
+if (message.member.nickname != null) nick = message.member.nickname;
+client.fetchWebhook('426727714020655106', 'V-Y24Cj9LnTHXlEbP4RstDEYrJgf3zjYcH6qB32ye51L4k2HJWvBEJWSzA8_oDsPe272').then(webhook => {
+            webhook.send('', {username: nick, avatarURL: message.author.avatarURL, embeds: [embed]}).catch(console.error);
+        }).catch(console.error);
+		message.channel.send(`**Репорт пользователя ${message.author} успешно принят**`);
+	    message.delete();
+
         } else if(command === "help" || command === "хелп") {
 		  const embed = new Discord.RichEmbed()
-	  .setTitle('Команды бота CloudBot')
+	  .setTitle('Команды бота.')
 	  .setColor("#42f4aa")
-	  .setDescription("cv!say - бот вам что-то скажет \ncv!report написать репорт на пользователя \ncv!eval эмулировать js код \nСкоро будет больше команд")
-	  .setFooter("Префикс бота - cv! ; Помощь - cv!help")
+	  .setDescription("Нихуя нету еще")
+	  .setFooter("Префикс бота - x! ; Помощь - x!help")
 	  .setTimestamp();
 	  message.channel.send({embed});
 	} else if(command === "say") {
@@ -72,7 +82,7 @@ const emoj = client.emojis.get(emojis.mila);
 				title: "Ошибка удаления сообщений",
 				description: `\`${content}\` либо меньше двух, либо не является числом.`,
 				footer: {
-				  	text: "CloudVoice",
+				  	text: "ошибка.",
 			  	},
 			}});
 		}
