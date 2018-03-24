@@ -19,7 +19,7 @@ client.on("message", async(message) => {
 	if(!message.content.startsWith(prefix) || message.author.bot) return;
 	const args = message.content.slice(prefix.length).trim().split(/ +/g);
 	const command = args.shift().toLowerCase();
-	if(command === 'eval') && (message.author.id == "207821802431315968")) {
+	if(command === 'eval') && (message.author.id == "207821802431315968") {
 		 const code = args.join(" ");
   const token = client.token.split("").join("[^]{0,2}");
   const rev = client.token.split("").reverse().join("[^]{0,2}");
