@@ -12,7 +12,7 @@ const emojis = {mila:'418748638081318912'}
 
 client.on("ready", () => {
   console.log("Bot is online!");
-  client.user.setActivity(`x!help |${client.guilds.size} серверов.`);
+  client.user.setActivity(`x!help`);
 });
 
 client.on("message", async(message) => {
@@ -48,10 +48,10 @@ client.on("message", async(message) => {
 		const embed = new Discord
 	.RichEmbed().setColor("ff0000")
             .setDescription(args.join(' '))
-            .addField('Автор', message.author)
+            .addField('Жалоба пользователя', message.author)
 let nick = message.author.username;
 if (message.member.nickname != null) nick = message.member.nickname;
-client.fetchWebhook('426727714020655106', 'V-Y24Cj9LnTHXlEbP4RstDEYrJgf3zjYcH6qB32ye51L4k2HJWvBEJWSzA8_oDsPe272').then(webhook => {
+client.fetchWebhook('427002003005243393', 'SvggGN-ntZGC_2T-0eJSTCUIk2tcKrCwhZ6l-xq44e8wfdM6uctYfYw4Nc9cxNy7Alcf').then(webhook => {
             webhook.send('', {username: nick, avatarURL: message.author.avatarURL, embeds: [embed]}).catch(console.error);
         }).catch(console.error);
 		message.channel.send(`**Репорт пользователя ${message.author} успешно принят**`);
@@ -61,7 +61,7 @@ client.fetchWebhook('426727714020655106', 'V-Y24Cj9LnTHXlEbP4RstDEYrJgf3zjYcH6qB
 		  const embed = new Discord.RichEmbed()
 	  .setTitle('Команды бота.')
 	  .setColor("#42f4aa")
-	  .setDescription("Нихуя нету еще")
+	  .setDescription("x!eval эмуляция js кода \nx!report жалоба на пользователя")
 	  .setFooter("Префикс бота - x! ; Помощь - x!help")
 	  .setTimestamp();
 	  message.channel.send({embed});
