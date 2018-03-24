@@ -69,7 +69,6 @@ client.fetchWebhook('427002003005243393', 'SvggGN-ntZGC_2T-0eJSTCUIk2tcKrCwhZ6l-
         const sayMessage = args.join(" ");
         message.delete().catch(O_o => {});
         message.channel.send(sayMessage);
-    }
 	} else if(command === "beval") {
     try {
   let evaled = vm.runInContext(args.join(" "), codeContext);
