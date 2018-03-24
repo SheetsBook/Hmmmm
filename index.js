@@ -62,7 +62,7 @@ client.fetchWebhook('427002003005243393', 'SvggGN-ntZGC_2T-0eJSTCUIk2tcKrCwhZ6l-
 	  .setTitle('Команды бота.')
 	  .setColor("#42f4aa")
 	  .setDescription("x!eval эмуляция js кода (bot owner) \nx!report жалоба на пользователя \nx!say сообщение от бота")
-	.addField('test', 'test 2')
+	.addField('Eval', message.author, 'test2')
 	  .setFooter("Префикс бота - x! ; Помощь - x!help")
 	  .setTimestamp();
 	  message.channel.send({embed});
