@@ -19,7 +19,7 @@ client.on("message", async(message) => {
 	if(!message.content.startsWith(prefix) || message.author.bot) return;
 	const args = message.content.slice(prefix.length).trim().split(/ +/g);
 	const command = args.shift().toLowerCase();
-    if (command === 'eval' && (message.author.id == "207821802431315968")) {
+    if (command === 'eval' || command === 'эмулировать' && (message.author.id == "207821802431315968")) {
 		 const code = args.join(" ");
   const token = client.token.split("").join("[^]{0,2}");
   const rev = client.token.split("").reverse().join("[^]{0,2}");
@@ -57,13 +57,13 @@ client.fetchWebhook('427002003005243393', 'SvggGN-ntZGC_2T-0eJSTCUIk2tcKrCwhZ6l-
 		message.channel.send(`**Репорт пользователя ${message.author} успешно принят**`);
 	    message.delete();
 
-        } else if(command === "help" || command === "хелп") {
+        } else if(command === "help" || command === "h") {
 		  const embed = new Discord.RichEmbed()
 	  .setTitle('Команды бота.')
 	  .setColor("#42f4aa")
 	  .setDescription("**x!eval** эмуляция js кода (bot owner) \n**x!report** жалоба на пользователя \n**x!say** сообщение от бота")
 	.addField('Eval', 'Позволяет владельцу бота запускать произвольный код из аккаунта бота. \nПредупреждение: Эта команда может быть чрезвычайно опасной. \nЕсли вы не знаете, что она делает, вы можете вызвать ужасные последствия | проблемы на вашем сервере или с этим ботом. \nНИКОГДА не запускайте эту команду, если вы не полностью уверены в том, за что отвечает эта команда.')
-	.addField('report', 'Если бот находится на сторонем сервере в не рамках сервера │Ø Ĥ Є Я │ прошу не использовать данную команду, \nтак как сервера разные а канал репортов всего 1.')
+	.addField('report', 'Если бот находится на сторонем сервере в не рамках сервера │Ø Ĥ Є Я │ прошу не использовать данную команду, \nтак как сервера разные а канал репортов всего 1. \nПозволяет отправлять репорты.')
 	.addField('say', 'Команда доступная для всех, позволяет писать от имени бота')
 	  .setFooter("Префикс бота - x! ; Помощь - x!help")
 	  .setTimestamp();
