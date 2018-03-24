@@ -11,7 +11,7 @@ const emojis = {mila:'418748638081318912'}
 
 
 client.on("ready", () => {
-  console.log("Bot is online!");
+  console.log("Bot online!");
   client.user.setActivity(`x!help`);
 });
 
