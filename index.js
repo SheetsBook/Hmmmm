@@ -61,15 +61,15 @@ client.fetchWebhook('427002003005243393', 'SvggGN-ntZGC_2T-0eJSTCUIk2tcKrCwhZ6l-
 		  const embed = new Discord.RichEmbed()
 	  .setTitle('Команды бота.')
 	  .setColor("#42f4aa")
-	  .setDescription("x!eval эмуляция js кода \nx!report жалоба на пользователя")
+	  .setDescription("x!eval эмуляция js кода (bot owner) \nx!report жалоба на пользователя \nx!say сообщение от бота")
 	  .setFooter("Префикс бота - x! ; Помощь - x!help")
 	  .setTimestamp();
 	  message.channel.send({embed});
 	} else if(command === "say") {
         const sayMessage = args.join(" ");
-        message.delete().catch(O_o=>{});
-        const embed = embed_error(`${message.author}, а текст`);
-        let msg = message.channel.send(sayMessage).catch(()=>{message.reply({embed});});
+        message.delete().catch(O_o => {});
+        message.channel.send(sayMessage);
+    }
 	} else if(command === "beval") {
     try {
   let evaled = vm.runInContext(args.join(" "), codeContext);
