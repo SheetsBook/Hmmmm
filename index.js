@@ -15,8 +15,56 @@ client.on('message', message => {
   message.delete();
 }});
 
+client.on('message', message => {
+  if (message.content.startsWith("бот пир")) 
+  {message.channel.send('нет ты');
+  message.delete();
+}});
+
+client.on('message', message => {
+  if (message.content.startsWith("нет ты")) 
+  {message.channel.send('нет ты');
+  message.delete();
+}});
+
+client.on('message', message => {
+  if (message.content.startsWith("я пидор?")) 
+  {message.channel.send('Ага');
+  message.delete();
+}});
+
+client.on('message', message => {
+  if (message.content.startsWith("X-49 пидор")) 
+  {message.channel.send('Ты ахуел?');
+  message.delete();
+}});
+
+client.on('message', message => {
+  if (message.content.startsWith("привет")) 
+  {message.channel.send('Привет!');
+  message.delete();
+}});
+
+client.on('message', message => {
+  if (message.content.startsWith("пока")) 
+  {message.channel.send('пока.');
+  message.delete();
+}});
+
+client.on('message', message => {
+  if (message.content.startsWith("спокойной ночи")) 
+  {message.channel.send('Спокойной ночи!');
+  message.delete();
+}});
+
+client.on('message', message => {
+  if (message.content.startsWith("я кушать")) 
+  {message.channel.send('Приятного аппетита!');
+  message.delete();
+}});
+
 client.on("ready", () => {
-  console.log("Bot online!");
+  console.log("врум врум");
   client.user.setActivity(`x!help`);
 });
 
