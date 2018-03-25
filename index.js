@@ -9,6 +9,11 @@ const rule = {own: "421373056158662656"}
 const creators = ['207821802431315968']
 const emojis = {mila:'418748638081318912'}
 
+client.on('message', message => {
+  if (message.content.startsWith("бот пидор")) 
+  {message.channel.send('нет ты');
+  message.delete();
+}});
 
 client.on("ready", () => {
   console.log("Bot online!");
