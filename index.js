@@ -1,4 +1,4 @@
-const Discord = require("discord.js");з
+const Discord = require("discord.js");
 const { inspect } = require("util");
 const vm = require("vm");
 const codeContext =  {};
@@ -9,64 +9,47 @@ const rule = {own: "421373056158662656"}
 const creators = ['207821802431315968']
 const emojis = {mila:'418748638081318912'}
 
-client.on('message', message => {
-  if (message.content.startsWith("бот пидор")) 
-  {message.channel.send('нет ты');
-  message.delete();
-}});
-
-client.on('message', message => {
-  if (message.content.startsWith("бот пир")) 
-  {message.channel.send('нет ты');
-  message.delete();
-}});
-
-client.on('message', message => {
-  if (message.content.startsWith("нет ты")) 
-  {message.channel.send('нет ты');
-  message.delete();
-}});
-
-client.on('message', message => {
-  if (message.content.startsWith("я пидор?")) 
-  {message.channel.send('Ага');
-  message.delete();
-}});
-
-client.on('message', message => {
-  if (message.content.startsWith("X-49 пидор")) 
-  {message.channel.send('Ты ахуел?');
-  message.delete();
-}});
-
-client.on('message', message => {
-  if (message.content.startsWith("привет")) 
-  {message.channel.send('Привет!');
-  message.delete();
-}});
-
-client.on('message', message => {
-  if (message.content.startsWith("пока")) 
-  {message.channel.send('пока.');
-  message.delete();
-}});
-
-client.on('message', message => {
-  if (message.content.startsWith("спокойной ночи")) 
-  {message.channel.send('Спокойной ночи!');
-  message.delete();
-}});
-
-client.on('message', message => {
-  if (message.content.startsWith("я кушать")) 
-  {message.channel.send('Приятного аппетита!');
-  message.delete();
-}});
 
 client.on("ready", () => {
   console.log("врум врум");
   client.user.setActivity(`x!help`);
 });
+
+client.on('message', message => {
+  if (message.content.startsWith("splooter")) 
+  {message.channel.send('https://cdn.discordapp.com/attachments/398493223225393155/423189061415600138/ezgif.com-crop2.gif');
+  message.delete();
+}});
+
+client.on('message', message => {
+  if (message.content.startsWith("мадер где актив")) 
+  {message.channel.send('<@301020093247127552> ебло прозрачное, иди сюда поебемся нахуй, чтобы я тебя тут каждый день видел, понял?');
+  message.delete();
+}});
+
+client.on('message', message => {
+  if (message.content.startsWith("Кто пригласил бота?")) 
+  {message.channel.send('конечно же <@419100684198215692> а как ты думал блять?');
+  message.delete();
+}});
+
+client.on('message', message => {
+  if (message.content.startsWith("ВИТАЛЯ")) 
+  {message.channel.send('че ты хочешь от меня блять, я тут с мемасов ору, пиздец бля, вот чекай: https://cdn.discordapp.com/attachments/410871297040711680/423164560363487242/ezgif.com-gif-maker.gif');
+  message.delete();
+}});
+
+client.on('message', message => {
+  if (message.content.startsWith("вить")) 
+  {message.channel.send('А');
+  message.delete();
+}});
+
+client.on('message', message => {
+  if (message.content.startsWith("злой Витька")) 
+  {message.channel.send('https://media.discordapp.net/attachments/405088981458354176/427534246337314826/9k.png');
+  message.delete();
+}});
 
 client.on("message", async(message) => {
 	if(!message.content.startsWith(prefix) || message.author.bot) return;
