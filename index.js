@@ -20,51 +20,6 @@ client.on('message', message => {
   {message.channel.send('нет ты');
 }});
 
-client.on('message', message => {
-  if (message.content.startsWith("бот пидор")) 
-  {message.channel.send('нет ты');
-  message.delete();
-}});
-
-client.on('message', message => {
-  if (message.content.startsWith("нет ты")) 
-  {message.channel.send('нет ты");
-  message.delete();
-}});
-
-client.on('message', message => {
-  if (message.content.startsWith("пидор")) 
-  {message.channel.send('сам такой');
-  message.delete();
-}});
-
-client.on('message', message => {
-  if (message.content.startsWith("привет всем")) 
-  {message.channel.send('Привет!');
-  message.delete();
-}});
-
-client.on('message', message => {
-  if (message.content.startsWith("привет")) 
-  {message.channel.send('Привет!');
-  message.delete();
-}});
-
-client.on('message', message => {
-  if (message.content.startsWith("пока")) 
-  {message.channel.send('пока.');
-}});
-
-client.on('message', message => {
-  if (message.content.startsWith("я кушать")) 
-  {message.channel.send('приятного аппетита');
-}});
-
-client.on('message', message => {
-  if (message.content.startsWith("я спать")) 
-  {message.channel.send('Спокойной ночи!');
-}});
-
 client.on("message", async(message) => {
 	if(!message.content.startsWith(prefix) || message.author.bot) return;
 	const args = message.content.slice(prefix.length).trim().split(/ +/g);
