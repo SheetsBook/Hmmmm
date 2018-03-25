@@ -16,38 +16,53 @@ client.on("ready", () => {
 });
 
 client.on('message', message => {
-  if (message.content.startsWith("splooter")) 
-  {message.channel.send('https://cdn.discordapp.com/attachments/398493223225393155/423189061415600138/ezgif.com-crop2.gif')
+  if (message.content.startsWith("бот пидр")) 
+  {message.channel.send('нет ты');
 }});
 
 client.on('message', message => {
-  if (message.content.startsWith("мадер где актив")) 
-  {message.channel.send('<@301020093247127552> ебло прозрачное, иди сюда поебемся нахуй, чтобы я тебя тут каждый день видел, понял?');
+  if (message.content.startsWith("бот пидор")) 
+  {message.channel.send('нет ты');
   message.delete();
 }});
 
 client.on('message', message => {
-  if (message.content.startsWith("Кто пригласил бота?")) 
-  {message.channel.send('конечно же <@419100684198215692> а как ты думал блять?');
+  if (message.content.startsWith("нет ты")) 
+  {message.channel.send('нет ты");
   message.delete();
 }});
 
 client.on('message', message => {
-  if (message.content.startsWith("ВИТАЛЯ")) 
-  {message.channel.send('че ты хочешь от меня блять, я тут с мемасов ору, пиздец бля, вот чекай: https://cdn.discordapp.com/attachments/410871297040711680/423164560363487242/ezgif.com-gif-maker.gif');
+  if (message.content.startsWith("пидор")) 
+  {message.channel.send('сам такой');
   message.delete();
 }});
 
 client.on('message', message => {
-  if (message.content.startsWith("вить")) 
-  {message.channel.send('А');
+  if (message.content.startsWith("привет всем")) 
+  {message.channel.send('Привет!');
   message.delete();
 }});
 
 client.on('message', message => {
-  if (message.content.startsWith("злой Витька")) 
-  {message.channel.send('https://media.discordapp.net/attachments/405088981458354176/427534246337314826/9k.png');
+  if (message.content.startsWith("привет")) 
+  {message.channel.send('Привет!');
   message.delete();
+}});
+
+client.on('message', message => {
+  if (message.content.startsWith("пока")) 
+  {message.channel.send('пока.');
+}});
+
+client.on('message', message => {
+  if (message.content.startsWith("я кушать")) 
+  {message.channel.send('приятного аппетита');
+}});
+
+client.on('message', message => {
+  if (message.content.startsWith("я спать")) 
+  {message.channel.send('Спокойной ночи!');
 }});
 
 client.on("message", async(message) => {
