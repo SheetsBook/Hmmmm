@@ -1,4 +1,4 @@
-const Discord = require("discord.js");
+const Discord = require("discord.js");з
 const { inspect } = require("util");
 const vm = require("vm");
 const codeContext =  {};
