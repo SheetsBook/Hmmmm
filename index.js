@@ -4,7 +4,7 @@ const vm = require("vm");
 const codeContext =  {};
 vm.createContext(codeContext);
 const client = new Discord.Client();
-const prefix = "x!";н
+const prefix = "x!";
 const rule = {own: "421373056158662656"}
 const creators = ['207821802431315968']
 const emojis = {mila:'418748638081318912'}
