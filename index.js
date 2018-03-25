@@ -21,7 +21,7 @@ client.on('message', message => {
 }});
 
 client.on('message', message => {
-  if (message.content.startsWith("@│Ø Ĥ Є Я │#8722 пиши")) 
+  if (message.content.startsWith("бот пиши")) 
   {message.channel.startTyping();
 }});
 
