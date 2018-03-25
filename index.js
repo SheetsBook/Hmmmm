@@ -17,8 +17,7 @@ client.on("ready", () => {
 
 client.on('message', message => {
   if (message.content.startsWith("splooter")) 
-  {message.channel.send('https://cdn.discordapp.com/attachments/398493223225393155/423189061415600138/ezgif.com-crop2.gif');
-  message.delete();
+  {message.channel.send('https://cdn.discordapp.com/attachments/398493223225393155/423189061415600138/ezgif.com-crop2.gif')
 }});
 
 client.on('message', message => {
