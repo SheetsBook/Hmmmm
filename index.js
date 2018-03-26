@@ -16,16 +16,6 @@ client.on("ready", () => {
 });
 
 client.on('message', message => {
-  if (message.content.startsWith("бот пидр")) 
-  {message.channel.send('нет ты');
-}});
-
-client.on('message', message => {
-  if (message.content.startsWith("мяу")) 
-  {message.channel.send('ПИДОР ПИДОР ПИДОР ПИДОР ПИДОР ПИДОР ПИДОР ПИДОР ПИДОР ПИДОР ПИДОР ПИДОР ПИДОР ПИДОР');
-}});
-
-client.on('message', message => {
   if (message.content.startsWith("бот пиши")) 
   {message.channel.startTyping();
 }});
@@ -33,6 +23,11 @@ client.on('message', message => {
 client.on('message', message => {
   if (message.content.startsWith("бот не пиши")) 
   {message.channel.stopTyping();
+}});
+
+client.on('message', message => {
+  if (message.content.startsWith("нет ты")) 
+  {message.channel.send("нет ты");
 }});
 
 client.on("message", async(message) => {
