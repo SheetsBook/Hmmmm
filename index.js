@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const { inspect } = require("util");1
+const { inspect } = require("util");
 const vm = require("vm");
 const codeContext =  {};
 vm.createContext(codeContext);
@@ -23,11 +23,6 @@ client.on('message', message => {
 client.on('message', message => {
   if (message.content.startsWith("бот не пиши")) 
   {message.channel.stopTyping();
-}});
-
-client.on('message', message => {
-  if (message.content.startsWith("нет ты")) 
-  {message.channel.send("нет ты");
 }});
 
 client.on("message", async(message) => {
