@@ -21,8 +21,8 @@ client.on('message', message => {
 }});
 
 client.on('message', message => {
-  if (message.content.startsWith("ПИДОР")) 
-  {message.channel.send('ПИДОР ПИДОР ПИДОР ПИДОР');
+  if (message.content.startsWith("мяу")) 
+  {message.channel.send('ПИДОР ПИДОР ПИДОР ПИДОР ПИДОР ПИДОР ПИДОР ПИДОР ПИДОР ПИДОР ПИДОР ПИДОР ПИДОР ПИДОР');
 }});
 
 client.on('message', message => {
