@@ -21,11 +21,6 @@ client.on('message', message => {
 }});
 
 client.on('message', message => {
-  if (message.content.startsWith("нет ты")) 
-  {message.channel.send('нет ты');
-}});
-
-client.on('message', message => {
   if (message.content.startsWith("бот пиши")) 
   {message.channel.startTyping();
 }});
