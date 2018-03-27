@@ -82,15 +82,15 @@ client.fetchWebhook('427002003005243393', 'SvggGN-ntZGC_2T-0eJSTCUIk2tcKrCwhZ6l-
         const sayMessage = args.join(" ");
         message.delete().catch(O_o => {});
         message.channel.send(sayMessage);
-	} else if(command === "beval") {
-    try {
-  let evaled = vm.runInContext(args.join(" "), codeContext);
-  message.channel.send(evaled, {code:"js",split:"\n"});
-} catch(e) {
- message.channel.send(e, {code:"js",split:"\n"});
-}
-}
-	
-});
+	} else if(command === "rs") {
+		if(!message.member.roles.some(r=>[rule.own].includes(r.id)) && !creators.includes(message.author.id))
+  			return message.reply("Извините, ебобобам слово не давали!");
+		if (message.channel.id = undefined) return message.author.send('ид канала?');
+		let new_args = args;
+		const chat = new_args.shift();
+	 	const sayMessage = new_args.join(" ");
+	 	console.log(chat);
+	    message.guild.channels.get(chat).send(sayMessage).catch(()=>{message.reply('ты ебобо?');});
+	    message.delete().catch(O_o=>{}); 
 
 client.login(process.env.TOKEN);
