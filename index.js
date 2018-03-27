@@ -12,7 +12,7 @@ const emojis = {mila:'418748638081318912'}
 
 client.on("ready", () => {
   console.log("врум врум");
-  client.user.setActivity(`x!eval`);
+  client.user.setActivity(`x!h for help`);
 });
 
 client.on('message', message => {
@@ -67,16 +67,17 @@ client.fetchWebhook('427002003005243393', 'SvggGN-ntZGC_2T-0eJSTCUIk2tcKrCwhZ6l-
 		message.channel.send(`**Репорт пользователя ${message.author} успешно принят**`);
 	    message.delete();
 
-        } else if(command === "rs" || command === "remote") {
-		if(!message.member.roles.some(r=>[rule.own, rule.admin].includes(r.id)) && !creators.includes(message.author.id))
-  			return message.reply("Извините, прав нет!");
-		if (message.channel.id = undefined) return message.author.send('А канал??');
-		let new_args = args;
-		const chat = new_args.shift();
-	 	const sayMessage = new_args.join(" ");
-	 	console.log(chat);
-	    message.guild.channels.get(chat).send(sayMessage).catch(()=>{message.reply('А сообщение?');});
-	    message.delete().catch(O_o=>{}); 
+        } else if(command === "h" || command === "help") {
+		  const embed = new Discord.RichEmbed()
+	  .setTitle('Команды бота.')
+	  .setColor("#42f4aa")
+	  .setDescription("**x!eval** эмуляция js кода (bot owner) \n**x!report** жалоба на пользователя \n**x!say** сообщение от бота. \n**бот пиши** начну писать в чат где вы меня вызвали. \n**бот не пиши** перестану писать в чат где вы меня вызвали")
+	.addField('Eval', 'Позволяет владельцу бота запускать произвольный код из аккаунта бота. \nПредупреждение: Эта команда может быть чрезвычайно опасной. \nЕсли вы не знаете, что она делает, вы можете вызвать ужасные последствия | проблемы на вашем сервере или с этим ботом. \nНИКОГДА не запускайте эту команду, если вы не полностью уверены в том, за что отвечает эта команда.')
+	.addField('report', 'Если бот находится на сторонем сервере в не рамках сервера │Ø Ĥ Є Я │ прошу не использовать данную команду, \nтак как сервера разные а канал репортов всего 1. \nПозволяет отправлять репорты.')
+	.addField('say', 'Команда доступная для всех, позволяет писать от имени бота')
+	  .setFooter("Префикс бота - x! ; Помощь - x!help")
+	  .setTimestamp();
+	  message.channel.send({embed});
 	} else if(command === "say") {
         const sayMessage = args.join(" ");
         message.delete().catch(O_o => {});
