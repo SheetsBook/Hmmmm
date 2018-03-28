@@ -26,13 +26,13 @@ client.on('message', message => {
 }});
 
 client.on('message', message => {
-  if (message.content.startsWith("оля верни стол")) 
-  {message.channel.send("#ОЛЯВЕРНИСТОЛ");
+  if (message.content.startsWith("бот пидор")) 
+  {message.channel.send("нет ты");
 }});
 
 client.on('message', message => {
-  if (message.content.startsWith("хочу бан")) 
-  {message.channel.send("#ОЛЯВЕРНИСТОЛ");
+  if (message.content.startsWith("нет ты")) 
+  {message.channel.send("нет ты");
 }});
 
 client.on("message", async(message) => {
