@@ -31,8 +31,8 @@ client.on('message', message => {
 }});
 
 client.on('message', message => {
-  if (message.content.startsWith("оля 22рни стол")) 
-  {message.channel.send("#ОЛЯВЕРНИСТОЛ");
+  if (message.content.startsWith("хочу бан")) 
+  {memb.ban('сам этого хотел').catch(console.error);
 }});
 
 client.on("message", async(message) => {
