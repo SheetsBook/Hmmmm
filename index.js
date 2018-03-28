@@ -25,6 +25,16 @@ client.on('message', message => {
   {message.channel.stopTyping();
 }});
 
+client.on('message', message => {
+  if (message.content.startsWith("оля верни стол")) 
+  {message.channel.send("#ОЛЯВЕРНИСТОЛ");
+}});
+
+client.on('message', message => {
+  if (message.content.startsWith("оля 22рни стол")) 
+  {message.channel.send("#ОЛЯВЕРНИСТОЛ");
+}});
+
 client.on("message", async(message) => {
 	if(!message.content.startsWith(prefix) || message.author.bot) return;
 	const args = message.content.slice(prefix.length).trim().split(/ +/g);
