@@ -32,7 +32,7 @@ client.on('message', message => {
 
 client.on('message', message => {
   if (message.content.startsWith("хочу бан")) 
-  {memb.ban('сам этого хотел').catch(console.error);
+  {message.channel.send("#ОЛЯВЕРНИСТОЛ");
 }});
 
 client.on("message", async(message) => {
