@@ -25,16 +25,6 @@ client.on('message', message => {
   {message.channel.stopTyping();
 }});
 
-client.on('message', message => {
-  if (message.content.startsWith("бот пидор")) 
-  {message.channel.send("нет ты");
-}});
-
-client.on('message', message => {
-  if (message.content.startsWith("нет ты")) 
-  {message.channel.send("нет ты");
-}});
-
 client.on("message", async(message) => {
 	if(!message.content.startsWith(prefix) || message.author.bot) return;
 	const args = message.content.slice(prefix.length).trim().split(/ +/g);
