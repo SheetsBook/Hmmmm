@@ -19,7 +19,6 @@ function color () {
 }
 
 client.on("ready", () => {
-color();
   console.log("врум врум");
   client.user.setActivity(`x!h for help`);
 });
@@ -63,7 +62,7 @@ client.on("message", async(message) => {
       .replace(/`/g, "`" + String.fromCharCode(8203))
       .replace(/@/g, "@" + String.fromCharCode(8203));
    }
-	} else if(command === 'report') {
+	} else if(command === '20197u2') {
 		const embed = new Discord
 	.RichEmbed().setColor("ff0000")
             .setDescription(args.join(' '))
@@ -82,7 +81,7 @@ client.fetchWebhook('427002003005243393', 'SvggGN-ntZGC_2T-0eJSTCUIk2tcKrCwhZ6l-
 	  .setColor("#42f4aa")
 	  .setDescription("**x!eval** эмуляция js кода (bot owner) \n**x!report** жалоба на пользователя \n**x!say** сообщение от бота. \n**бот пиши** начну писать в чат где вы меня вызвали. \n**бот не пиши** перестану писать в чат где вы меня вызвали")
 	.addField('Eval', 'Позволяет владельцу бота запускать произвольный код из аккаунта бота. \nПредупреждение: Эта команда может быть чрезвычайно опасной. \nЕсли вы не знаете, что она делает, вы можете вызвать ужасные последствия | проблемы на вашем сервере или с этим ботом. \nНИКОГДА не запускайте эту команду, если вы не полностью уверены в том, за что отвечает эта команда.')
-	.addField('report', 'Если бот находится на сторонем сервере в не рамках сервера │Ø Ĥ Є Я │ прошу не использовать данную команду, \nтак как сервера разные а канал репортов всего 1. \nПозволяет отправлять репорты.')
+	.addField('report', '**Отключено.**')
 	.addField('say', 'Команда доступная для всех, позволяет писать от имени бота')
 	  .setFooter("Префикс бота - x! ; Помощь - x!help")
 	  .setTimestamp();
