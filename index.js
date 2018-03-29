@@ -19,7 +19,7 @@ function color () {
 }
 
 client.on("ready", () => {
-	color();
+color();
   console.log("врум врум");
   client.user.setActivity(`x!h for help`);
 });
