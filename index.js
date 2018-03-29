@@ -20,8 +20,9 @@ function color () {
 
 client.on("ready", () => {
 	color();
-	console.log("врум врум");		
-	client.user.setActivity(`x!h for help`);
+  console.log("врум врум");
+  client.user.setActivity(`x!h for help`);
+});
 
 client.on('message', message => {
   if (message.content.startsWith("бот пиши")) 
