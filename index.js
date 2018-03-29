@@ -9,7 +9,6 @@ const rule = {own: "421373056158662656", admin: "421244086557605888"}
 const creators = ['207821802431315968']
 const emojis = {mila:'418748638081318912'}
 const colors = ['e74c3c', 'e67e22', 'f1c40f', '2ecc71', '1abc9c', '3498db', '9b59b6'];
-let colors_e = false;
 
 function color () {
     if (colors_e)
