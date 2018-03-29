@@ -18,10 +18,8 @@ function color () {
     });
 }
 
-
-client.on("ready", () => {
-  console.log("врум врум");
-  client.user.setActivity(`x!h for help`);
+client.on('ready', () => {
+    color();
 });
 
 client.on('message', message => {
