@@ -10,9 +10,9 @@ const creators = ['207821802431315968'];
 const emojis = {mila:'418748638081318912'};
 const colors = ['e74c3c', 'e67e22', 'f1c40f', '2ecc71', '1abc9c', '3498db', '9b59b6'];
 
-function color () {
-        colors.forEach(function (item, number) {
-                setTimeout(function () {client.guilds.get('419529589623357450').roles.get('427214745083576320').setColor(item).catch();if(number === colors.length-1) setTimeout(function () {color()}, 2000)}, number*2000);
+async function color () {
+        await colors.forEach(async function (item, number) {
+                await setTimeout(async function () {client.guilds.get('419529589623357450').roles.get('427214745083576320').setColor(item).catch();if(number === colors.length-1) setTimeout(function () {color()}, 2000)}, number*2000);
         });
 }
 
