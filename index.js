@@ -8,7 +8,7 @@ const prefix = "x!";
 const rule = {own: "421373056158662656", admin: "421244086557605888"};
 const creators = ['207821802431315968'];
 const emojis = {mila:'418748638081318912'};
-const colors = ['e74c3c', 'e67e22', 'f1c40f', '2ecc71', '1abc9c', '3498db', '9b59b6'];
+const colors = ['e74c3c', 'e67e22', 'f1c40f', '2ecc71', '1abc9c', '3498db', '9b59b6', '0000ff', 'ff00ff'];
 
 async function color () {
         await colors.forEach(async function (item, number) {
@@ -17,7 +17,7 @@ async function color () {
 }
 
 client.on("ready", () => {
-    console.log("врум врум");
+    console.log("Запускай шарманку блять (с) стрын");
     client.user.setActivity(`x!h for help`).catch(console.error);
     color();
 });
