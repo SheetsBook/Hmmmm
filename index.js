@@ -32,11 +32,6 @@ client.on('message', async (message) => {
         message.channel.stopTyping();
     }
       
-
-    if (message.content.startsWith("нет ты")) {
-        message.channel.send("нет ты");
-    }
-
     if(!message.content.startsWith(prefix) || message.author.bot) return;
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
