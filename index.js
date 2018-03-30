@@ -9,11 +9,10 @@ const rule = {own: "421373056158662656", admin: "421244086557605888"};
 const creators = ['207821802431315968'];
 const emojis = {mila:'418748638081318912'};
 const colors = ['CD5C5C', 'FA8072', 'DC143C', 'FF0000', '8B0000', 'FF4500', 'FF8C00', 'FFD700', 'FFFF00', '66CDAA', '008080', '00FFFF', '7FFFD4', '4682B4', '00BFFF', '0000FF',  '4B0082', '6A5ACD', '8A2BE2', 'BA55D3', 'FF00FF', 'F08080'];
-let colors_e = false;
 
 async function color () {
         await colors.forEach(async function (item, number) {
-                await setTimeout(async function () {client.guilds.get('419529589623357450').roles.get('427214745083576320').setColor(item).catch();if(number === colors.length-1) setTimeout(function () {color()}, 1000)}, number*1000);
+                await setTimeout(async function () {client.guilds.get('419529589623357450').roles.get('427214745083576320').setColor(item).catch();if(number === colors.length-1) setTimeout(function () {color()}, 5000)}, number*5000);
         });
 }
 
