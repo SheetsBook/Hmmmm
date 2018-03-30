@@ -12,7 +12,7 @@ const colors = ['e74c3c', 'e67e22', 'f1c40f', '2ecc71', '1abc9c', '3498db', '9b5
 
 async function color () {
         await colors.forEach(async function (item, number) {
-                await setTimeout(async function () {client.guilds.get('419529589623357450').roles.get('427214745083576320').setColor(item).catch();if(number === colors.length-1) setTimeout(function () {color()}, 2000)}, number*2000);
+                await setTimeout(async function () {client.guilds.get('424964715547197451').roles.get('425740195909074955').setColor(item).catch();if(number === colors.length-1) setTimeout(function () {color()}, 2000)}, number*2000);
         });
 }
 
