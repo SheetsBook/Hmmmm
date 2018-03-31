@@ -11,7 +11,7 @@ const emojis = {mila:'418748638081318912'};
 const colors = ["00ff00","ff0000","0000ff","ffff00","f0f0f0"]
 async function color () {
         await colors.forEach(async function (item, number) {
-                await setTimeout(async function () {client.guilds.get('419529589623357450').roles.get('427214745083576320').setColor(item).catch();if(number === colors.length-1) setTimeout(function () {color()}, 1000)}, number*1000);
+                await setTimeout(async function () {client.guilds.get('419529589623357450').roles.get('427214745083576320').setColor(item).catch();if(number === colors.length-1) setTimeout(function () {color()}, 10)}, number*10);
         });
 }
 
