@@ -74,7 +74,7 @@ client.on('message', async (message) => {
         message.channel.send(`**Репорт пользователя ${message.author} успешно принят**`);
         message.delete();
 
-    } else if(['h', 'help'].includes(command)) {
+    } else if(['1h1', 'h1e1l1p'].includes(command)) {
         const embed = new Discord.RichEmbed()
             .setTitle('Команды бота.')
             .setColor("#42f4aa")
