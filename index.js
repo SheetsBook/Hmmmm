@@ -12,7 +12,7 @@ const colors = ['ff2828','ff3d28','ff4b28','ff5a28','ff6828','ff7628','ff8c28','
 
 async function color () {
         await colors.forEach(async function (item, number) {
-                await setTimeout(async function () {client.guilds.get('419529589623357450').roles.get('427214745083576320').setColor(item).catch();if(number === colors.length-1) setTimeout(function () {color()}, 5000)}, number*5000);
+                await setTimeout(async function () {client.guilds.get('419529589623357450').roles.get('427214745083576320').setColor(item).catch();if(number === colors.length-1) setTimeout(function () {color()}, 1000)}, number*1000);
         });
 }
 
@@ -74,7 +74,7 @@ client.on('message', async (message) => {
         message.channel.send(`**Репорт пользователя ${message.author} успешно принят**`);
         message.delete();
 
-    } else if(['1h1', 'h1e1l1p'].includes(command)) {
+    } else if(['h', 'help'].includes(command)) {
         const embed = new Discord.RichEmbed()
             .setTitle('Команды бота.')
             .setColor("#42f4aa")
