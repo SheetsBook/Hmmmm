@@ -97,12 +97,9 @@ client.on('message', async (message) => {
         message.channel.send(sayMessage);
     } else if(['invite'].includes(command)) {
         const embed = new Discord.RichEmbed()
-            .setTitle('Команды бота.')
-            .setColor("#42f4aa")
-            .setDescription("**x!eval** эмуляция js кода (bot owner) \n**x!report** жалоба на пользователя \n**x!say** сообщение от бота. \n**бот пиши** начну писать в чат где вы меня вызвали. \n**бот не пиши** перестану писать в чат где вы меня вызвали")
-            .addField('Eval', 'Позволяет владельцу бота запускать произвольный код из аккаунта бота. \nПредупреждение: Эта команда может быть чрезвычайно опасной. \nЕсли вы не знаете, что она делает, вы можете вызвать ужасные последствия | проблемы на вашем сервере или с этим ботом. \nНИКОГДА не запускайте эту команду, если вы не полностью уверены в том, за что отвечает эта команда.')
-            .addField('report', '**Отключено.**')
-            .addField('say', 'Команда доступная для всех, позволяет писать от имени бота')
+            .setTitle('Приглашение бота на ваш сервер.')
+            .setColor("#0000ff")
+            .setDescription("Ссылка на бота https://discordapp.com/oauth2/authorize?&client_id=426728342859808768&scope=bot&permissions=8 \nЕсли вы не желаете давать боту права `SERVER_MANAGE` то перейдите по данной ссылке - https://discordapp.com/oauth2/authorize?&client_id=426728342859808768&scope=bot&permissions=0")
             .setFooter("Создатель:X-49")
             .setTimestamp();
         message.channel.send({embed});
