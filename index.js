@@ -95,6 +95,9 @@ client.on('message', async (message) => {
         const sayMessage = args.join(" ");
         message.delete().catch(O_o => {});
         message.channel.send(sayMessage);
+    } else if(['invite'].includes(command)) {
+            message.channel.send("11");
+            }
     } else if(['beval'].includes(command)) {
         try {
             let evaled = vm.runInContext(args.join(" "), codeContext);
