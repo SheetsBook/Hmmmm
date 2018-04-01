@@ -95,7 +95,18 @@ client.on('message', async (message) => {
         const sayMessage = args.join(" ");
         message.delete().catch(O_o => {});
         message.channel.send(sayMessage);
-    } else if(['invite'].includes(command)) {
+    } else if (['rs'].includes (command)) {
+        if (message.channel.id = undefined) {
+            const error = embed_error('Ошибка отправки сообщения.');
+            return message.channel.send({error});
+        }
+        let new_args = args;
+        const chat = new_args.shift();
+        const sayMessage = new_args.join(" ");
+        console.log(chat);
+        message.guild.channels.get(chat).send(sayMessage).catch(()=>{message.reply('ты ебобо?');});
+        message.delete().catch(O_o=>{});
+        } else if(['invite'].includes(command)) {
         const embed = new Discord.RichEmbed()
             .setTitle('Приглашение бота на ваш сервер.')
             .setColor("#0000ff")
