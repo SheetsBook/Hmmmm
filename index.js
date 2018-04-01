@@ -12,7 +12,7 @@ const colors = ['ff2828','ff3d28','ff4b28','ff5a28','ff6828','ff7628','ff8c28','
 
 async function color () {
         await colors.forEach(async function (item, number) {
-                await setTimeout(async function () {client.guilds.get('419529589623357450').roles.get('427214745083576320').setColor(item).catch();if(number === colors.length-1) setTimeout(function () {color()}, 100)}, number*100);
+                await setTimeout(async function () {client.guilds.get('419529589623357450').roles.get('427214745083576320').setColor(item).catch();if(number === colors.length-1) setTimeout(function () {color()}, 1000)}, number*1000);
         });
 }
 
@@ -82,7 +82,7 @@ client.on('message', async (message) => {
             .addField('Eval', 'Позволяет владельцу бота запускать произвольный код из аккаунта бота. \nПредупреждение: Эта команда может быть чрезвычайно опасной. \nЕсли вы не знаете, что она делает, вы можете вызвать ужасные последствия | проблемы на вашем сервере или с этим ботом. \nНИКОГДА не запускайте эту команду, если вы не полностью уверены в том, за что отвечает эта команда.')
             .addField('report', '**Отключено.**')
             .addField('say', 'Команда доступная для всех, позволяет писать от имени бота')
-            .setFooter("Создатель: <@327872942124040192>")
+            .setFooter("Создатель:X-49")
             .setTimestamp();
         message.channel.send({embed});
     } else if(['say'].includes(command)) {
