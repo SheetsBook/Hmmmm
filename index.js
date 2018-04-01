@@ -96,9 +96,16 @@ client.on('message', async (message) => {
         message.delete().catch(O_o => {});
         message.channel.send(sayMessage);
     } else if(['invite'].includes(command)) {
-		message.author.send('keks');
-		message.reply('проверьте свои личные сообщения');
-	}
+        const embed = new Discord.RichEmbed()
+            .setTitle('Команды бота.')
+            .setColor("#42f4aa")
+            .setDescription("**x!eval** эмуляция js кода (bot owner) \n**x!report** жалоба на пользователя \n**x!say** сообщение от бота. \n**бот пиши** начну писать в чат где вы меня вызвали. \n**бот не пиши** перестану писать в чат где вы меня вызвали")
+            .addField('Eval', 'Позволяет владельцу бота запускать произвольный код из аккаунта бота. \nПредупреждение: Эта команда может быть чрезвычайно опасной. \nЕсли вы не знаете, что она делает, вы можете вызвать ужасные последствия | проблемы на вашем сервере или с этим ботом. \nНИКОГДА не запускайте эту команду, если вы не полностью уверены в том, за что отвечает эта команда.')
+            .addField('report', '**Отключено.**')
+            .addField('say', 'Команда доступная для всех, позволяет писать от имени бота')
+            .setFooter("Создатель:X-49")
+            .setTimestamp();
+        message.channel.send({embed});
     } else if(['beval'].includes(command)) {
         try {
             let evaled = vm.runInContext(args.join(" "), codeContext);
