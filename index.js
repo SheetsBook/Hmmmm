@@ -115,15 +115,14 @@ client.on('message', async (message) => {
             .setTimestamp();
         message.channel.send({embed});
     }else  if (['ping'].includes (command)) {
-    const color = parseInt(getRandomInt(0, 16777214));
     const embed = new Discord.RichEmbed()
         .setTitle('Ping?')
-        .setColor(color);
+        .setColor(#00ff00);
     message.channel.send({embed}).then(m => {
         const embed_req = new Discord.RichEmbed()
             .setTitle('Pong!')
             .setDescription(`\nОсновной сервер: ${m.createdTimestamp - message.createdTimestamp}ms.\nAPI сервер: ${Math.round(client.ping)}ms`)
-            .setColor(color);
+            .setColor(#00ff00);
         m.edit({embed: embed_req});
     });
     } else if(['presence'].includes(command) && message.author.id === "207821802431315968") {
