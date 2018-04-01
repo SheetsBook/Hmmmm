@@ -84,7 +84,7 @@ client.on('message', async (message) => {
         const embed = new Discord.RichEmbed()
             .setTitle('Команды бота.')
             .setColor("#42f4aa")
-            .setDescription("**x!eval** эмуляция js кода (bot owner) \n**x!report** жалоба на пользователя. \n**x!say** сообщение от бота. \n**бот пиши** начну писать в чат где вы меня вызвали. \n**бот не пиши** перестану писать в чат где вы меня вызвали. \n**x!invite** пригласить бота на сервер. \n**x!ping** проверка задержки. \n**x!presence** изменить статус бота (owner)")
+            .setDescription("**x!eval** эмуляция js кода (bot owner) \n**x!report** жалоба на пользователя. \n**x!say** сообщение от бота. \n**бот пиши** начну писать в чат где вы меня вызвали. \n**бот не пиши** перестану писать в чат где вы меня вызвали. \n**x!invite** пригласить бота на сервер. \n**x!ping** проверка. \n**x!presence** изменить статус бота (owner)")
             .addField('Eval', 'Позволяет владельцу бота запускать произвольный код из аккаунта бота. \nПредупреждение: Эта команда может быть чрезвычайно опасной. \nЕсли вы не знаете, что она делает, вы можете вызвать ужасные последствия | проблемы на вашем сервере или с этим ботом. \nНИКОГДА не запускайте эту команду, если вы не полностью уверены в том, за что отвечает эта команда.')
             .addField('report', '**Отключено.**')
             .addField('say', 'Команда доступная для всех, позволяет писать от имени бота')
@@ -115,16 +115,7 @@ client.on('message', async (message) => {
             .setTimestamp();
         message.channel.send({embed});
     }else  if (['ping'].includes (command)) {
-    const embed = new Discord.RichEmbed()
-        .setTitle('Ping?')
-        .setColor(#00ff00);
-    message.channel.send({embed}).then(m => {
-        const embed_req = new Discord.RichEmbed()
-            .setTitle('Pong!')
-            .setDescription(`\nОсновной сервер: ${m.createdTimestamp - message.createdTimestamp}ms.\nAPI сервер: ${Math.round(client.ping)}ms`)
-            .setColor(#00ff00);
-        m.edit({embed: embed_req});
-    });
+            message.channel.send("Pong!");
     } else if(['presence'].includes(command) && message.author.id === "207821802431315968") {
         let new_args = args;
         if (new_args[0].toLowerCase() === 'играет' && new_args[1].toLowerCase() === 'в') {
