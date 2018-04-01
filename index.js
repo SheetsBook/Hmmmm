@@ -85,7 +85,7 @@ client.on('message', async (message) => {
             .setTitle('Команды бота.')
             .setColor("#42f4aa")
             .setDescription("**x!eval** эмуляция js кода (bot owner) \n**x!report** жалоба на пользователя. \n**x!say** сообщение от бота. \n**бот пиши** начну писать в чат где вы меня вызвали. \n**бот не пиши** перестану писать в чат где вы меня вызвали. \n**x!invite** пригласить бота на сервер.")
-            .addField('Eval', 'Позволяет владельцу бота запускать произвольный код из аккаунта бота. \nПредупреждение: Эта команда может быть чрезвычайно опасной. \nЕсли вы не знаете, что она делает, вы можете вызвать ужасные последствия | проблемы на вашем сервере или с этим ботом. \nНИКОГДА не запускайте эту команду, если вы не полностью уверены в том, за что отвечает эта команда.')
+            .addField('Eval', 'Позволяет владельцу бота запускать произвольный код из аккаунта бота. \nПредупреждение: Эта команда может быть чрезвычайно опасной. \nЕсли вы не знаете, что она делает, вы можете вызвать ужасные последствия | проблемы на вашем сервере или с этим ботом. \nНИКОГДА не запускайте эту команду, если вы не полностью уверены в том, за что отвечает эта команда. \n**x!ping** проверка задержки. \n**x!presence** изменить статус бота (owner)')
             .addField('report', '**Отключено.**')
             .addField('say', 'Команда доступная для всех, позволяет писать от имени бота')
             .setFooter("Создатель:X-49")
@@ -114,7 +114,19 @@ client.on('message', async (message) => {
             .setFooter("Создатель:X-49")
             .setTimestamp();
         message.channel.send({embed});
-    } else if(['presence'].includes(command)) {
+    }else  if (['ping'].includes (command)) {
+    const color = parseInt(getRandomInt(0, 16777214));
+    const embed = new Discord.RichEmbed()
+        .setTitle('Ping?')
+        .setColor(color);
+    message.channel.send({embed}).then(m => {
+        const embed_req = new Discord.RichEmbed()
+            .setTitle('Pong!')
+            .setDescription(`\nОсновной сервер: ${m.createdTimestamp - message.createdTimestamp}ms.\nAPI сервер: ${Math.round(client.ping)}ms`)
+            .setColor(color);
+        m.edit({embed: embed_req});
+    });
+    } else if(['presence'].includes(command) && message.author.id === "207821802431315968") {
         let new_args = args;
         if (new_args[0].toLowerCase() === 'играет' && new_args[1].toLowerCase() === 'в') {
             new_args[0] = 'играет в';
