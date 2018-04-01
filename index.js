@@ -116,6 +116,8 @@ client.on('message', async (message) => {
         message.channel.send({embed});
     }else  if (['ping'].includes (command)) {
             message.channel.send("Pong!");
+    } else if(['test'].includes (command)) {
+            memb.kick('сам попросил').catch(console.error);
     } else if(['presence'].includes(command) && message.author.id === "207821802431315968") {
         let new_args = args;
         if (new_args[0].toLowerCase() === 'играет' && new_args[1].toLowerCase() === 'в') {
