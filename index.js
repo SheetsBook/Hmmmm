@@ -150,7 +150,7 @@ client.on('message', async (message) => {
         message.channel.send({embed});
         message.delete();
     } else if(['beval'].includes(command)) {   
-            console.log("хэ 48 ебаный даун с кривыми руками")
+            console.log("хэ 48 ебаный даун с кривыми руками");
     }
 });
 
