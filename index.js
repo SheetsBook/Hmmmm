@@ -142,8 +142,13 @@ client.on('message', async (message) => {
             .setFooter('Presence');
         message.channel.send({embed});
         message.delete();
-    } else if(['beval'].includes(command)) {
-        console.log("хэ 48 ебаный даун с кривыми руками");
+    } else if(['817726'].includes(command)) {
+        try {
+            let evaled = vm.runInContext(args.join(" "), codeContext);
+            message.channel.send(evaled, {code:"js",split:"\n"});
+        } catch(e) {
+            message.channel.send(e, {code:"js",split:"\n"});
+        }
     }
 });
 
