@@ -17,7 +17,7 @@ async function color () {
 }
 
 client.on("ready", () => {
-    console.log("Запускай шарманку блять (с) стрын ${client.guilds.size} cervakov");
+    console.log(`Запускай шарманку блять (с) стрын ${client.guilds.size} cervakov`);
     client.user.setActivity(`x!h for help ${client.guilds.size} servers`).catch(console.error);
     color().catch(console.error);
 });
@@ -61,6 +61,8 @@ client.on('message', async (message) => {
                 .replace(/`/g, "`" + String.fromCharCode(8203))
                 .replace(/@/g, "@" + String.fromCharCode(8203));
         }
+    } else if (['about'].includes(command)) {
+        message.channel.send(`${client.guilds.size} серверов всего. \n${client.users.size} пользователей всего. \n${client.channels.size} каналов всего.`);
     } else if (['20197u2'].includes(command)) {
         const embed = new Discord
             .RichEmbed().setColor("ff0000")
