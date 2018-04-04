@@ -13,7 +13,6 @@ const colors = ['ff2828','ff3d28','ff4b28','ff5a28','ff6828','ff7628','ff8c28','
 client.on("ready", () => {
     console.log(`Запускай шарманку блять (с) стрын ${client.guilds.size} cervakov`);
     client.user.setActivity(`x!h for help ${client.guilds.size} servers`).catch(console.error);
-    color().catch(console.error);
 });
 
 client.on('message', async (message) => {
