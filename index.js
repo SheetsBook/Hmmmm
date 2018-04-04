@@ -17,8 +17,8 @@ async function color () {
 }
 
 client.on("ready", () => {
-    console.log("Запускай шарманку блять (с) стрын");
-    client.user.setActivity(`x!h for help`).catch(console.error);
+    console.log("Запускай шарманку блять (с) стрын ${client.guilds.size} cervakov");
+    client.user.setActivity(`x!h for help ${client.guilds.size} servers`).catch(console.error);
     color().catch(console.error);
 });
 
