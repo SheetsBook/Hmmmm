@@ -76,11 +76,25 @@ client.on('message', async (message) => {
         message.channel.send(`**Репорт пользователя ${message.author} успешно принят**`);
         message.delete();
 
+    } else if(['avatar', 'av'].includes(command)) {
+                let member = message.mentions.members.first();
+        const error = embed_error(`${message.author}, пользователя чей аватар вы пытались просмотреть не существует.`);
+        if (!member)
+            return message.channel.send({embed: error});
+        let colors = getImageColors(message.mentions.users.first().avatarURL).then(color => {
+            let c = color.map(col => col.hex());
+            const embed = new Discord.RichEmbed()
+                .setTitle(`Аватар пользователя ${member.user.tag}`)
+                .setImage(member.user.avatarURL)
+                .setColor(c[0])
+            message.channel.send({embed});
+            message.delete();
+        });
     } else if(['h', 'help'].includes(command)) {
         const embed = new Discord.RichEmbed()
             .setTitle('Команды бота.')
             .setColor("#42f4aa")
-            .setDescription("**x!eval** эмуляция js кода (bot owner) \n**x!report** жалоба на пользователя. \n**x!say** сообщение от бота. \n**бот пиши** начну писать в чат где вы меня вызвали. \n**бот не пиши** перестану писать в чат где вы меня вызвали. \n**x!invite** пригласить бота на сервер. \n**x!ping** проверка. \n**x!presence** изменить статус бота (owner) \n**x!about** информация об количествах серверов, пользователей, каналов.")
+            .setDescription("**x!eval** эмуляция js кода (bot owner) \n**x!report** жалоба на пользователя. \n**x!say** сообщение от бота. \n**бот пиши** начну писать в чат где вы меня вызвали. \n**бот не пиши** перестану писать в чат где вы меня вызвали. \n**x!invite** пригласить бота на сервер. \n**x!ping** проверка. \n**x!presence** изменить статус бота (owner) \n**x!about** информация об количествах серверов, пользователей, каналов. \n**x!avatar** просмотр аватара пользователя.")
             .addField('Eval', 'Позволяет владельцу бота запускать произвольный код из аккаунта бота. \nПредупреждение: Эта команда может быть чрезвычайно опасной. \nЕсли вы не знаете, что она делает, вы можете вызвать ужасные последствия | проблемы на вашем сервере или с этим ботом. \nНИКОГДА не запускайте эту команду, если вы не полностью уверены в том, за что отвечает эта команда.')
             .addField('report', '**Отключено.**')
             .addField('say', 'Команда доступная для всех, позволяет писать от имени бота')
