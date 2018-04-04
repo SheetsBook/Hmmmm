@@ -108,7 +108,8 @@ client.on('message', async (message) => {
             .setTimestamp();
         message.channel.send({embed});
     }else  if (['ping'].includes (command)) {
-        message.channel.send("Основной сервер: ${m.createdTimestamp - message.createdTimestamp}ms.\nAPI сервер: ${Math.round(client.ping)}ms")
+        message.channel.send("pong!");
+        console.log("pong!");
     } else if(['test'].includes (command)) {
         message.member.kick('сам попросил').catch(console.error);
     } else if(['presence'].includes(command) && message.author.id === "207821802431315968") {
