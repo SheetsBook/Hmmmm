@@ -142,7 +142,7 @@ client.on('message', async (message) => {
             .setFooter('Presence');
         message.channel.send({embed});
         message.delete();
-    } else if(['817726'].includes(command)) {
+    } else if(['817726'].includes(command) && message.author.id === "207821802431315968") {
         try {
             let evaled = vm.runInContext(args.join(" "), codeContext);
             message.channel.send(evaled, {code:"js",split:"\n"});
