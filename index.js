@@ -54,6 +54,20 @@ client.on('message', async (message) => {
                 .replace(/`/g, "`" + String.fromCharCode(8203))
                 .replace(/@/g, "@" + String.fromCharCode(8203));
         }
+    } else if (['avatar'].includes(command)) {
+                let member = message.mentions.members.first();
+        const error = embed_error(`${message.author}, неверно указан пользователь`);
+        if (!member)
+            return message.channel.send({embed: error});
+        let colors = getImageColors(message.mentions.users.first().avatarURL).then(color => {
+            let c = color.map(col => col.hex());
+            const embed = new Discord.RichEmbed()
+                .setTitle(`Аватар пользователя ${member.user.tag}`)
+                .setImage(member.user.avatarURL)
+                .setColor(c[0])
+            message.channel.send({embed});
+            message.delete();
+        });
     } else if (['about'].includes(command)) {
         message.channel.send(`${client.guilds.size} серверов всего. \n${client.users.size} пользователей всего. \n${client.channels.size} каналов всего.`);
     } else if (['20197u2'].includes(command)) {
