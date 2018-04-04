@@ -75,21 +75,6 @@ client.on('message', async (message) => {
         }).catch(console.error);
         message.channel.send(`**Репорт пользователя ${message.author} успешно принят**`);
         message.delete();
-
-    } else if(['avatar', 'av'].includes(command)) {
-                let member = message.mentions.members.first();
-        const error = embed_error(`${message.author}, пользователя чей аватар вы пытались просмотреть не существует.`);
-        if (!member)
-            return message.channel.send({embed: error});
-        let colors = getImageColors(message.mentions.users.first().avatarURL).then(color => {
-            let c = color.map(col => col.hex());
-            const embed = new Discord.RichEmbed()
-                .setTitle(`Аватар пользователя ${member.user.tag}`)
-                .setImage(member.user.avatarURL)
-                .setColor(c[0])
-            message.channel.send({embed});
-            message.delete();
-        });
     } else if(['h', 'help'].includes(command)) {
         const embed = new Discord.RichEmbed()
             .setTitle('Команды бота.')
