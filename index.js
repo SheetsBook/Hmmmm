@@ -54,8 +54,20 @@ client.on('message', async (message) => {
                 .replace(/`/g, "`" + String.fromCharCode(8203))
                 .replace(/@/g, "@" + String.fromCharCode(8203));
         }
-    } else if (['slot'].includes(command)) {
-        
+    } else if (['vote'].includes(command) && message.author.id === "207821802431315968") {
+                message.delete().catch(O_o => {});
+        const say_vote_embed = args.join(" ");
+        const embed = new Discord.RichEmbed()
+            .setColor(16766720)
+            .setDescription(say_vote_embed)
+            .setFooter("голосование.")
+            .setTimestamp();
+        message.channel.send({
+            embed
+        }).then(function(message) {
+            message.react("✅")
+            message.react("❌")
+        }).catch(function() {});
     } else if (['about'].includes(command)) {
         message.channel.send(`${client.guilds.size} серверов всего. \n${client.users.size} пользователей всего. \n${client.channels.size} каналов всего.`);
     } else if (['20197u2'].includes(command)) {
