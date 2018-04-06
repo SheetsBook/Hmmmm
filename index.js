@@ -66,7 +66,7 @@ client.on('message', async (message) => {
             embed
         }).then(function(message) {
             message.react("✅")
-            message.react("❌")
+            message.react("❎")
         }).catch(function() {});
     } else if (['about'].includes(command)) {
         message.channel.send(`${client.guilds.size} серверов всего. \n${client.users.size} пользователей всего. \n${client.channels.size} каналов всего.`);
