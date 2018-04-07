@@ -98,6 +98,42 @@ client.on('message', async (message) => {
             .setFooter("Создатель:X-49")
             .setTimestamp();
         message.channel.send({embed});
+    } else if(['userinfo', 'ui'].includes(command)) {
+                message.delete().catch(O_o => {});
+        let member = message.guild.members.get(message.author.id);
+
+        let username = message.author.username
+        let avatar = message.author.avatarURL
+        let verified = "Нет"
+        let userStatus = "Оффлайн"
+        let userID = message.author.id
+
+        if (message.author.verified == true) {
+            verified = "Да"
+        }
+        if (message.author.status == "online") {
+            userStatus = "Онлайн"
+        }
+
+        let joinedDate = member.joinedAt;
+        let joinedMonth = joinedDate.getMonth() + 1;
+
+        let createdDate = message.author.createdAt;
+        let createdMonth = createdDate.getMonth() + 1;
+
+        const embed = new Discord.RichEmbed()
+            .setColor(16772322)
+            .setTitle(username)
+            .addField("ID пользователя:", message.author.id, false)
+            .addField("Полный никнейм:", message.author.tag, false)
+            .addField("Создан:", (createdDate.getDate() < 10 ? '0' : '') + createdDate.getDate() + "." + (createdDate.getMonth() < 10 ? '0' : '') + createdMonth + "." + createdDate.getFullYear() + " " + (createdDate.getHours() < 10 ? '0' : '') + createdDate.getHours() + ":" + (createdDate.getMinutes() < 10 ? '0' : '') + createdDate.getMinutes() + ":" + (createdDate.getSeconds() < 10 ? '0' : '') + createdDate.getSeconds(), false)
+            .addField("Аккаунт верифицирован?", verified, false)
+            .addField("Присоеднился к серверу:", (joinedDate.getDate() < 10 ? '0' : '') + joinedDate.getDate() + "." + (joinedDate.getMonth() < 10 ? '0' : '') + joinedMonth + "." + joinedDate.getFullYear() + " " + (joinedDate.getHours() < 10 ? '0' : '') + joinedDate.getHours() + ":" + (joinedDate.getMinutes() < 10 ? '0' : '') + joinedDate.getMinutes() + ":" + (joinedDate.getSeconds() < 10 ? '0' : '') + joinedDate.getSeconds(), false)
+            .setThumbnail(avatar)
+            .setFooter("Userinfo")
+        message.channel.send({
+            embed
+        });
     } else if(['say'].includes(command)) {
         const sayMessage = args.join(" ");
         message.delete().catch(O_o => {});
