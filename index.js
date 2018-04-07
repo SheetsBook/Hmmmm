@@ -86,6 +86,12 @@ client.on('message', async (message) => {
         }).catch(console.error);
         message.channel.send(`**Репорт пользователя ${message.author} успешно принят**`);
         message.delete();
+    } else if(['si', 'serverinfo'].includes(command)) {
+                const embed = new Discord.RichEmbed()
+                .setTitle('Информация об сервере.')
+                .setColor("ff0000")
+                .setThumbnail(`message.channel.guild.iconURL`)
+            message.channel.send({embed});
     } else if(['h', 'help'].includes(command)) {
         const embed = new Discord.RichEmbed()
             .setTitle('Команды бота.')
