@@ -93,7 +93,8 @@ client.on('message', async (message) => {
                 .setThumbnail('https://cdn.pixabay.com/photo/2016/06/15/15/02/info-1459077_960_720.png')
                 .addField('>ID<', message.channel.guild.id)
                 .addField('>Уровень верификации<', message.channel.guild.verificationLevel)
-                .addField('>Дата создания<', `${moment(message.channel.guild.createdAt).utc().format(config.timeFormat)} ${moment(message.channel.guild.createdAt).fromNow()}`)
+                .addField('>Количество пользователей<', message.channel.guild.memberCount)
+                .addField('>AFK канал<', message.channel.guild.afkChannelID !== null ? message.channel.guild.afkChannelID : 'Нету.')
             message.channel.send({embed});
     } else if(['h', 'help'].includes(command)) {
         const embed = new Discord.RichEmbed()
