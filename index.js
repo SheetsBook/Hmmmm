@@ -90,7 +90,7 @@ client.on('message', async (message) => {
                 const embed = new Discord.RichEmbed()
                 .setTitle('Информация об сервере.')
                 .setColor("ff0000")
-                .setThumbnail(`message.channel.guild.iconURL`)
+                .setThumbnail('https://cdn.pixabay.com/photo/2016/06/15/15/02/info-1459077_960_720.png')
             message.channel.send({embed});
     } else if(['h', 'help'].includes(command)) {
         const embed = new Discord.RichEmbed()
