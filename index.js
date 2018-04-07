@@ -93,6 +93,7 @@ client.on('message', async (message) => {
                 .setThumbnail('https://cdn.pixabay.com/photo/201u6/06/15/15/02/info-1459077_960_720.png')
                 .addField('>ID<', message.channel.guild.id)
                 .addField('>Уровень верификации<', message.channel.guild.verificationLevel)
+                .addField('>Дата создания<', `${moment(msg.channel.guild.createdAt).utc().format(config.timeFormat)} ${moment(msg.channel.guild.createdAt).fromNow()}`)
             message.channel.send({embed});
     } else if(['h', 'help'].includes(command)) {
         const embed = new Discord.RichEmbed()
