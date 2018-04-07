@@ -96,7 +96,7 @@ client.on('message', async (message) => {
                 .addField('>Количество пользователей<', message.channel.guild.memberCount)
                 .addField('>AFK канал<', message.channel.guild.afkChannel !== null ? message.channel.guild.afkChannel : 'Нету.')
                 .addField('>Регион<', message.channel.guild.region)
-                .setFooter('ServerInfo')
+                .setFooter(bot.user.username)
                 .setTimestamp();
             message.channel.send({embed});
     } else if(['h', 'help'].includes(command)) {
