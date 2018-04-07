@@ -88,9 +88,10 @@ client.on('message', async (message) => {
         message.delete();
     } else if(['si', 'serverinfo'].includes(command)) {
                 const embed = new Discord.RichEmbed()
+                .setAuthor(message.channel.guild.name)
                 .setTitle('Информация об сервере.')
                 .setColor("ff0000")
-                .setThumbnail(message.channel.guild.iconURL)
+                .setThumbnail('https://cdn.pixabay.com/photo/2016/06/15/15/02/info-1459077_960_720.png')
                 .addField('>ID<', message.channel.guild.id)
                 .addField('>Уровень верификации<', message.channel.guild.verificationLevel)
                 .addField('>Количество пользователей<', message.channel.guild.memberCount)
