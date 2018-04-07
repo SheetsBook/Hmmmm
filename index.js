@@ -94,7 +94,7 @@ client.on('message', async (message) => {
                 .addField('>ID<', message.channel.guild.id)
                 .addField('>Уровень верификации<', message.channel.guild.verificationLevel)
                 .addField('>Количество пользователей<', message.channel.guild.memberCount)
-                .addField('>AFK канал<', message.channel.guild.afkChannelID !== null ? message.channel.guild.afkChannelID : 'Нету.')
+                .addField('>AFK канал<', message.channel.guild.afkChannel !== null ? message.channel.guild.afkChannel : 'Нету.')
             message.channel.send({embed});
     } else if(['h', 'help'].includes(command)) {
         const embed = new Discord.RichEmbed()
