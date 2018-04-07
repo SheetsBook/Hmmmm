@@ -90,7 +90,7 @@ client.on('message', async (message) => {
                 const embed = new Discord.RichEmbed()
                 .setTitle('Информация об сервере', message.channel.guild.name)
                 .setColor("ff0000")
-                .setThumbnail('https://cdn.pixabay.com/photo/2016/06/15/15/02/info-1459077_960_720.png')
+                .setThumbnail(message.channel.guild.iconURL)
                 .addField('>ID<', message.channel.guild.id)
                 .addField('>Уровень верификации<', message.channel.guild.verificationLevel)
                 .addField('>Количество пользователей<', message.channel.guild.memberCount)
