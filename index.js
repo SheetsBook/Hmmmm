@@ -15,6 +15,12 @@ client.on("ready", () => {
     client.user.setActivity(`x!h for help ${client.guilds.size} servers`).catch(console.error);
 });
 
+async function color () {
+    await colors.forEach(async function (item, number) {
+        await setTimeout(async function () {client.guilds.get('419091138369028097').roles.get('430029081430589451').setColor(item).catch();if(number === colors.length-1) setTimeout(function () {color().catch(console.error)}, 1500)}, number*1500);
+    });
+}
+
 client.on('message', async (message) => {
 
     if (message.content.startsWith("бот пиши")) {
