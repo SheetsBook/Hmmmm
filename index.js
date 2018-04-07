@@ -96,7 +96,7 @@ client.on('message', async (message) => {
                 .addField('>Количество пользователей<', message.channel.guild.memberCount)
                 .addField('>AFK канал<', message.channel.guild.afkChannel !== null ? message.channel.guild.afkChannel : 'Нету.')
                 .addField('>Регион<', message.channel.guild.region)
-                .setFlooter('ServerInfo')
+                .setFooter('ServerInfo')
                 .setTimestamp();
             message.channel.send({embed});
     } else if(['h', 'help'].includes(command)) {
@@ -108,7 +108,7 @@ client.on('message', async (message) => {
             .addField('Eval', 'Позволяет владельцу бота запускать произвольный код из аккаунта бота. \nПредупреждение: Эта команда может быть чрезвычайно опасной. \nЕсли вы не знаете, что она делает, вы можете вызвать ужасные последствия | проблемы на вашем сервере или с этим ботом. \nНИКОГДА не запускайте эту команду, если вы не полностью уверены в том, за что отвечает эта команда.')
             .addField('report', '**Отключено.**')
             .addField('say', 'Команда доступная для всех, позволяет писать от имени бота')
-            .setFooter("Создатель:X-49")
+            .setFooter("Создатель: X-49")
             .setTimestamp();
         message.channel.send({embed});
     } else if(['userinfo', 'ui'].includes(command)) {
