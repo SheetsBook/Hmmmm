@@ -56,7 +56,7 @@ client.on('message', async (message) => {
         }
     } else if (['emoji'].includes(command)) {
                 const emoj = client.emojis.get(emojis.mila);
-        message.channel.send(`${emoj} ${message.author}`);
+        message.channel.send(`${emoj}`);
     } else if (['vote'].includes(command) && message.author.id === "207821802431315968") {
                 message.delete().catch(O_o => {});
         const say_vote_embed = args.join(" ");
