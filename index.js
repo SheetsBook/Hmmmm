@@ -106,7 +106,7 @@ client.on('message', async (message) => {
                 .addField('>AFK канал<', message.channel.guild.afkChannel !== null ? message.channel.guild.afkChannel : 'Нету.')
                 .addField('>Регион<', message.channel.guild.region)
                 .setFooter('ServerInfo')
-                .setTimestamp();
+                .setTimestamp(); message.react("✅");
             message.channel.send({embed});
     } else if(['h', 'help'].includes(command)) {
         const embed = new Discord.RichEmbed()
@@ -114,9 +114,6 @@ client.on('message', async (message) => {
             .setColor("#42f4aa")
             .setThumbnail('https://cdn.pixabay.com/photo/2016/06/15/15/02/info-1459077_960_720.png')
             .setDescription("**x!eval** эмуляция js кода (bot owner) \n**x!report** жалоба на пользователя. \n**x!say** сообщение от бота. \n**бот пиши** начну писать в чат где вы меня вызвали. \n**бот не пиши** перестану писать в чат где вы меня вызвали. \n**x!invite** пригласить бота на сервер. \n**x!ping** проверка. \n**x!presence** изменить статус бота (owner) \n**x!about** информация об количествах серверов, пользователей, каналов. \n**x!userinfo** информация об пользователе. \n**x!serverinfo** информация об сервере. \n**x!nya** тест команда эмодзи. \n**x!vote** создать голосование.")
-            .addField('Eval', 'Позволяет владельцу бота запускать произвольный код из аккаунта бота. \nПредупреждение: Эта команда может быть чрезвычайно опасной. \nЕсли вы не знаете, что она делает, вы можете вызвать ужасные последствия | проблемы на вашем сервере или с этим ботом. \nНИКОГДА не запускайте эту команду, если вы не полностью уверены в том, за что отвечает эта команда.')
-            .addField('report', '**Отключено.**')
-            .addField('say', 'Команда доступная для всех, позволяет писать от имени бота')
             .setFooter("Создатель: X-49")
             .setTimestamp();
         message.channel.send({embed});
@@ -153,7 +150,7 @@ client.on('message', async (message) => {
             .addField("Присоеднился к серверу:", (joinedDate.getDate() < 10 ? '0' : '') + joinedDate.getDate() + "." + (joinedDate.getMonth() < 10 ? '0' : '') + joinedMonth + "." + joinedDate.getFullYear() + " " + (joinedDate.getHours() < 10 ? '0' : '') + joinedDate.getHours() + ":" + (joinedDate.getMinutes() < 10 ? '0' : '') + joinedDate.getMinutes() + ":" + (joinedDate.getSeconds() < 10 ? '0' : '') + joinedDate.getSeconds(), false)
             .setThumbnail(avatar)
             .setFooter("Userinfo")
-            .setTimestamp();
+            .setTimestamp(); message.react("✅");
         message.channel.send({
             embed
         });
@@ -176,12 +173,12 @@ client.on('message', async (message) => {
             .setTitle('Приглашение бота на ваш сервер.')
             .setColor("#0000ff")
             .setDescription("Ссылка на бота https://discordapp.com/oauth2/authorize?&client_id=426728342859808768&scope=bot&permissions=8 \nЕсли вы не желаете давать боту права `SERVER_MANAGE` то перейдите по данной ссылке: \nhttps://discordapp.com/oauth2/authorize?&client_id=426728342859808768&scope=bot&permissions=0")
-            .setFooter("Создатель:X-49")
-            .setTimestamp();
+            .setFooter("Создатель: X-49")
+            .setTimestamp(); message.react("✅");
         message.channel.send({embed});
     }else  if (['ping'].includes (command)) {
         message.channel.send("pong!");
-        console.log("pong!");
+        console.log("pong!"); message.react("✅");
     } else if(['test'].includes (command)) {
         message.member.kick('сам попросил').catch(console.error);
     } else if(['presence'].includes(command) && message.author.id === "207821802431315968") {
