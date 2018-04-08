@@ -117,6 +117,7 @@ client.on('message', async (message) => {
                 .addField('>Количество ролей<', message.channel.guild.roles.size)
                 .addField('>Количество каналов<', message.channel.guild.channels.size)
                 .addField('>Сервер большой?<', large)
+                .addField('>Статусы<', message.channel.guild.presences)
                 .addField('>AFK канал<', message.channel.guild.afkChannel !== null ? message.channel.guild.afkChannel : 'Нету.')
                 .addField('>Регион<', message.channel.guild.region)
                 .setFooter('ServerInfo')
