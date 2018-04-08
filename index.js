@@ -167,7 +167,6 @@ client.on('message', async (message) => {
             .setTitle(username)
             .addField("ID пользователя:", message.author.id, false)
             .addField("Дискриминатор:", message.author.discriminator, false)
-            .addField("Нитро?:", nitro, false)
             .addField("Полный никнейм:", message.author.tag, false)
             .addField("Создан:", (createdDate.getDate() < 10 ? '0' : '') + createdDate.getDate() + "." + (createdDate.getMonth() < 10 ? '0' : '') + createdMonth + "." + createdDate.getFullYear() + " " + (createdDate.getHours() < 10 ? '0' : '') + createdDate.getHours() + ":" + (createdDate.getMinutes() < 10 ? '0' : '') + createdDate.getMinutes() + ":" + (createdDate.getSeconds() < 10 ? '0' : '') + createdDate.getSeconds(), false)
             .addField("Аккаунт верифицирован?", verified, false)
