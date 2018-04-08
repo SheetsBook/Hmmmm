@@ -101,6 +101,12 @@ client.on('message', async (message) => {
         message.channel.send(`**Репорт пользователя ${message.author} успешно принят**`);
         message.delete();
     } else if(['si', 'serverinfo'].includes(command)) {
+        if (message.channel.guild.large == true) {
+            large = "Да"
+        }
+        if (message.channel.guild.large == false) {
+            large = "Нет"
+        }
                 const embed = new Discord.RichEmbed()
                 .setTitle('Информация об сервере', message.channel.guild.name)
                 .setColor("ff0000")
@@ -110,6 +116,7 @@ client.on('message', async (message) => {
                 .addField('>Количество пользователей<', message.channel.guild.memberCount)
                 .addField('>Количество ролей<', message.channel.guild.roles.size)
                 .addField('>Количество каналов<', message.channel.guild.channels.size)
+                .addField('>Сервер большой?<', large)
                 .addField('>AFK канал<', message.channel.guild.afkChannel !== null ? message.channel.guild.afkChannel : 'Нету.')
                 .addField('>Регион<', message.channel.guild.region)
                 .setFooter('ServerInfo')
