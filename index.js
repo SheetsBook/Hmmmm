@@ -101,6 +101,8 @@ client.on('message', async (message) => {
                 .addField('>ID<', message.channel.guild.id)
                 .addField('>Уровень верификации<', message.channel.guild.verificationLevel)
                 .addField('>Количество пользователей<', message.channel.guild.memberCount)
+                .addField('>Количество ролей<', message.channel.guild.roles.size)
+                .addField('>Количество каналов<', message.channel.guild.channels.size)
                 .addField('>AFK канал<', message.channel.guild.afkChannel !== null ? message.channel.guild.afkChannel : 'Нету.')
                 .addField('>Регион<', message.channel.guild.region)
                 .setFooter('ServerInfo')
