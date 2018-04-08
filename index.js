@@ -107,6 +107,9 @@ client.on('message', async (message) => {
         if (message.channel.guild.large == false) {
             large = "Нет"
         }
+        if (message.channel.guild.region == "russia") {
+            message.channel.guild.region = "Россия"
+        }
         
                 const embed = new Discord.RichEmbed()
                 .setTitle('Информация об сервере', message.channel.guild.name)
@@ -149,9 +152,7 @@ client.on('message', async (message) => {
         if (message.author.status == "online") {
             userStatus = "Онлайн"
         }
-        if (message.channel.guild.region == "russia") {
-            message.channel.guild.region = "Россия"
-        }
+        
         
         let joinedDate = member.joinedAt;
         let joinedMonth = joinedDate.getMonth() + 1;
