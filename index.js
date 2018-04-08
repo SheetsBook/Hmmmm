@@ -65,7 +65,7 @@ client.on('message', async (message) => {
         }
     } else if (['nya'].includes(command)) {
                 const emoj = client.emojis.get(emojis.nya); message.channel.send(`${emoj}`); message.delete();
-    } else if (['vote'].includes(command)) {
+    } else if (['poll'].includes(command)) {
                 message.delete().catch(O_o => {});
         const say_vote_embed = args.join(" ");
         const embed = new Discord.RichEmbed()
@@ -88,17 +88,17 @@ client.on('message', async (message) => {
         message.delete().catch(O_o => {});
     } else if (['about'].includes(command)) {
         message.channel.send(`${client.guilds.size} серверов всего. \n${client.users.size} пользователей всего. \n${client.channels.size} каналов всего.`);
-    } else if (['20197u2'].includes(command)) {
+    } else if (['vote'].includes(command) && message.channel.guild.id === "422775194281705493") {
         const embed = new Discord
-            .RichEmbed().setColor("ff0000")
+            .RichEmbed().setColor("0000ff")
             .setDescription(args.join(' '))
-            .addField('Жалоба пользователя', message.author);
+            .addField('Автор', message.author);
         let nick = message.author.username;
         if (message.member.nickname != null) nick = message.member.nickname;
-        client.fetchWebhook('427002003005243393', 'SvggGN-ntZGC_2T-0eJSTCUIk2tcKrCwhZ6l-xq44e8wfdM6uctYfYw4Nc9cxNy7Alcf').then(webhook => {
+        client.fetchWebhook('432592245850374154', 'uC5qHLjDtA-AVW5PU4nCKtq4JMohqm855pdiQzo8i3b0c4Saraxv_Iz-I4I7A4fDr6In').then(webhook => {
             webhook.send('', {username: nick, avatarURL: message.author.avatarURL, embeds: [embed]}).catch(console.error);
         }).catch(console.error);
-        message.channel.send(`**Репорт пользователя ${message.author} успешно принят**`);
+        message.channel.send(`**Голосование пользователя ${message.author} успешно начато**`);
         message.delete();
     } else if(['si', 'serverinfo'].includes(command)) {
         if (message.channel.guild.large == true) {
@@ -132,7 +132,7 @@ client.on('message', async (message) => {
             .setTitle('Команды бота.')
             .setColor("#42f4aa")
             .setThumbnail('https://cdn.pixabay.com/photo/2016/06/15/15/02/info-1459077_960_720.png')
-            .setDescription("**x!eval** эмуляция js кода (bot owner) \n**x!report** жалоба на пользователя. \n**x!say** сообщение от бота. \n**x!embedsay** embed сообщение от бота. \n**x!invite** пригласить бота на сервер. \n**x!ping** проверка. \n**x!presence** изменить статус бота (owner) \n**x!about** информация об количествах серверов, пользователей, каналов. \n**x!userinfo** информация об пользователе. \n**x!serverinfo** информация об сервере. \n**x!nya** тест команда эмодзи. \n**x!vote** создать голосование. \n**бот пиши** начну писать в чат где вы меня вызвали. \n**бот не пиши** перестану писать в чат где вы меня вызвали.")
+            .setDescription("**x!eval** эмуляция js кода (bot owner) \n**x!report** жалоба на пользователя. \n**x!say** сообщение от бота. \n**x!embedsay** embed сообщение от бота. \n**x!invite** пригласить бота на сервер. \n**x!ping** проверка. \n**x!presence** изменить статус бота (owner) \n**x!about** информация об количествах серверов, пользователей, каналов. \n**x!userinfo** информация об пользователе. \n**x!serverinfo** информация об сервере. \n**x!nya** тест команда эмодзи. \n**x!poll** создать голосование. \n**x!vote** начать голосование (Galactic empire only) \n**бот пиши** начну писать в чат где вы меня вызвали. \n**бот не пиши** перестану писать в чат где вы меня вызвали.")
             .setFooter("Создатель: X-49")
             .setTimestamp();
         message.channel.send({embed});
