@@ -21,15 +21,6 @@ async function color () {
         await setTimeout(async function () {client.guilds.get('419091138369028097').roles.get('430029081430589451').setColor(item).catch();if(number === colors.length-1) setTimeout(function () {color().catch(console.error)}, 1500)}, number*1500);
     });
 }
-    async function multipleReact(message, arr) {
-    if (arr !== []) {
-        await message.react(arr.shift()).catch(console.error).then(function () {multipleReact(message,arr).catch(console.error);});
-    }
-}
-    if (message.channel.id === '423400183641145354') {
-        console.log('caught '+message.id);
-        return multipleReact(message, [emojis.za, emojis.neznayu, emojis.protiv]).catch();
-    }
 
 client.on('message', async (message) => {
 
