@@ -79,6 +79,13 @@ client.on('message', async (message) => {
             message.react("✅")
             message.react("❎")
         }).catch(function() {});
+    } else if (['embedsay'].includes(command)) {
+        const embedsayMessage = args.join(" ");
+        const embed = new Discord.RichEmbed()
+        .setColor("#00ff00")
+        .setDescription(embedsayMessage)
+        message.channel.send({embed});
+        message.delete().catch(O_o => {});
     } else if (['about'].includes(command)) {
         message.channel.send(`${client.guilds.size} серверов всего. \n${client.users.size} пользователей всего. \n${client.channels.size} каналов всего.`);
     } else if (['20197u2'].includes(command)) {
