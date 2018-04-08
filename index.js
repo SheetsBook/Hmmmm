@@ -146,14 +146,8 @@ client.on('message', async (message) => {
         if (message.author.verified == true) {
             verified = "Да"
         }
-        if (message.author.status == "online") {
-            userStatus = "Онлайн"
-        }
-        if (message.author.premium == true) {
-            nitro = "Да"
-        }
-        if (message.author.premium == false) {
-            nitro = "Нет"
+        if (message.channel.guild.region == "russia") {
+            message.channel.guild.region = "Россия"
         }
         
         let joinedDate = member.joinedAt;
