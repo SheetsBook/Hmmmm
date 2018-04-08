@@ -148,9 +148,11 @@ client.on('message', async (message) => {
         let createdMonth = createdDate.getMonth() + 1;
 
         const embed = new Discord.RichEmbed()
-            .setColor(16772322)
+            .setColor("ff0000")
             .setTitle(username)
             .addField("ID пользователя:", message.author.id, false)
+            .addField("Дискриминатор:", message.author.discriminator, false)
+            .addField("Статус:", message.author.presence, false)
             .addField("Полный никнейм:", message.author.tag, false)
             .addField("Создан:", (createdDate.getDate() < 10 ? '0' : '') + createdDate.getDate() + "." + (createdDate.getMonth() < 10 ? '0' : '') + createdMonth + "." + createdDate.getFullYear() + " " + (createdDate.getHours() < 10 ? '0' : '') + createdDate.getHours() + ":" + (createdDate.getMinutes() < 10 ? '0' : '') + createdDate.getMinutes() + ":" + (createdDate.getSeconds() < 10 ? '0' : '') + createdDate.getSeconds(), false)
             .addField("Аккаунт верифицирован?", verified, false)
