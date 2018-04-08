@@ -107,6 +107,7 @@ client.on('message', async (message) => {
         if (message.channel.guild.large == false) {
             large = "Нет"
         }
+        
                 const embed = new Discord.RichEmbed()
                 .setTitle('Информация об сервере', message.channel.guild.name)
                 .setColor("ff0000")
@@ -148,7 +149,13 @@ client.on('message', async (message) => {
         if (message.author.status == "online") {
             userStatus = "Онлайн"
         }
-
+        if (message.author.premium == true) {
+            nitro = "Да"
+        }
+        if (message.author.premium == false) {
+            nitro = "Нет"
+        }
+        
         let joinedDate = member.joinedAt;
         let joinedMonth = joinedDate.getMonth() + 1;
 
@@ -160,7 +167,7 @@ client.on('message', async (message) => {
             .setTitle(username)
             .addField("ID пользователя:", message.author.id, false)
             .addField("Дискриминатор:", message.author.discriminator, false)
-            .addField("Статус:", message.author.presence, false)
+            .addField("Нитро?:", nitro, false)
             .addField("Полный никнейм:", message.author.tag, false)
             .addField("Создан:", (createdDate.getDate() < 10 ? '0' : '') + createdDate.getDate() + "." + (createdDate.getMonth() < 10 ? '0' : '') + createdMonth + "." + createdDate.getFullYear() + " " + (createdDate.getHours() < 10 ? '0' : '') + createdDate.getHours() + ":" + (createdDate.getMinutes() < 10 ? '0' : '') + createdDate.getMinutes() + ":" + (createdDate.getSeconds() < 10 ? '0' : '') + createdDate.getSeconds(), false)
             .addField("Аккаунт верифицирован?", verified, false)
