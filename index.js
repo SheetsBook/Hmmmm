@@ -146,6 +146,9 @@ client.on('message', async (message) => {
         if (message.author.verified == true) {
             verified = "Да"
         }
+        if (message.author.status == "online") {
+            userStatus = "Онлайн"
+        }
         if (message.channel.guild.region == "russia") {
             message.channel.guild.region = "Россия"
         }
