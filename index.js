@@ -159,12 +159,7 @@ client.on('message', async (message) => {
 
         let createdDate = message.author.createdAt;
         let createdMonth = createdDate.getMonth() + 1;
-const emoj = client.emojis.get(emojis.loading); message.channel.send(`${emoj}`).then((msg) => 
-setTimeout(function () {
-msg.delete();
-message.channel.send('ty pisos');
-}, 5000);
-})
+
         const embed = new Discord.RichEmbed()
             .setColor("ff0000")
             .setTitle(username)
