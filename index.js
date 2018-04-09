@@ -109,9 +109,7 @@ client.on('message', async (message) => {
         }
         if (message.channel.guild.region == "russia") {
             message.channel.guild.region = "Россия"
-        } 
-        const emoj = client.emojis.get(emojis.loading..); message.channel.send(`${emoj}`);
-        
+        }         
                 const embed = new Discord.RichEmbed()
                 .setTitle('Информация об сервере', message.channel.guild.name)
                 .setColor("ff0000")
@@ -129,7 +127,6 @@ client.on('message', async (message) => {
                 .setTimestamp(); message.react("✅");
             message.channel.send({embed});
     } else if(['h', 'help'].includes(command)) {
-        const emoj = client.emojis.get(emojis.loading..); message.channel.send(`${emoj}`);
         const embed = new Discord.RichEmbed()
             .setTitle('Команды бота.')
             .setColor("#42f4aa")
@@ -139,7 +136,6 @@ client.on('message', async (message) => {
             .setTimestamp();
         message.channel.send({embed});
     } else if(['userinfo', 'ui'].includes(command)) {
-        const emoj = client.emojis.get(emojis.loading..); message.channel.send(`${emoj}`);
                 message.delete().catch(O_o => {});
         let member = message.guild.members.get(message.author.id);
 
@@ -193,7 +189,6 @@ client.on('message', async (message) => {
         message.guild.channels.get(chat).send(sayMessage).catch(()=>{message.reply('ты ебобо?');});
         message.delete().catch(O_o=>{});
     } else if(['invite'].includes(command)) {
-        const emoj = client.emojis.get(emojis.loading..); message.channel.send(`${emoj}`);
         const embed = new Discord.RichEmbed()
             .setTitle('Приглашение бота на ваш сервер.')
             .setColor("#0000ff")
