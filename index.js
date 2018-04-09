@@ -110,6 +110,7 @@ client.on('message', async (message) => {
         if (message.channel.guild.region == "russia") {
             message.channel.guild.region = "Россия"
         }         
+
                 const embed = new Discord.RichEmbed()
                 .setTitle('Информация об сервере', message.channel.guild.name)
                 .setColor("ff0000")
@@ -200,7 +201,12 @@ client.on('message', async (message) => {
         message.channel.send("pong!");
         console.log("pong!"); message.react("✅");
     } else if(['test'].includes (command)) {
-        message.member.kick('сам попросил').catch(console.error);
+        message.channel.send('lol').then((msg) => {
+setTimeout(function () {
+msg.delete();
+message.channel.send('ty pisos');
+}, 5000);
+})
     } else if(['presence'].includes(command) && message.author.id === "207821802431315968") {
         let new_args = args;
         if (new_args[0].toLowerCase() === 'играет' && new_args[1].toLowerCase() === 'в') {
