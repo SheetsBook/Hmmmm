@@ -68,7 +68,7 @@ client.on('message', async (message) => {
                 .replace(/@/g, "@" + String.fromCharCode(8203));
         }
     } else if (['nya'].includes(command)) {
-                const emoj = client.emojis.get(emojis.nya); message.channel.send(`${emoj} загрузка`); message.delete();
+                const emoj = client.emojis.get(emojis.nya); message.channel.send(`${emoj}`); message.delete();
     } else if (['poll'].includes(command)) {
                 message.delete().catch(O_o => {});
         const say_vote_embed = args.join(" ");
@@ -205,11 +205,11 @@ client.on('message', async (message) => {
         message.channel.send("pong!");
         console.log("pong!"); message.react("✅");
     } else if(['test'].includes (command)) {
-        message.channel.send('lol').then((msg) => {
+        message.channel.send('PEDO').then((msg) => {
 setTimeout(function () {
 msg.delete();
-message.channel.send('ty pisos');
-}, 5000);
+message.channel.send('RAS');
+}, 2000);
 })
     } else if(['presence'].includes(command) && message.author.id === "207821802431315968") {
         let new_args = args;
