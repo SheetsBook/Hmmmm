@@ -67,7 +67,36 @@ client.on('message', async (message) => {
                 .replace(/`/g, "`" + String.fromCharCode(8203))
                 .replace(/@/g, "@" + String.fromCharCode(8203));
         }
-    } else if (['nya'].includes(command)) {
+    } else if (['ban'].includes (command)) {
+            const user = message.mentions.users.first();
+    // If we have a user mentioned
+    if (user) {
+      const member = message.guild.member(user);
+      if (member) {
+        member.ban({
+          reason: 'Заслужил педор.',
+        }).then(() => {
+          // We let the message author know we were able to ban the person
+          message.reply(`Successfully banned ${user.tag}`);
+        }).catch(err => {
+          // An error happened
+          // This is generally due to the bot not being able to ban the member,
+          // either due to missing permissions or role hierarchy
+          message.reply('Нет прав забанить его.');
+          // Log the error
+          console.error(err);
+        });
+      } else {
+        // The mentioned user isn't in this guild
+        message.reply('Пользователя нет на сервере!');
+      }
+    } else {
+    // Otherwise, if no user was mentioned
+      message.reply('ыы');
+    }
+  }
+});
+     if (['nya'].includes(command)) {
                 const emoj = client.emojis.get(emojis.nya); message.channel.send(`${emoj}`); message.delete();
     } else if (['poll'].includes(command)) {
                 message.delete().catch(O_o => {});
