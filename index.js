@@ -95,8 +95,7 @@ client.on('message', async (message) => {
       message.reply('ыы');
     }
   }
-});
-     if (['nya'].includes(command)) {
+} else if (['nya'].includes(command)) {
                 const emoj = client.emojis.get(emojis.nya); message.channel.send(`${emoj}`); message.delete();
     } else if (['poll'].includes(command)) {
                 message.delete().catch(O_o => {});
