@@ -21,15 +21,6 @@ async function color () {
         await setTimeout(async function () {client.guilds.get('419529589623357450').roles.get('427214745083576320').setColor(item).catch();if(number === colors.length-1) setTimeout(function () {color().catch(console.error)}, 1500)}, number*1500);
     });
 }
-
-client.on("messageReactionAdd", (reaction, user) => {
-    let memb = reaction.message.guild.members.get(user.id);
-    if (user.bot) return;
-    if (reaction.message.id === '434316822406365185') {
-        memb.addRole('434312833879113754').catch(console.error);
-    }
-    reaction.remove(user);
-});
     
 
     if (message.content.startsWith("бот пиши")) {
@@ -55,7 +46,7 @@ client.on("messageReactionAdd", (reaction, user) => {
         const filter = new RegExp(`${token}|${rev}`, "g");
         try {
             let output = eval(code);
-            if (output instanceof Promise || (Boolean(output) && typeof output.then === "function" && typeof output.catch === "function")) output = async await output;
+            if (output instanceof Promise || (Boolean(output) && typeof output.then === "function" && typeof output.catch === "function")) output = await output;
             output = inspect(output, { depth: 0, maxArrayLength: null });
             output = output.replace(filter, "[TOKEN]");
             output = clean(output);
