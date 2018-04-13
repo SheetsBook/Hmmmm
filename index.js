@@ -67,6 +67,17 @@ client.on('message', async (message) => {
                 .replace(/`/g, "`" + String.fromCharCode(8203))
                 .replace(/@/g, "@" + String.fromCharCode(8203));
         }
+    } else if (['kick'].includes(command)) {
+                let kickQuest = false;
+        let toKick = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+
+        toKick.send(`Вас кикнули с сервера ${message.channel.guild.name} по причине: **` + args[2] + "**");
+
+        async function kickUser() {
+            await setTimeout(toKick.kick(), 1000000);
+        }
+
+        kickUser();
     } else if (['nya'].includes(command)) {
                 const emoj = client.emojis.get(emojis.nya); message.channel.send(`${emoj}`); message.delete();
     } else if (['poll'].includes(command)) {
