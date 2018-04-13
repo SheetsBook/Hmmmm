@@ -72,7 +72,7 @@ client.on('message', async (message) => {
         let toKick = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
 
         toKick.send(`Вас кикнули с сервера ${message.channel.guild.name} по причине: **` + args[2] + "**");
-
+        message.channel.send(`Пользователь кикнут с причиной: **` + args[2] + "**");
         async function kickUser() {
             await setTimeout(toKick.kick(), 1000000);
         }
