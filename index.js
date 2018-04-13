@@ -196,7 +196,16 @@ client.on('message', async (message) => {
         const sayMessage = args.join(" ");
         message.delete().catch(O_o => {});
         message.channel.send(sayMessage);
-    } else if (['rs'].includes (command)) {
+    } else if (['us'].includes(command) && message.author.id === "207821802431315968") {
+                if (message.guild.members.get === undefined) {
+            return message.channel.send('Ошибка отправки сообщения');
+        }
+        let new_args = args;
+        const userse = new_args.shift();
+        const UsersayMessage = new_args.join(" ");
+        console.log(userse);
+               message.guild.members.get(userse).send(UsersayMessage);message.delete();
+    } else if (['rs'].includes(command)) {
         if (message.channel.id === undefined) {
             return message.channel.send('Ошибка отправки сообщения');
         }
