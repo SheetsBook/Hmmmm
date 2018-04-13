@@ -22,14 +22,15 @@ async function color () {
     });
 }
 
-client.on('messageReactionAdd', (reaction, user, message) => {
-    let member = reaction.message.guild.members.get(user.id);
-    if (reaction.emoji.name == "✅" && (reaction.message.id === '434316822406365185' || reaction.message.id === '434317030775193601')) {
-        reaction.message.guild.members.get(user.id).addRole('434312833879113754');
+client.on("messageReactionAdd", (reaction, user) => {
+    let memb = reaction.message.guild.members.get(user.id);
+    if (user.bot) return;
+    if (reaction.message.id === '434316822406365185') {
+        memb.addRole('434312833879113754').catch(console.error);
     }
-});
+    reaction.remove(user);
+}
     
-client.on('message', async (message) => {
 
     if (message.content.startsWith("бот пиши")) {
         message.channel.startTyping();
