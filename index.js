@@ -21,7 +21,8 @@ async function color () {
         await setTimeout(async function () {client.guilds.get('419529589623357450').roles.get('427214745083576320').setColor(item).catch();if(number === colors.length-1) setTimeout(function () {color().catch(console.error)}, 1500)}, number*1500);
     });
 }
-    
+
+client.on('message', async (message) => {
 
     if (message.content.startsWith("бот пиши")) {
         message.channel.startTyping();
@@ -254,21 +255,6 @@ message.channel.send('RAS');
             .setFooter('Presence');
         message.channel.send({embed});
         message.delete();
-    } else if (command === "roles" && message.author.id == "356456653916340224") {
-        message.delete().catch(O_o => {});
-        const wwwwaaattt = client.emojis.get('427030817806745601');
-
-        embed = new Discord.RichEmbed()
-            .setColor(16766720)
-            .setTitle("Verify")
-            .setDescription("Нажав на эмодзи :white_check_mark: вы потверждаете что вы человек")
-            .setFooter("Quasar")
-            .setTimestamp()
-        message.channel.send({
-            embed
-        }).then(function(message) {
-            message.react("✅")
-        }).catch(function() {});
     } else if(['beval'].includes(command) && message.author.id === "207821802431315968") {
         try {
             let evaled = vm.runInContext(args.join(" "), codeContext);
