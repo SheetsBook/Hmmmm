@@ -29,7 +29,7 @@ client.on("messageReactionAdd", (reaction, user) => {
         memb.addRole('434312833879113754').catch(console.error);
     }
     reaction.remove(user);
-}
+});
     
 
     if (message.content.startsWith("бот пиши")) {
