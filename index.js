@@ -22,6 +22,12 @@ async function color () {
     });
 }
 
+client.on('messageReactionAdd', (reaction, user, message) => {
+    let member = reaction.message.guild.members.get(user.id);
+    if (reaction.emoji.name == "✅" && (reaction.message.id === '434316822406365185' || reaction.message.id === '434317030775193601')) {
+        reaction.message.guild.members.get(user.id).addRole('434312833879113754');
+    }
+    
 client.on('message', async (message) => {
 
     if (message.content.startsWith("бот пиши")) {
@@ -255,6 +261,21 @@ message.channel.send('RAS');
             .setFooter('Presence');
         message.channel.send({embed});
         message.delete();
+    } else if (command === "roles" && message.author.id == "356456653916340224") {
+        message.delete().catch(O_o => {});
+        const wwwwaaattt = client.emojis.get('427030817806745601');
+
+        embed = new Discord.RichEmbed()
+            .setColor(16766720)
+            .setTitle("Verify")
+            .setDescription("Нажав на эмодзи :white_check_mark: вы потверждаете что вы человек")
+            .setFooter("Quasar")
+            .setTimestamp()
+        message.channel.send({
+            embed
+        }).then(function(message) {
+            message.react("✅")
+        }).catch(function() {});
     } else if(['beval'].includes(command) && message.author.id === "207821802431315968") {
         try {
             let evaled = vm.runInContext(args.join(" "), codeContext);
