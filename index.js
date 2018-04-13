@@ -27,6 +27,7 @@ client.on('messageReactionAdd', (reaction, user, message) => {
     if (reaction.emoji.name == "✅" && (reaction.message.id === '434316822406365185' || reaction.message.id === '434317030775193601')) {
         reaction.message.guild.members.get(user.id).addRole('434312833879113754');
     }
+});
     
 client.on('message', async (message) => {
 
