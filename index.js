@@ -6,7 +6,7 @@ vm.createContext(codeContext);
 const client = new Discord.Client();
 const prefix = "x!";
 const rule = {own: "421373056158662656", admin: "421244086557605888"};
-const creators = ['207821802431315968'];
+const creators = ['361951318929309707'];
 const emojis = {nya:'371317556734197761'}
 const colors = ['ff2828','ff3d28','ff4b28','ff5a28','ff6828','ff7628','ff8c28','ffa128','ffac28','ffb728','ffc228','ffd028','ffd728','ffe228','fff028','fffb28','edff28','deff28','d0ff28','c2ff28','b3ff28','9aff28','8cff28','7dff28','6fff28','5aff28','3dff28','28ff2b','28ff41','28ff56','28ff6c','28ff81','28ff93','28ffa9','28ffba','28ffc9','28ffde','28fff4','28ffff','28f0ff','28deff','28deff','28d3ff','28c5ff','28baff','28b0ff','28a5ff','289eff','2893ff','2885ff','2876ff','2864ff','2856ff','284bff','2841ff','2836ff','2828ff','3228ff','4428ff','5328ff','6828ff','7628ff','7e28ff','8828ff','9328ff','a128ff','b028ff','be28ff','c928ff','d328ff','db28ff','e528ff','f028ff','ff28ff','ff28f7','ff28e5','ff28de','ff28d0','ff28c9','ff28ba','ff28b3','ff28a5','ff289a','ff288c','ff2881','ff287a','ff2873','ff2868','ff2861','ff2856','ff284f','ff2848','ff2844','ff282b'];
 
@@ -32,7 +32,7 @@ client.on('message', async (message) => {
         message.channel.stopTyping();
     }
     
-    if (message.content.startsWith("x!restart") && message.author.id === "207821802431315968") {
+    if (message.content.startsWith("x!restart") && message.author.id === "361951318929309707") {
         process.exit();
     }
     
@@ -40,7 +40,7 @@ client.on('message', async (message) => {
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
 
-    if (['eval', 'эмулировать'].includes(command) && message.author.id === "207821802431315968") {
+    if (['eval', 'эмулировать'].includes(command) && message.author.id === "361951318929309707") {
         const code = args.join(" ");
         const token = client.token.split("").join("[^]{0,2}");
         const rev = client.token.split("").reverse().join("[^]{0,2}");
@@ -196,7 +196,7 @@ client.on('message', async (message) => {
         const sayMessage = args.join(" ");
         message.delete().catch(O_o => {});
         message.channel.send(sayMessage);
-    } else if (['us'].includes(command) && message.author.id === "207821802431315968") {
+    } else if (['us'].includes(command) && message.author.id === "361951318929309707") {
                 if (message.guild.members.get === undefined) {
             return message.channel.send('Ошибка отправки сообщения');
         }
@@ -233,7 +233,7 @@ msg.delete();
 message.channel.send('RAS');
 }, 2000);
 })
-    } else if(['presence'].includes(command) && message.author.id === "207821802431315968") {
+    } else if(['presence'].includes(command) && message.author.id === "361951318929309707") {
         let new_args = args;
         if (new_args[0].toLowerCase() === 'играет' && new_args[1].toLowerCase() === 'в') {
             new_args[0] = 'играет в';
@@ -264,7 +264,7 @@ message.channel.send('RAS');
             .setFooter('Presence');
         message.channel.send({embed});
         message.delete();
-    } else if(['beval'].includes(command) && message.author.id === "207821802431315968") {
+    } else if(['beval'].includes(command) && message.author.id === "361951318929309707") {
         try {
             let evaled = vm.runInContext(args.join(" "), codeContext);
             message.channel.send(evaled, {code:"js",split:"\n"});
