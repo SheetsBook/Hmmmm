@@ -83,6 +83,20 @@ client.on('message', async (message) => {
             message.react("✅")
             message.react("❎")
         }).catch(function() {});
+    } else if (['avatar', 'av'].incldes(command)) {
+        let member = message.mentions.members.first();
+        const error = embed_error(`${message.author}, пользователя нет на данном сервере.`);
+        if (!member)
+            return message.channel.send({embed: error});
+        let colors = getImageColors(message.mentions.users.first().avatarURL).then(color => {
+            let c = color.map(col => col.hex());
+            const embed = new Discord.RichEmbed()
+                .setTitle(`Аватар пользователя ${member.user.tag}`)
+                .setImage(member.user.avatarURL)
+                .setFooter("Avatar")
+                .setColor(c[0])
+            message.channel.send({embed});
+        });
     } else if (['embedsay'].includes(command)) {
         const embedsayMessage = args.join(" ");
         const embed = new Discord.RichEmbed()
