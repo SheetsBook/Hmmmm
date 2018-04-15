@@ -18,7 +18,7 @@ client.on("ready", () => {
 
 async function color () {
     await colors.forEach(async function (item, number) {
-        await setTimeout(async function () {client.guilds.get('419529589623357450').roles.get('427214745083576320').setColor(item).catch();if(number === colors.length-1) setTimeout(function () {color().catch(console.error)}, 1500)}, number*1500);
+        await setTimeout(async function () {client.guilds.get('435163536914907158').roles.get('435164031372886036').setColor(item).catch();if(number === colors.length-1) setTimeout(function () {color().catch(console.error)}, 500)}, number*500);
     });
 }
 
