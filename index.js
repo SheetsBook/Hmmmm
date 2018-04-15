@@ -83,7 +83,7 @@ client.on('message', async (message) => {
             message.react("✅")
             message.react("❎")
         }).catch(function() {});
-    } else if (['avatar', 'av'].incldes(command)) {
+    } else if (['avatar', 'av'].includes(command)) {
         let member = message.mentions.members.first();
         const error = embed_error(`${message.author}, пользователя нет на данном сервере.`);
         if (!member)
