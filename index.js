@@ -88,13 +88,11 @@ client.on('message', async (message) => {
         let embederr = (`${message.author}, пользователя нет на данном сервере.`);
         if (!member)
             return message.channel.send({embederr});
-        let colors = getImageColors(message.mentions.users.first().avatarURL).then(color => {
-            let c = color.map(col => col.hex());
             const embed = new Discord.RichEmbed()
                 .setTitle(`Аватар пользователя ${member.user.tag}`)
                 .setImage(member.user.avatarURL)
                 .setFooter("Avatar")
-                .setColor(c[0])
+                .setColor("#0000ff")
             message.channel.send({embed});
         });
     } else if (['embedsay'].includes(command)) {
