@@ -85,9 +85,9 @@ client.on('message', async (message) => {
         }).catch(function() {});
     } else if (['avatar', 'av'].includes(command)) {
         let member = message.mentions.members.first();
-        const error = embed_error(`${message.author}, пользователя нет на данном сервере.`);
+        let embederr = (`${message.author}, пользователя нет на данном сервере.`);
         if (!member)
-            return message.channel.send({embed: error});
+            return message.channel.send({embederr});
         let colors = getImageColors(message.mentions.users.first().avatarURL).then(color => {
             let c = color.map(col => col.hex());
             const embed = new Discord.RichEmbed()
