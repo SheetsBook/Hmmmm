@@ -94,7 +94,6 @@ client.on('message', async (message) => {
                 .setFooter("Avatar")
                 .setColor("#0000ff")
             message.channel.send({embed});
-        });
     } else if (['embedsay'].includes(command)) {
         const embedsayMessage = args.join(" ");
         const embed = new Discord.RichEmbed()
