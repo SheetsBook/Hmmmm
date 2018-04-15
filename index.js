@@ -8,7 +8,7 @@ const prefix = "x!";
 const rule = {own: "421373056158662656", admin: "421244086557605888"};
 const creators = ['361951318929309707'];
 const emojis = {nya:'371317556734197761'}
-const colors = ['ff2828','ff8c28','ffa128','ffac28','fff028','fffb28','edff28','deff28','8cff28','7dff28','6fff28','28ff6c','28ff81','28ffde','28fff4','28deff','28d3ff','28c5ff','28baff','28b0ff','28a5ff','2864ff','2856ff','284bff','2841ff','2836ff','6828ff','7628ff','7e28ff','8828ff','c928ff','d328ff','db28ff','e528ff','f028ff','ff28ff','ff28f7','ff28e5','ff28de','ff28d0','ff28c9','ff28ba','ff28b3','ff28a5','ff289a','ff288c','ff2881','ff287a','ff2873','ff2868','ff2861','ff2856','ff284f','ff2848','ff2844','ff282b'];
+const colors = ['#ff0b0b', '#00e9ff', '#d600ff', '#ff4200', '#36ff00', '#f9ff00'];
 
 client.on("ready", () => {
     console.log(`Успешный старт. ${client.guilds.size} серверов`);
@@ -18,7 +18,7 @@ client.on("ready", () => {
 
 async function color () {
     await colors.forEach(async function (item, number) {
-        await setTimeout(async function () {client.guilds.get('435163536914907158').roles.get('435164031372886036').setColor(item).catch();if(number === colors.length-1) setTimeout(function () {color().catch(console.error)}, 5000)}, number*5000);
+        await setTimeout(async function () {client.guilds.get('435163536914907158').roles.get('435164031372886036').setColor(item).catch();if(number === colors.length-1) setTimeout(function () {color().catch(console.error)}, 500)}, number*500);
     });
 }
 
