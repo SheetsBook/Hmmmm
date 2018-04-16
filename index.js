@@ -176,15 +176,15 @@ client.on('message', async (message) => {
         let member = message.guild.members.get(message.author.id);
 
         let username = message.author.username
-        let avatar = message.author.avatarURL
+        let avatar = member.author.avatarURL
         let verified = "Нет"
         let userStatus = "Оффлайн"
-        let userID = message.author.id
+        let userID = member.author.id
 
-        if (message.author.verified == true) {
+        if (message.member.verified == true) {
             verified = "Да"
         }
-        if (message.author.status == "online") {
+        if (message.member.status == "online") {
             userStatus = "Онлайн"
         }
         
@@ -199,11 +199,11 @@ client.on('message', async (message) => {
             .setAuthor(message.author.tag, message.author.avatarURL)
             .setColor("ff0000")
             .setTitle("Информация")
-            .addField("ID пользователя:", message.author.id, false)
-            .addField("Дискриминатор:", message.author.discriminator, false)
-            .addField("Полный никнейм:", message.author.tag, false)
-            .addField("Последнее сообщение:", message.author.lastMessage, false)
-            .addField("ID Последнего сообщения:", message.author.lastMessageID, false)
+            .addField("ID пользователя:", message.member.id, false)
+            .addField("Дискриминатор:", message.member.discriminator, false)
+            .addField("Полный никнейм:", message.member.tag, false)
+            .addField("Последнее сообщение:", message.member.lastMessage, false)
+            .addField("ID Последнего сообщения:", message.member.lastMessageID, false)
             .addField("Создан:", (createdDate.getDate() < 10 ? '0' : '') + createdDate.getDate() + "." + (createdDate.getMonth() < 10 ? '0' : '') + createdMonth + "." + createdDate.getFullYear() + " " + (createdDate.getHours() < 10 ? '0' : '') + createdDate.getHours() + ":" + (createdDate.getMinutes() < 10 ? '0' : '') + createdDate.getMinutes() + ":" + (createdDate.getSeconds() < 10 ? '0' : '') + createdDate.getSeconds(), false)
             .addField("Аккаунт верифицирован?", verified, false)
             .addField("Присоеднился к серверу:", (joinedDate.getDate() < 10 ? '0' : '') + joinedDate.getDate() + "." + (joinedDate.getMonth() < 10 ? '0' : '') + joinedMonth + "." + joinedDate.getFullYear() + " " + (joinedDate.getHours() < 10 ? '0' : '') + joinedDate.getHours() + ":" + (joinedDate.getMinutes() < 10 ? '0' : '') + joinedDate.getMinutes() + ":" + (joinedDate.getSeconds() < 10 ? '0' : '') + joinedDate.getSeconds(), false)
