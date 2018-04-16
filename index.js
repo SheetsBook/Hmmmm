@@ -167,6 +167,11 @@ client.on('message', async (message) => {
             .setTimestamp();
         message.channel.send({embed});
     } else if(['userinfo', 'ui'].includes(command)) {
+        let member = message.mentions.members.first();
+        let embederrr = (`${message.author}, пользователя нет на данном сервере.`);
+        if (!member)
+            return message.channel.send({embederrr});
+        
                 message.delete().catch(O_o => {});
         let member = message.guild.members.get(message.author.id);
 
