@@ -193,7 +193,7 @@ client.on('message', async (message) => {
         const embed = new Discord.RichEmbed()
             .setAuthor(message.author.tag, message.author.avatarURL)
             .setColor("ff0000")
-            .setTitle(username)
+            .setTitle("Информация")
             .addField("ID пользователя:", message.author.id, false)
             .addField("Дискриминатор:", message.author.discriminator, false)
             .addField("Полный никнейм:", message.author.tag, false)
