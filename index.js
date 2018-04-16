@@ -140,7 +140,7 @@ client.on('message', async (message) => {
         }         
 
                 const embed = new Discord.RichEmbed()
-                .setAuthor(message.author.userName, message.author.avatarURL)
+                .setAuthor(message.author.tag, message.author.avatarURL)
                 .setTitle('Информация об сервере', message.channel.guild.name)
                 .setColor("ff0000")
                 .setThumbnail(message.channel.guild.iconURL)
@@ -158,7 +158,7 @@ client.on('message', async (message) => {
             message.channel.send({embed});
     } else if(['h', 'help'].includes(command)) {
         const embed = new Discord.RichEmbed()
-            .setAuthor(message.author.userName, message.author.avatarURL)
+            .setAuthor(message.author.tag, message.author.avatarURL)
             .setTitle('Команды бота.')
             .setColor("#42f4aa")
             .setThumbnail('https://cdn.pixabay.com/photo/2016/06/15/15/02/info-1459077_960_720.png')
@@ -191,7 +191,7 @@ client.on('message', async (message) => {
         let createdMonth = createdDate.getMonth() + 1;
 
         const embed = new Discord.RichEmbed()
-            .setAuthor(message.author.userName, message.author.avatarURL)
+            .setAuthor(message.author.tag, message.author.avatarURL)
             .setColor("ff0000")
             .setTitle(username)
             .addField("ID пользователя:", message.author.id, false)
