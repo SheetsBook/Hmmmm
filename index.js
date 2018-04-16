@@ -171,10 +171,10 @@ client.on('message', async (message) => {
         let member = message.guild.members.get(message.author.id);
 
         let username = message.author.username
-        let avatar = memberr.author.avatarURL
+        let avatar = member.author.avatarURL
         let verified = "Нет"
         let userStatus = "Оффлайн"
-        let userID = memberr.author.id
+        let userID = member.author.id
 
         if (message.author.verified == true) {
             verified = "Да"
