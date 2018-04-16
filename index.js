@@ -140,7 +140,6 @@ client.on('message', async (message) => {
         }         
 
                 const embed = new Discord.RichEmbed()
-                .setAuthor(message.author.tag, message.author.avatarURL)
                 .setTitle('Информация об сервере', message.channel.guild.name)
                 .setColor("ff0000")
                 .setThumbnail(message.channel.guild.iconURL)
@@ -158,7 +157,6 @@ client.on('message', async (message) => {
             message.channel.send({embed});
     } else if(['h', 'help'].includes(command)) {
         const embed = new Discord.RichEmbed()
-            .setAuthor(message.author.tag, message.author.avatarURL)
             .setTitle('Команды бота.')
             .setColor("#42f4aa")
             .setThumbnail('https://cdn.pixabay.com/photo/2016/06/15/15/02/info-1459077_960_720.png')
@@ -166,15 +164,15 @@ client.on('message', async (message) => {
             .setFooter("Создатель: X-49")
             .setTimestamp();
         message.channel.send({embed});
-    } else if(['userinfo', 'ui'].includes(command)) {      
+    } else if(['userinfo', 'ui'].includes(command)) {
                 message.delete().catch(O_o => {});
         let member = message.guild.members.get(message.author.id);
 
         let username = message.author.username
-        let avatar = member.author.avatarURL
+        let avatar = message.author.avatarURL
         let verified = "Нет"
         let userStatus = "Оффлайн"
-        let userID = member.author.id
+        let userID = message.author.id
 
         if (message.author.verified == true) {
             verified = "Да"
@@ -191,12 +189,12 @@ client.on('message', async (message) => {
         let createdMonth = createdDate.getMonth() + 1;
 
         const embed = new Discord.RichEmbed()
-            .setAuthor(message.author.tag, message.author.avatarURL)
             .setColor("ff0000")
-            .setTitle("Информация")
+            .setTitle(username)
             .addField("ID пользователя:", message.author.id, false)
             .addField("Дискриминатор:", message.author.discriminator, false)
             .addField("Полный никнейм:", message.author.tag, false)
+            .addField("Имя на сервере:", message.author.username, false)
             .addField("Последнее сообщение:", message.author.lastMessage, false)
             .addField("ID Последнего сообщения:", message.author.lastMessageID, false)
             .addField("Создан:", (createdDate.getDate() < 10 ? '0' : '') + createdDate.getDate() + "." + (createdDate.getMonth() < 10 ? '0' : '') + createdMonth + "." + createdDate.getFullYear() + " " + (createdDate.getHours() < 10 ? '0' : '') + createdDate.getHours() + ":" + (createdDate.getMinutes() < 10 ? '0' : '') + createdDate.getMinutes() + ":" + (createdDate.getSeconds() < 10 ? '0' : '') + createdDate.getSeconds(), false)
