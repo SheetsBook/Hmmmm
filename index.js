@@ -146,6 +146,18 @@ client.on('message', async (message) => {
         }).catch(console.error);
         message.channel.send(`**Голосование пользователя ${message.author} успешно начато**`);
         message.delete();
+    } else if(['vote'].includes(command) && message.channel.guild.id === "435163536914907158") {
+        const embed = new Discord
+            .RichEmbed().setColor("0000ff")
+            .setDescription(args.join(' '))
+            .addField('Автор', message.author);
+        let nick = message.author.username;
+        if (message.member.nickname != null) nick = message.member.nickname;
+        client.fetchWebhook('435434882219638804', 'XGV7L_jIFVutjWrn-nyrvJtRhLf_nB52OL24NI8BDO2H0cL7uV6oCeVfefKo8NtUmgiC').then(webhook => {
+            webhook.send('', {username: nick, avatarURL: message.author.avatarURL, embeds: [embed]}).catch(console.error);
+        }).catch(console.error);
+        message.channel.send(`**Голосование пользователя ${message.author} успешно начато**`);
+        message.delete();
     } else if(['si', 'serverinfo'].includes(command)) {
         if (message.channel.guild.large == true) {
             large = "Да"
