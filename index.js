@@ -134,11 +134,11 @@ client.on('message', async (message) => {
         }).catch(console.error);
         message.channel.send(`**Голосование пользователя ${message.author} успешно начато**`);
         message.delete();
-    } else if (['vote'].includes(command) && message.channel.guild.id === "409966133547106305") {
+    } else if (['report'].includes(command) && message.channel.guild.id === "409966133547106305") {
         const embed = new Discord
             .RichEmbed().setColor("0000ff")
-            .setDescription(args.join(' '))
-            .addField('Автор', message.author);
+            .addField('Сообщение', args.join(' '))
+            .addField('Пользователь', message.author);
         let nick = message.author.username;
         if (message.member.nickname != null) nick = message.member.nickname;
         client.fetchWebhook('435789439952879647', 'gsECXitzpbfRRtSJMVuk49hf02bPgfFXGmbbOO_10E6-StehdMSuUn0o07zwk371CAwK').then(webhook => {
@@ -203,7 +203,7 @@ client.on('message', async (message) => {
             .setTitle('Команды бота.')
             .setColor("#42f4aa")
             .setThumbnail('https://cdn.pixabay.com/photo/2016/06/15/15/02/info-1459077_960_720.png')
-            .setDescription("**x!eval** эмуляция js кода (Bot owner) \n**x!report** жалоба на пользователя. \n**x!say** сообщение от бота. \n**x!embedsay** embed сообщение от бота. \n**x!rs [ид канала] [сообщение]** отослать сообщение из 1 чата в другой. \n**x!us [ид пользователя] [сообщение]** отослать сообщение пользователю в лс от бота. (Bot owner) \n**x!invite** пригласить бота на сервер. \n**x!ping** проверка. \n**x!presence [тип] <статус>** изменить статус бота (Bot owner) \n**x!about** информация об количествах серверов, пользователей, каналов. \n**x!userinfo** информация об пользователе. \n**x!serverinfo** информация об сервере. \n**x!nya** тест команда эмодзи. \n**x!poll** создать голосование. \n**x!idea** идея по поводу сервера. (Quasar only) \n**x!vote** начать голосование (Galactic empire only) \n**x!avatar** просмотр аватара. \n**бот пиши** начну писать в чат где вы меня вызвали. \n**бот не пиши** перестану писать в чат где вы меня вызвали.")
+            .setDescription("**x!eval** эмуляция js кода (Bot owner) \n**x!report** жалоба на пользователя. (Почти сервак only) \n**x!say** сообщение от бота. \n**x!embedsay** embed сообщение от бота. \n**x!rs [ид канала] [сообщение]** отослать сообщение из 1 чата в другой. \n**x!us [ид пользователя] [сообщение]** отослать сообщение пользователю в лс от бота. (Bot owner) \n**x!invite** пригласить бота на сервер. \n**x!ping** проверка. \n**x!presence [тип] <статус>** изменить статус бота (Bot owner) \n**x!about** информация об количествах серверов, пользователей, каналов. \n**x!userinfo** информация об пользователе. \n**x!serverinfo** информация об сервере. \n**x!nya** тест команда эмодзи. \n**x!poll** создать голосование. \n**x!idea** идея по поводу сервера. (Quasar only) \n**x!vote** начать голосование (Galactic empire only) \n**x!avatar** просмотр аватара. \n**бот пиши** начну писать в чат где вы меня вызвали. \n**бот не пиши** перестану писать в чат где вы меня вызвали.")
             .setFooter("Создатель: X-49")
             .setTimestamp();
         message.channel.send({embed});
