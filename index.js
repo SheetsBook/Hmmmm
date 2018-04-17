@@ -280,7 +280,7 @@ client.on('message', async (message) => {
             .setTimestamp(); message.react("✅");
         message.channel.send({embed});
     }else  if (['ping'].includes (command)) {
-        message.channel.send(`Pong! Задержка ${message.createdTimestamp - message.createdTimestamp}ms. API задержка ${Math.round(client.ping)}ms`));
+        message.channel.send(`Pong! Задержка ${message.createdTimestamp - message.createdTimestamp}ms. API задержка ${Math.round(client.ping)}ms`);
         console.log("pong!"); message.react("✅");
     } else if(['test'].includes (command)) {
         message.channel.send('PEDO').then((msg) => {
