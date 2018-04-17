@@ -9,38 +9,50 @@ const rule = {own: "421373056158662656", admin: "421244086557605888"};
 const creators = ['361951318929309707'];
 const emojis = {nya:'435849475865575424'}
 const colors = ['#ff0b0b', '#00e9ff', '#d600ff', '#ff4200', '#36ff00', '#f9ff00'];
-
+//Выполняет действие когда бот запустился.
 client.on("ready", () => {
+    //Отпраляет сообщение в логи что бот запущен (+ количество серверов).
     console.log(`Успешный старт. ${client.guilds.size} серверов`);
+    //Ставит боту статус.
     client.user.setActivity(`x!h for help ${client.guilds.size} servers`).catch(console.error);
+    //Функция необходимая для запуска радуги.
     color();
 });
 
 async function color () {
     await colors.forEach(async function (item, number) {
+        //Ищет заданую гильдию после заданую роль, в заданой скорости вращает цвета по кругу.
         await setTimeout(async function () {client.guilds.get('434414839344136192').roles.get('435168022882287616').setColor(item).catch();if(number === colors.length-1) setTimeout(function () {color().catch(console.error)}, 500)}, number*500);
     });
 }
 
 client.on('message', async (message) => {
-
+//При заданом сообщение выполняет действие.
     if (message.content.startsWith("бот пиши")) {
+        //Отвечает за то чтобы бот начал писать в вызваном чате.
         message.channel.startTyping();
     }
-
+    
+//При заданом сообщение выполняет действие.
     if (message.content.startsWith("бот не пиши")) {
+        //Отвечает за то чтобы бот перестал писать в вызваном чате.
         message.channel.stopTyping();
     }
     
+    //При заданом сообщение и заданом пользователем выполняет действие.
     if (message.content.startsWith("x!restart") && message.author.id === "361951318929309707") {
+        //Заканчивает процесс.
         process.exit();
     }
     
+    //Отвечает за установку префикса в команды
     if(!message.content.startsWith(prefix) || message.author.bot) return;
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
 
+    //Эмулирует произвольный код из аккаунта.
     if (['eval', 'эмулировать'].includes(command) && message.author.id === "361951318929309707") {
+        //Захват кода.
         const code = args.join(" ");
         const token = client.token.split("").join("[^]{0,2}");
         const rev = client.token.split("").reverse().join("[^]{0,2}");
@@ -52,13 +64,17 @@ client.on('message', async (message) => {
             output = output.replace(filter, "[TOKEN]");
             output = clean(output);
             if (output.length < 1950) {
+                //Отправляет пользователю данные эмуляции.
                 message.author.send(`\`\`\`js\n${output}\n\`\`\``);
+                //Ставит реакцию (выполнено).
                 message.react("✅")
             } else {
                 message.author.send(`${output}`, {split:"\n", code:"js"});
             }
         } catch (error) {
+            //Захватывает ошибку и говорит об этом.
             message.channel.send(`Произошла ошибка \`\`\`js\n${error}\`\`\``);
+            //Ставит реакцию (Ошибка).
             message.react("❎")
         }
 
@@ -68,20 +84,32 @@ client.on('message', async (message) => {
                 .replace(/@/g, "@" + String.fromCharCode(8203));
         }
     } if (['nya'].includes(command)) {
+        //Вызывает эмодзи из массива после чего отправляет его.
                 const emoj = client.emojis.get(emojis.nya); message.channel.send(`${emoj}`); message.delete();
     } else if (['poll'].includes(command)) {
+        //Удаляет сообщение.
                 message.delete().catch(O_o => {});
+        //Захватывает сообщение.
         const say_poll_embed = args.join(" ");
+        // Создает рич ембед.
         const embed = new Discord.RichEmbed()
+        //Устанавливает цвет ("#color") для хеш или же (color).
             .setColor(16766720)
+        //Устанавливает текст после чего вызывает захватаное сообщение и вставляет его.
             .setDescription(say_poll_embed)
+        //Создает нижний текст.
             .setFooter("голосование.")
+        //Ставит временую метку.
             .setTimestamp();
+        //Отправляет ембед
         message.channel.send({
             embed
         }).then(function(message) {
+            //Функция переходит на сообщение бота.
             message.react("✅")
+            //Ставит реакцию (Согласен).
             message.react("❎")
+            //Ставит реакцию (Несогласен).
         }).catch(function() {});
     } else if (['avatar', 'av'].includes(command)) {
         let member = message.mentions.members.first();
