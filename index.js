@@ -71,10 +71,10 @@ client.on('message', async (message) => {
                 const emoj = client.emojis.get(emojis.nya); message.channel.send(`${emoj}`); message.delete();
     } else if (['poll'].includes(command)) {
                 message.delete().catch(O_o => {});
-        const say_vote_embed = args.join(" ");
+        const say_poll_embed = args.join(" ");
         const embed = new Discord.RichEmbed()
             .setColor(16766720)
-            .setDescription(say_vote_embed)
+            .setDescription(say_poll_embed)
             .setFooter("голосование.")
             .setTimestamp();
         message.channel.send({
@@ -133,6 +133,18 @@ client.on('message', async (message) => {
             webhook.send('', {username: nick, avatarURL: message.author.avatarURL, embeds: [embed]}).catch(console.error);
         }).catch(console.error);
         message.channel.send(`**Голосование пользователя ${message.author} успешно начато**`);
+        message.delete();
+    } else if (['vote'].includes(command) && message.channel.guild.id === "409966133547106305") {
+        const embed = new Discord
+            .RichEmbed().setColor("0000ff")
+            .setDescription(args.join(' '))
+            .addField('Автор', message.author);
+        let nick = message.author.username;
+        if (message.member.nickname != null) nick = message.member.nickname;
+        client.fetchWebhook('435789439952879647', 'gsECXitzpbfRRtSJMVuk49hf02bPgfFXGmbbOO_10E6-StehdMSuUn0o07zwk371CAwK').then(webhook => {
+            webhook.send('', {username: nick, avatarURL: message.author.avatarURL, embeds: [embed]}).catch(console.error);
+        }).catch(console.error);
+        message.channel.send(`**Репорт пользователя ${message.author} принят.**`);
         message.delete();
     } else if (['vote'].includes(command) && message.channel.guild.id === "422775194281705493") {
         const embed = new Discord
