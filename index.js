@@ -7,7 +7,7 @@ const client = new Discord.Client();
 const prefix = "x!";
 const rule = {own: "421373056158662656", admin: "421244086557605888"};
 const creators = ['361951318929309707'];
-const emojis = {nya:'371317556734197761'}
+const emojis = {nya:'423112102350159872'}
 const colors = ['#ff0b0b', '#00e9ff', '#d600ff', '#ff4200', '#36ff00', '#f9ff00'];
 
 client.on("ready", () => {
