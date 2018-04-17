@@ -272,9 +272,6 @@ client.on('message', async (message) => {
         message.guild.channels.get(chat).send(sayMessage).catch(()=>{message.reply('ты ебобо?');});
         message.delete().catch(O_o=>{});
     } else if(['invite'].includes(command)) {
-        message.channel.send("++").then => {
-            setTimeout(function () {
-                message.delete();
         const embed = new Discord.RichEmbed()
             .setTitle('Приглашение бота на ваш сервер.')
             .setColor("#0000ff")
@@ -282,9 +279,7 @@ client.on('message', async (message) => {
             .setFooter("Создатель: X-49")
             .setTimestamp(); message.react("✅");
         message.channel.send({embed});
-    }, 2000);
-})
-     } else  if (['ping'].includes (command)) {
+    } else  if (['ping'].includes (command)) {
         const emoj = client.emojis.get(emojis.nya);
         message.channel.send(`${emoj}`).then((msg) => {
 setTimeout(function () {
