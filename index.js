@@ -280,8 +280,14 @@ client.on('message', async (message) => {
             .setTimestamp(); message.react("✅");
         message.channel.send({embed});
     }else  if (['ping'].includes (command)) {
-        message.channel.send(`Pong! Задержка ${message.createdTimestamp - message.createdTimestamp}ms. API задержка ${Math.round(client.ping)}ms`);
-        console.log("pong!"); message.react("✅");
+        const emoj = client.emojis.get(emojis.nya);
+        message.channel.send(`${emoj}`).then((msg) => {
+setTimeout(function () {
+msg.delete();
+message.channel.send(`Pong! Задержка ${message.createdTimestamp - message.createdTimestamp}ms. API задержка ${Math.round(client.ping)}ms`);
+}, 2000);
+})
+        console.log("pong!");
     } else if(['test'].includes (command)) {
         message.channel.send('PEDO').then((msg) => {
 setTimeout(function () {
