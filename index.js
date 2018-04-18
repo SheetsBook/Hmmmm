@@ -173,7 +173,7 @@ client.on('message', async (message) => {
         message.channel.send({embed});
         message.delete().catch(O_o => {});
     } else if (['about'].includes(command)) {
-        message.channel.send(`${client.guilds.size} серверов всего. \n${client.users.size} пользователей всего. \n${client.channels.size} каналов всего. \nНа сервере: \n${message.channel.guild.users.size} пользователей \n${message.channel.guild.channels.size} каналов.`)
+        message.channel.send(`${client.guilds.size} серверов всего. \n${client.users.size} пользователей всего. \n${client.channels.size} каналов всего.`)
     } else if (['idea'].includes(command) && message.channel.guild.id === "419529589623357450") {
         const embed = new Discord
             .RichEmbed().setColor("0000ff")
