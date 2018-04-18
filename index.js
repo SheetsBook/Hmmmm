@@ -161,7 +161,7 @@ client.on('message', async (message) => {
     } else if (['warn'].includes(command)) {
         let member = message.mentions.members.first();
         const WarnMessage = args.join(" ");
-        message.channel.send(`Пользователь ${member.user.tag} получил предупреждение по причине **` + WarnMessage + "**");
+        message.channel.send(`Пользователь ${member.user.tag} получил предупреждение по причине **` args.shift(); + WarnMessage + "**");
     } else if (['embedsay'].includes(command)) {
         const embedsayMessage = args.join(" ");
         const embed = new Discord.RichEmbed()
