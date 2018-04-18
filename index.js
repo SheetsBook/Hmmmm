@@ -174,7 +174,7 @@ client.on('message', async (message) => {
         message.delete().catch(O_o => {});
     } else if (['about'].includes(command)) {
     	let member = message.mentions.members.first();
-    	message.channel.send(`${message.author} обнял ${member.user}.
+    	message.channel.send(`${message.author} обнял ${member.user}.)
     } else if (['about'].includes(command)) {
         message.channel.send(`${client.guilds.size} серверов всего. \n${client.users.size} пользователей всего. \n${client.channels.size} каналов всего.`)
     } else if (['idea'].includes(command) && message.channel.guild.id === "419529589623357450") {
