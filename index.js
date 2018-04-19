@@ -175,8 +175,8 @@ client.on('message', async (message) => {
         message.channel.send({embed});
         message.delete().catch(O_o => {});
     } else if (['hug'].includes(command)) {
-    	let huger = message.mentions.members.first();
-        message.reply(`Пользователь ${message.author} обнял ${huger.user} ыыы.`)
+    	let member = message.mentions.members.first();
+        message.reply(`Пользователь ${message.author} обнял ` + huger.user + `ss`)
     	message.delete(1000);
     } else if (['about'].includes(command)) {
         message.channel.send(`${client.guilds.size} серверов всего. \n${client.users.size} пользователей всего. \n${client.channels.size} каналов всего.`)
