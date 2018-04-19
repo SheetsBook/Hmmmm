@@ -344,7 +344,7 @@ client.on('message', async (message) => {
         const emoj = client.emojis.get(emojis.nya);
         message.channel.send(`${emoj}`).then((msg) => {
 setTimeout(function () {
-msg.edit();
+msg.delete();
 message.channel.send(`Pong! Задержка ${message.createdTimestamp - message.createdTimestamp}ms. API задержка ${Math.round(client.ping)}ms`);
 }, 2000);
 })
