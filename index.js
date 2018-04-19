@@ -164,7 +164,8 @@ client.on('message', async (message) => {
     const WarnMessage = args.join(" ");
         if (member.user.id === undefined) return message.channel.send("Пользователь не указан или не существует")
         if (member.user.id === message.author.id) return message.channel.send("Невозможно выписать предупреждение самому себе.")
-    message.channel.send(`Пользователь ${member.user} получил предупреждение по 1111причине **` + WarnMessage + "**");
+        if (message.author.bot) return message.reply('Невозможно предупредить бота.');
+    message.channel.send(`Пользователь ${member.user} получил предупреждение по причине **` + WarnMessage + "**");
     } else if (['embedsay'].includes(command)) {
         const embedsayMessage = args.join(" ");
         const embed = new Discord.RichEmbed()
