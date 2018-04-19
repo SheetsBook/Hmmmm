@@ -164,7 +164,7 @@ client.on('message', async (message) => {
     const WarnMessage = args.join(" ");
         if (member.user.id === undefined) return message.channel.send("Пользователь не указан или не существует")
         if (member.user.id === message.author.id) return message.channel.send("Невозможно выписать предупреждение самому себе.")
-        if (message.author.bot) return message.reply('Невозможно предупредить бота.');
+        if (member.user.id === message.author.bot) return message.reply('Невозможно предупредить бота.');
     if (member.user.id === message.channel.guild.ownerID) return message.channel.send("Невозможно предупредить создателя сервера.")
     message.channel.send(`Пользователь ${member.user} получил предупреждение по причине **` + WarnMessage + "**");
     } else if (['embedsay'].includes(command)) {
