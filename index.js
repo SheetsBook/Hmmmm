@@ -27,12 +27,14 @@ client.on("ready", () => {
     color();
 });
 
+/*
 async function color () {
     await colors.forEach(async function (item, number) {
         //Ищет заданую гильдию после заданую роль, в заданой скорости вращает цвета по кругу.
         await setTimeout(async function () {client.guilds.get('434414839344136192').roles.get('435168022882287616').setColor(item).catch();if(number === colors.length-1) setTimeout(function () {color().catch(console.error)}, 500)}, number*500);
     });
 }
+*/
 
 client.on('message', async (message) => {
 //При заданом сообщение выполняет действие.
