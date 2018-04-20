@@ -24,7 +24,7 @@ client.on("ready", () => {
     //Ставит боту статус.
     client.user.setActivity(`x!h for help ${client.guilds.size} servers`).catch(console.error);
     //Функция необходимая для запуска радуги.
-    color();
+    //color();
 });
 
 /*
