@@ -35,7 +35,7 @@ async function color () {
             //Ищет заданую гильдию после заданую роль, в заданой скорости вращает цвета по кругу.
             await setTimeout(async function () {client.guilds.get(server).roles.get(role).setColor(item).catch();if(number === colors.length-1) setTimeout(function () {color().catch(console.error)}, 500)}, number*500);
         });
-    }
+    });
 }
 
 
