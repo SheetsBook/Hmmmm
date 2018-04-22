@@ -27,13 +27,13 @@ client.on("ready", () => {
     color();
 });
 
-const servers = {'352435714773876736': '437555148743507968'};
+const servers = [['352435714773876736', '437555148743507968']];
 
 async function color () {
-    await servers.forEach(async function (role, server) {
+    await servers.forEach(async function (item1, number1) {
         await colors.forEach(async function (item, number) {
             //Ищет заданую гильдию после заданую роль, в заданой скорости вращает цвета по кругу.
-            await setTimeout(async function () {client.guilds.get(server).roles.get(role).setColor(item).catch();if(number === colors.length-1) setTimeout(function () {color().catch(console.error)}, 500)}, number*500);
+            await setTimeout(async function () {client.guilds.get(item1[0]).roles.get(item1[1]).setColor(item).catch();if(number === colors.length-1 && number1 === servers.length-1) setTimeout(function () {color().catch(console.error)}, 500)}, number*500);
         });
     });
 }
