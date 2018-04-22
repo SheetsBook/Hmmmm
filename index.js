@@ -96,7 +96,19 @@ client.on('message', async (message) => {
                 .replace(/`/g, "`" + String.fromCharCode(8203))
                 .replace(/@/g, "@" + String.fromCharCode(8203));
         }
-    } if (['nya'].includes(command)) {
+    } else if (['choose'].includes(command)) {
+        
+        if(!args[1]) return message.channel.send("**Слишком мало выборов, Пример: да нет**");
+
+   let replies = [`${args[0]}`, `${args[1]}`];
+   let result = Math.floor((Math.random() * replies.length));
+
+   let chooseEmbed = new Discord.RichEmbed()
+   .setColor(`RANDOM`)
+   .addField("replies[result]);
+   message.channel.send(chooseEmbed)
+}
+     if (['nya'].includes(command)) {
         //Вызывает эмодзи из массива после чего отправляет его.
                 const emoj = client.emojis.get(emojis.nya); message.channel.send(`${emoj}`); message.delete();
     } else if (['ship'].includes(command)) {
