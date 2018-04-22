@@ -103,7 +103,7 @@ client.on('message', async (message) => {
    let replies = [`${args[0]}`, `${args[1]}`];
    let result = Math.floor((Math.random() * replies.length));
 
-   message.channel.send((replies[result]);)
+   message.channel.send((replies[result]))
     } else if (['nya'].includes(command)) {
         //Вызывает эмодзи из массива после чего отправляет его.
                 const emoj = client.emojis.get(emojis.nya); message.channel.send(`${emoj}`); message.delete();
