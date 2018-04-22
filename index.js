@@ -99,7 +99,114 @@ client.on('message', async (message) => {
     } if (['nya'].includes(command)) {
         //Вызывает эмодзи из массива после чего отправляет его.
                 const emoj = client.emojis.get(emojis.nya); message.channel.send(`${emoj}`); message.delete();
-    } else if (['poll'].includes(command)) {
+    } else if (['ship'].includes(command)) {
+        if(!args[0]) return message.channel.send("♥ **Упомяните пользователя или пользователей, которые вы хотите связать.** `;love <user> <user>`")
+
+   var bondLevel = Math.floor(Math.random() * 102);
+   let user1 = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
+   let user2 = message.guild.member(message.guild.members.get(args[1]));
+   let user3 = message.guild.member(message.guild.members.get(args[2]));
+
+    if (bondLevel > 100 ) {
+        var ship = 'Идеальная пара <3_<3 :ok_hand:'
+        var bondLevelResults = `♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥`
+    } else
+    if (bondLevel == 100) {
+        var ship = 'Ммм. yже не так плоxо <3 :ok_hand:'
+        var bondLevelResults = `♥♥♥♥♥♥♥♥♥♥`
+    } else
+    if (bondLevel >= 90 && bondLevel < 100) {
+        var ship = 'Отличная пара <3'
+        var bondLevelResults = `♥♥♥♥♥♥♥♥♥🖤`
+    } else
+    if (bondLevel >= 80 && bondLevel < 90) {
+        var ship = 'Отличная пара <3'
+        var bondLevelResults = `♥♥♥♥♥♥♥♥🖤🖤`
+    } else
+    if (bondLevel >= 75 && bondLevel < 80) {
+        var ship = 'Отличная пара <3'
+        var bondLevelResults = `♥♥♥♥♥♥♥🖤🖤🖤`
+    } else
+    if (bondLevel >= 70 && bondLevel < 75) {
+        var ship = 'Немного рискованно, но может работать! '
+        var bondLevelResults = '♥♥♥♥♥♥♥🖤🖤🖤'
+    } else
+    if (bondLevel >= 60 && bondLevel < 70) {
+        var ship = 'не все потерено.'
+        var bondLevelResults = '♥♥♥♥♥♥🖤🖤🖤🖤'
+    } else
+    if (bondLevel >= 50 && bondLevel < 60) {
+        var ship = 'Эм. '
+        var bondLevelResults = `♥♥♥♥♥🖤🖤🖤🖤🖤`
+    } else
+    if (bondLevel >= 40 && bondLevel < 50) {
+        var ship = 'эм. '
+        var bondLevelResults = `♥♥♥♥🖤🖤🖤🖤🖤🖤`
+    } else
+    if (bondLevel >= 30 && bondLevel < 40) {
+        var ship = 'а. '
+        var bondLevelResults = `♥♥♥🖤🖤🖤🖤🖤🖤🖤`
+    } else
+    if (bondLevel >= 25 && bondLevel < 30) {
+        var ship = 'я не бyдy коментировать'
+        var bondLevelResults = `♥♥🖤🖤🖤🖤🖤🖤🖤🖤`
+    } else
+    if (bondLevel >= 20 && bondLevel < 25) {
+        var ship = 'Rip'
+        var bondLevelResults = `♥♥🖤🖤🖤🖤🖤🖤🖤🖤`
+    } else
+    if (bondLevel >= 10 && bondLevel < 20) {
+        var ship = 'Rip'
+        var bondLevelResults = `​♥🖤🖤🖤🖤🖤🖤🖤🖤🖤`
+    } else
+    if (bondLevel >= 0 && bondLevel < 10) {
+        var ship = 'Не возможно...'
+        var bondLevelResults = `🖤🖤🖤🖤🖤🖤🖤🖤🖤🖤`
+    }
+
+
+    if(!args[1]){
+        var bondEmbed = new Discord.RichEmbed()
+
+        .setColor("#f5a3fa")
+        .addField("люди", `${message.author} x ${args[0]}`)
+        .addField("Очки соместимости", `${bondLevel}%`)
+        .addField("Любовь..", bondLevelResults)
+        .addField("Ответ", ship);
+
+
+        return message.channel.send(bondEmbed)
+    }
+
+    if(!args[2]){
+        var bondEmbed2 = new Discord.RichEmbed()
+
+        .setColor("#f5a3fa")
+        .addField("люди", `${args[0]} x ${args[1]}`)
+        .addField("Очки соместимости", `${bondLevel}%`)
+        .addField("Любовь..", bondLevelResults)
+        .addField("Ответ", ship);
+
+
+        return message.channel.send(bondEmbed2)
+    }
+
+
+    if(!args[3]) {
+
+        var bondEmbed3 = new Discord.RichEmbed()
+
+        .setColor("#f5a3fa")
+        .addField("люди", `${args[0]} и ${args[1]} x ${args[2]}`)
+        .addField("Очки соместимости", `${bondLevel}%`)
+        .addField("Любовь..", bondLevelResults)
+        .addField("Ответ", ship);
+
+
+        return message.channel.send(bondEmbed)
+    }
+}
+    if (['poll'].includes(command)) {
         //Удаляет сообщение.
                 message.delete().catch(O_o => {});
         //Захватывает сообщение.
