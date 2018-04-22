@@ -307,6 +307,25 @@ client.on('message', async (message) => {
         }).catch(console.error);
         message.channel.send(`**Голосование пользователя ${message.author} успешно начато**`);
         message.delete();
+    } else if (['prune'].includes(command) && message.member.hasPermission('MANAGE_MESSAGES')) {
+        if (message.mentions.members.first()) {
+            let msgs = message.channel.fetchMessages({limit:98}).then(messages => messages.filter().channel.bulkDelete(messages));
+
+        } else {
+            let content = message.content.slice(process.env.PREFIX.length + 8);
+            let messagecount = parseInt(args[0]);
+            let msc = messagecount;
+            if (messagecount > 2 && messagecount < 99) {
+                message.channel.fetchMessages({limit: messagecount + 1}).then(messages => message.channel.bulkDelete(messages));
+                let lol = declOfNum(msc, ['сообщение', 'сообщения', 'сообщений']);
+                message.channel.send(`Удалено ${msc} ${lol}!`).then(msg => {msg.delete(5000)});
+                message.delete();
+            } else {
+                const embed = embed_error(`${message.author}, ошибка очистки сообщений, \`${content}\` либо меньше чем 2, либо больше чем 98, либо не является числом`);
+                message.channel.send(embed);
+            }
+        }
+
     } else if (['report'].includes(command) && message.channel.guild.id === "409966133547106305") {
         const embed = new Discord
             .RichEmbed().setColor("0000ff")
