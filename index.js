@@ -100,7 +100,7 @@ client.on('message', async (message) => {
         //Вызывает эмодзи из массива после чего отправляет его.
                 const emoj = client.emojis.get(emojis.nya); message.channel.send(`${emoj}`); message.delete();
     } else if (['ship'].includes(command)) {
-        if(!args[0]) return message.channel.send("♥ **Упомяните пользователя или пользователей, которые вы хотите связать.** `;love <user> <user>`")
+        if(!args[0]) return message.channel.send("♥ **Упомяните пользователя или пользователей, которые вы хотите связать.** `x!ship <user> <user>`")
 
    var bondLevel = Math.floor(Math.random() * 102);
    let user1 = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
