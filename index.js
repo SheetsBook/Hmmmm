@@ -399,4 +399,5 @@ message.channel.send('RAS');
     }
 });
 
-client.login(process.env.BOOT_TOKEN).catch(console.error);
+client.login(process.env.BOT_TOKEN).catch(console.error);
+process.env.BOT_TOKEN = 'her_tebe';
