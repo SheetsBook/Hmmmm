@@ -136,15 +136,15 @@ client.on('message', async (message) => {
         var bondLevelResults = '♥♥♥♥♥♥🖤🖤🖤🖤'
     } else
     if (bondLevel >= 50 && bondLevel < 60) {
-        var ship = 'Эм. '
+        var ship = '=/. '
         var bondLevelResults = `♥♥♥♥♥🖤🖤🖤🖤🖤`
     } else
     if (bondLevel >= 40 && bondLevel < 50) {
-        var ship = 'эм. '
+        var ship = '... '
         var bondLevelResults = `♥♥♥♥🖤🖤🖤🖤🖤🖤`
     } else
     if (bondLevel >= 30 && bondLevel < 40) {
-        var ship = 'а. '
+        var ship = 'Все плохо.'
         var bondLevelResults = `♥♥♥🖤🖤🖤🖤🖤🖤🖤`
     } else
     if (bondLevel >= 25 && bondLevel < 30) {
@@ -169,7 +169,7 @@ client.on('message', async (message) => {
         var bondEmbed = new Discord.RichEmbed()
 
         .setColor("#f5a3fa")
-        .addField("люди", `${message.author} x ${args[0]}`)
+        .addField("люди", `${message.author} ♥ ${args[0]}`)
         .addField("Очки соместимости", `${bondLevel}%`)
         .addField("Любовь..", bondLevelResults)
         .addField("Ответ", ship);
@@ -182,7 +182,7 @@ client.on('message', async (message) => {
         var bondEmbed2 = new Discord.RichEmbed()
 
         .setColor("#f5a3fa")
-        .addField("люди", `${args[0]} x ${args[1]}`)
+        .addField("люди", `${args[0]} ♥ ${args[1]}`)
         .addField("Очки соместимости", `${bondLevel}%`)
         .addField("Любовь..", bondLevelResults)
         .addField("Ответ", ship);
@@ -197,7 +197,7 @@ client.on('message', async (message) => {
         var bondEmbed3 = new Discord.RichEmbed()
 
         .setColor("#f5a3fa")
-        .addField("люди", `${args[0]} и ${args[1]} x ${args[2]}`)
+        .addField("люди", `${args[0]} и ${args[1]} ♥ ${args[2]}`)
         .addField("Очки соместимости", `${bondLevel}%`)
         .addField("Любовь..", bondLevelResults)
         .addField("Ответ", ship);
