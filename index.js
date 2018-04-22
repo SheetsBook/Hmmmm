@@ -278,6 +278,8 @@ client.on('message', async (message) => {
         if (member.user.id === message.author.id) return message.channel.send("Невозможно выписать предупреждение самому себе.")
         if (member.user.id === message.author.bot) return message.reply('Невозможно предупредить бота.');
     if (member.user.id === message.channel.guild.ownerID) return message.channel.send("Невозможно предупредить создателя сервера.")
+        if (!message.member.hasPermission('MANAGE_MESSAGES', false, true, true))
+                return message.channel.send("У вас нет прав **MANAGE_MESSAGES** для выполнения этой команды.")
     message.channel.send(`Пользователь ${member.user} получил предупреждение по причине **` + WarnMessage + "**");
     } else if (['embedsay'].includes(command)) {
         const embedsayMessage = args.join(" ");
