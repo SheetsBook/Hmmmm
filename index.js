@@ -329,14 +329,14 @@ if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("*
     return message.channel.send("**Нужно указать причину.**");
 
     await member.ban(reason)
-      .catch(error => message.channel.send(`У вас нет прав. `${error}``));
+      .catch(error => message.channel.send(`У вас нет прав. **${error}**`));
 
     if(!reason){
         const channel = member.guild.channels.find('логи', "logs");
-        message.channel.send(`${member.user.username} Был забанин пользователем ${message.author.username}`);
+        message.channel.send(`${member.user.username} Был забанен пользователем ${message.author.username}`);
         let Banembed = new Discord.RichEmbed()
         .setDescription("Ban")
-        .setColor("#ecf0f1")
+        .setColor("#ff0000")
         .setTimestamp()
         .addField('Какой человек был забанен', `${member.user.username}#${member.user.discriminator} (${member.user.id})`)
         .addField('Кем был забанен', `${message.author.username}#${message.author.discriminator}`)
@@ -344,11 +344,11 @@ if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("*
         channel.send(Banembed);
     }
 
-    message.channel.send(`${member.user.username} Был забанин ${message.author.username} по причины : **${reason}**`);
+    message.channel.send(`${member.user.username} Был забанен ${message.author.username} по причине : **${reason}**`);
     const channel = member.guild.channels.find('логи', "logs");
     let Banembed = new Discord.RichEmbed()
     .setDescription("Ban")
-    .setColor("#ecf0f1")
+    .setColor("#ff0000")
     .setTimestamp()
     .addField('Какой человек был забанен', `${member.user.username}#${member.user.discriminator} (${member.user.id})`)
     .addField('Кем был забанен', `${message.author.username}#${message.author.discriminator}`)
