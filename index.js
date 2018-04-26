@@ -341,7 +341,7 @@ if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("*
         .addField('Какой человек был забанен', `${member.user.username}#${member.user.discriminator} (${member.user.id})`)
         .addField('Кем был забанен', `${message.author.username}#${message.author.discriminator}`)
         .addField('Reason', "причина не указана");
-        channel.send(Banembed);
+        message.channel.send(Banembed);
     }
 
     message.channel.send(`${member.user.username} Был забанен ${message.author.username} по причине : **${reason}**`);
@@ -353,7 +353,7 @@ if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("*
     .addField('Какой человек был забанен', `${member.user.username}#${member.user.discriminator} (${member.user.id})`)
     .addField('Кем был забанен', `${message.author.username}#${message.author.discriminator}`)
     .addField('Reason', reason);
-    channel.send(Banembed);
+    message.channel.send(Banembed);
 }
     if (['report'].includes(command) && message.channel.guild.id === "409966133547106305") {
         const embed = new Discord
