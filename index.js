@@ -312,7 +312,50 @@ client.on('message', async (message) => {
             }
         }
 
-    } else if (['report'].includes(command) && message.channel.guild.id === "409966133547106305") {
+    } else if (['ban'].includes(command) && message.member.hasPermission('BAN_MEMBERS')) {
+        
+if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("**У вас не xватает прав чтобы забанить человека.**");
+
+    let member = message.mentions.members.first();
+
+    if(!member)
+    return message.channel.send("**Укажите цель.** `x!ban [user]`");
+
+    if(!member.bannable)
+    return message.channel.send("** Я не могу забанить этого пользователя. ** У пользователя может быть больше прав, чем у меня, или у меня нет прав.");
+
+    let reason = args.slice(1).join(' ');
+    if(!reason)
+    return message.channel.send("**Нужно указать причину.**");
+
+    await member.ban(reason)
+      .catch(error => message.channel.send(`У вас нет прав. `${error}``));
+
+    if(!reason){
+        const channel = member.guild.channels.find('логи', "logs");
+        message.channel.send(`${member.user.username} Был забанин пользователем ${message.author.username}`);
+        let Banembed = new Discord.RichEmbed()
+        .setDescription("Ban")
+        .setColor("#ecf0f1")
+        .setTimestamp()
+        .addField('Какой человек был забанен', `${member.user.username}#${member.user.discriminator} (${member.user.id})`)
+        .addField('Кем был забанен', `${message.author.username}#${message.author.discriminator}`)
+        .addField('Reason', "причина не указана");
+        channel.send(Banembed);
+    }
+
+    message.channel.send(`${member.user.username} Был забанин ${message.author.username} по причины : **${reason}**`);
+    const channel = member.guild.channels.find('логи', "logs");
+    let Banembed = new Discord.RichEmbed()
+    .setDescription("Ban")
+    .setColor("#ecf0f1")
+    .setTimestamp()
+    .addField('Какой человек был забанен', `${member.user.username}#${member.user.discriminator} (${member.user.id})`)
+    .addField('Кем был забанен', `${message.author.username}#${message.author.discriminator}`)
+    .addField('Reason', reason);
+    channel.send(Banembed);
+}
+    if (['report'].includes(command) && message.channel.guild.id === "409966133547106305") {
         const embed = new Discord
             .RichEmbed().setColor("0000ff")
             .addField('Сообщение', args.join(' '))
