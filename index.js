@@ -279,7 +279,22 @@ client.on('message', async (message) => {
         message.channel.send({embed});
         message.delete().catch(O_o => {});
     } else if (['about'].includes(command)) {
-        message.channel.send(`${client.guilds.size} серверов всего. \n${client.users.size} пользователей всего. \n${client.channels.size} каналов всего.`)
+        const embed = new Discord.RichEmbed()
+            .setColor("#00ff00")
+            .setTitle('Статистика')
+            .setThumbnail(client.user.avatarURL);
+        embed.addField('Пинг', client.ping, true);
+        embed.addField('ОЗУ', process.env.WEB_MEMORY + 'мб / ' + process.env.MEMORY_AVAILABLE + 'мб', true);
+        embed.addField('Сервер', process.env.DYNO, true);
+        embed.addField('Порт', process.env.PORT, true);
+        embed.addField('Количество серверов', `${client.guilds.size}`)
+        embed.addField('Количество пользователей', `${client.users.size}`)
+        embed.addField('Количество каналов', `${client.channels.size}`)
+        let guilds = [];
+        client.guilds.forEach(function (guild) {guilds.push(guild.name)});
+        embed.addField('Гильдии', '\`\`\`'+guilds.join('\n')+'\`\`\`');
+        message.channel.send(embed);
+        message.delete();
     } else if (['idea'].includes(command) && message.channel.guild.id === "419529589623357450") {
         const embed = new Discord
             .RichEmbed().setColor("0000ff")
