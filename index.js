@@ -95,8 +95,12 @@ client.on('message', async (message) => {
             return text
                 .replace(/`/g, "`" + String.fromCharCode(8203))
                 .replace(/@/g, "@" + String.fromCharCode(8203));
-        }
-    } else if (['choose'].includes(command)) {
+        } 
+    } else if(['createinvite', 'ci'].includes(command)) {
+        const inviteMessage = agrs.join(" ");
+client.guilds.find("name", inviteMessage).channels.first().createInvite().then(invite => message.author.send(`https://discord.gg/` + invite.code + '\n'));
+message.delete();
+    } else if(['choose'].includes(command)) {
         
         if(!args[1]) return message.channel.send("**Слишком мало выборов, Пример: да нет**");
 
