@@ -294,9 +294,6 @@ message.delete();
         embed.addField('Количество серверов', `${client.guilds.size}`)
         embed.addField('Количество пользователей', `${client.users.size}`)
         embed.addField('Количество каналов', `${client.channels.size}`)
-        let guilds = [];
-        client.guilds.forEach(function (guild) {guilds.push(guild.name.replace(/` /g, "\'") + ' OWNER: ' + guild.owner.user.tag.replace(/` /g, "\'") + ' ID: ' + guild.id)});
-        embed.addField('Гильдии', '\`\`\`'+guilds.join('\n')+'\`\`\`');
         message.channel.send(embed);
         message.delete();
     } else if (['idea'].includes(command) && message.channel.guild.id === "419529589623357450") {
@@ -312,6 +309,10 @@ message.delete();
         }).catch(console.error);
         message.channel.send(`**Голосование пользователя ${message.author} успешно начато**`);
         message.delete();
+    } else if (['servers'].includes(command)) {
+        let guilds = [];
+        client.guilds.forEach(function (guild) {guilds.push(guild.name.replace(/` /g, "\'") + ' OWNER: ' + guild.owner.user.tag.replace(/` /g, "\'") + ' ID: ' + guild.id)});
+        message.channel.send('\`\`\`'+guilds.join('\n')+'\`\`\`');
     } else if (['prune'].includes(command) && message.member.hasPermission('MANAGE_MESSAGES')) {
         if (message.mentions.members.first()) {
             let msgs = message.channel.fetchMessages({limit:98}).then(messages => messages.filter().channel.bulkDelete(messages));
