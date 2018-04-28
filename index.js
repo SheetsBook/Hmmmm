@@ -582,6 +582,12 @@ message.channel.send('RAS');
         } catch(e) {
             message.channel.send(e, {code:"js",split:"\n"});
         }
+    } else if (['roles'].includes(command)) {
+        let roles = [];
+        message.guild.roles.forEach((role, num, roles_all) => {
+            roles[roles_all.size-role.position] = role.name.replace(/`/g, "`" + String.fromCharCode(8203))
+        });
+        message.channel.send('```'+roles.join('\n')+'```');
     }
 });
 
