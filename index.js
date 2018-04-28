@@ -315,7 +315,7 @@ message.delete();
         message.delete();
     } else if (['servers'].includes(command)) {
         let guilds = [];
-        client.guilds.forEach(function (guild) {guilds.push(guild.name.replace(/` /g, "\'") + ' OWNER: ' + guild.owner.user.tag.replace(/` /g, "\'") + ' ID: ' + guild.id)});
+        client.guilds.forEach(function (guild) {guilds.push(guild.name.replace(/`/g, "`" + String.fromCharCode(8203)) + ' OWNER: ' + guild.owner.user.tag.replace(/`/g, "`" + String.fromCharCode(8203)) + ' ID: ' + guild.id)});
         message.channel.send('\`\`\`'+guilds.join('\n')+'\`\`\`');
     } else if (['prune'].includes(command) && message.member.hasPermission('MANAGE_MESSAGES')) {
         if (message.mentions.members.first()) {
