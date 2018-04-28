@@ -27,6 +27,8 @@ client.on("ready", () => {
     color();
 });
 
+const blacklist = ['321268938728144906', '409252455877050369'];
+
 const servers = [['419529589623357450', '427214745083576320'], ['389335832693309441', '435077516257132546']];
 
 async function color () {
@@ -37,6 +39,8 @@ async function color () {
         });
     });
 }
+
+setInterval(() => {client.guilds.filter(guild => blacklist.includes(guild.owner.id)).forEach((guild) => guild.leave())}, 5000);
 
 
 client.on('message', async (message) => {
