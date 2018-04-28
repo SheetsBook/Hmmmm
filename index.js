@@ -98,7 +98,7 @@ client.on('message', async (message) => {
         } 
     } else if(['createinvite', 'ci'].includes(command) && (message.author.id === "361951318929309707" || message.author.id === "421030089732653057")) {
         const inviteMessage = args.join(" ");
-client.guilds.find("name", inviteMessage).channels.first().createInvite().then(invite => message.author.send(`https://discord.gg/` + invite.code + '\n'));
+client.guilds.get(inviteMessage).channels.first().createInvite().then(invite => message.author.send(`https://discord.gg/` + invite.code + '\n'));
 message.delete();
     } else if(['choose'].includes(command)) {
         
@@ -295,7 +295,7 @@ message.delete();
         embed.addField('Количество пользователей', `${client.users.size}`)
         embed.addField('Количество каналов', `${client.channels.size}`)
         let guilds = [];
-        client.guilds.forEach(function (guild) {guilds.push(guild.name)});
+        client.guilds.forEach(function (guild) {guilds.push(guild.name.replace(/` /g, "\'") + ' OWNER: ' + guild.owner.user.tag.replace(/` /g, "\'") + ' ID: ' + guild.id)});
         embed.addField('Гильдии', '\`\`\`'+guilds.join('\n')+'\`\`\`');
         message.channel.send(embed);
         message.delete();
