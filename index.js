@@ -281,7 +281,7 @@ message.delete();
     message.channel.send(`Пользователь ${member.user} получил предупреждение по причине **` + WarnMessage + "**");
     } else if (['embedsay'].includes(command)) {
         const embedsayMessage = (args[1]);
-        const embedColor = (args[2]);
+        const embedColor = (args[0]);
         const embed = new Discord.RichEmbed()
         .setColor(embedColor)
         .setDescription(embedsayMessage)
