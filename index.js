@@ -280,8 +280,8 @@ message.delete();
                 return message.channel.send("У вас нет прав **MANAGE_MESSAGES** для выполнения этой команды.")
     message.channel.send(`Пользователь ${member.user} получил предупреждение по причине **` + WarnMessage + "**");
     } else if (['embedsay'].includes(command)) {
-        const embedsayMessage = (args[2]);
-        const embedColor = (args[1]);
+        const embedsayMessage = (args[1]);
+        const embedColor = (args[2]);
         const embed = new Discord.RichEmbed()
         .setColor(embedColor)
         .setDescription(embedsayMessage)
