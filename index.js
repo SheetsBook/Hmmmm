@@ -280,13 +280,13 @@ message.delete();
                 return message.channel.send("У вас нет прав **MANAGE_MESSAGES** для выполнения этой команды.")
     message.channel.send(`Пользователь ${member.user} получил предупреждение по причине **` + WarnMessage + "**");
     } else if (['embedsay'].includes(command)) {
-        args.shift();
 
         const embedsayMessage = args.join(" ");
         const embedColor = (args[0]);
         const embed = new Discord.RichEmbed()
-        .setColor(embedColor)
-        .setDescription(embedsayMessage)
+        .setColor(embedColor);
+        if (embedsayMesaage)
+       embed .setDescription(embedsayMessage)
         message.channel.send({embed});
         message.delete().catch(O_o => {});
     } else if (['about'].includes(command)) {
