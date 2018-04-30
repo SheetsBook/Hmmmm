@@ -285,7 +285,7 @@ message.delete();
         const embedColor = (args[0]);
         const embed = new Discord.RichEmbed()
         .setColor(embedColor);
-        if (embedsayMesaage)
+        if (embedsayMessage)
        embed .setDescription(embedsayMessage)
         message.channel.send({embed});
         message.delete().catch(O_o => {});
