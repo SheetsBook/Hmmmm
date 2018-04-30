@@ -282,8 +282,8 @@ message.delete();
     } else if (['embedsay'].includes(command)) {
         const embedsayMessage = args.join(" ");
         const embed = new Discord.RichEmbed()
-        .setColor("#00ff00")
-        .setDescription(embedsayMessage)
+        .setColor(args[1])
+        .setDescription(args[2])
         message.channel.send({embed});
         message.delete().catch(O_o => {});
     } else if (['about'].includes(command)) {
