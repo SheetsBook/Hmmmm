@@ -17,6 +17,28 @@
 ###### Вы можете пронаблюдать код и взять команды которые вам требуются изменив их.
 Вы можете взять команды целиком или только нужные.
 Тут будут показаны некоторые.
-
+```js
+if (['avatar', 'av'].includes(command)) {
+        //задает 1 слово как пользователя
+        let member = message.mentions.members.first();
+        //если пользователь не найден или вписано не правильно выдает ошибку
+        let embederr = (`${message.author}, пользователя нет на данном сервере.`);
+        //если пользователя нет выполняет действие
+        if (!member)
+            //вызывает текст ошибки
+            return message.channel.send({embederr});
+        //новый рич ембед
+            const embed = new Discord.RichEmbed()
+            //создает заголовок
+                .setTitle(`Аватар пользователя ${member.user.tag}`)
+            //создает изображение
+                .setImage(member.user.avatarURL)
+            //нижний текст
+                .setFooter("Avatar")
+            //задает цвет
+                .setColor("#0000ff")
+            //отправляет
+            message.channel.send({embed});
+            ```
 
 
