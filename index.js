@@ -271,7 +271,7 @@ message.delete();
     } else if (['afk'].includes(command)) {
         message.delete();
         const embed = new Discord.RichEmbed()
-        .setTitle(`${message.author.name}, ненадолго отошел`)
+        .setTitle(`${message.author.userName}, ненадолго отошел`)
         .setThumbnail('https://images-ext-1.discordapp.net/external/zOQcnhsC7Ud8tPF-pJQpt51YyrvvP-xwH5c9v02p4Ys/https/thumbs.gfycat.com/SinfulCompetentBeaver-max-1mb.gif?width=80&height=80')
         .setColor('0000ff')
         message.channel.send({embed}).then(function(message) {
