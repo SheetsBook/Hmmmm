@@ -274,7 +274,10 @@ message.delete();
         .setTitle(`${message.author.name}, ненадолго отошел`)
         .setThumbnail('https://images-ext-1.discordapp.net/external/zOQcnhsC7Ud8tPF-pJQpt51YyrvvP-xwH5c9v02p4Ys/https/thumbs.gfycat.com/SinfulCompetentBeaver-max-1mb.gif?width=80&height=80')
         .setColor('0000ff')
-        message.channel.send((embed});
+        message.channel.send({embed})then(function(message) {
+            //Функция переходит на сообщение бота.
+            message.react('💤')
+        }).catch(function() {});
     } else if (['warn'].includes(command) && message.member.hasPermission('MANAGE_MESSAGES')) {
         let member = message.mentions.members.first();
     args.shift();
