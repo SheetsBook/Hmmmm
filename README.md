@@ -39,6 +39,6 @@ if (['avatar', 'av'].includes(command)) {
                 .setColor("#0000ff")
             //отправляет
             message.channel.send({embed});
-            ```
+            }```
 
 
