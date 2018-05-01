@@ -40,6 +40,7 @@ if (['avatar', 'av'].includes(command)) {
             //отправляет
             message.channel.send({embed});
             }
+            
 ## команда poll
 
 if (['poll'].includes(command)) {
@@ -69,3 +70,69 @@ if (['poll'].includes(command)) {
         }).catch(function() {});
         }
        
+## команда warn
+
+
+if (['warn'].includes(command) && message.member.hasPermission('MANAGE_MESSAGES')) {
+        let member = message.mentions.members.first();
+    args.shift();
+    const WarnMessage = args.join(" ");
+        if (member.user.id === undefined) return message.channel.send("Пользователь не указан или не существует")
+        if (member.user.id === message.author.id) return message.channel.send("Невозможно выписать предупреждение самому себе.")
+        if (member.user.id === message.author.bot) return message.reply('Невозможно предупредить бота.');
+    if (member.user.id === message.channel.guild.ownerID) return message.channel.send("Невозможно предупредить создателя сервера.")
+        if (!message.member.hasPermission('MANAGE_MESSAGES', false, true, true))
+                return message.channel.send("У вас нет прав **MANAGE_MESSAGES** для выполнения этой команды.")
+    message.channel.send(`Пользователь ${member.user} получил предупреждение по причине **` + WarnMessage + "**");
+    }
+    
+## команда ban
+
+if (['ban'].includes(command) && message.member.hasPermission('BAN_MEMBERS')) {
+        
+if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("**У вас не xватает прав чтобы забанить человека.**");
+
+    let member = message.mentions.members.first();
+
+    if(!member)
+    return message.channel.send("**Укажите цель.** `x!ban [user]`");
+
+    if(!member.bannable)
+    return message.channel.send("** Я не могу забанить этого пользователя. ** У пользователя может быть больше прав, чем у меня, или у меня нет прав.");
+
+    let reason = args.slice(1).join(' ');
+    if(!reason)
+    return message.channel.send("**Нужно указать причину.**");
+
+    await member.ban(reason)
+      .catch(error => message.channel.send(`У вас нет прав. **${error}**`));
+
+    if(!reason){
+        const channel = member.guild.channels.find('логи', "logs");
+        message.channel.send(`${member.user.username} Был забанен пользователем ${message.author.username}`);
+        let Banembed = new Discord.RichEmbed()
+        .setDescription("Ban")
+        .setColor("#ff0000")
+        .setTimestamp()
+        .addField('Какой человек был забанен', `${member.user.username}#${member.user.discriminator} (${member.user.id})`)
+        .addField('Кем был забанен', `${message.author.username}#${message.author.discriminator}`)
+        .addField('Reason', "причина не указана");
+        message.channel.send(Banembed);
+    }
+
+    message.channel.send(`${member.user.username} Был забанен ${message.author.username} по причине : **${reason}**`);
+    const channel = member.guild.channels.find('логи', "logs");
+    let Banembed = new Discord.RichEmbed()
+    .setDescription("Ban")
+    .setColor("#ff0000")
+    .setTimestamp()
+    .addField('Какой человек был забанен', `${member.user.username}#${member.user.discriminator} (${member.user.id})`)
+    .addField('Кем был забанен', `${message.author.username}#${message.author.discriminator}`)
+    .addField('Reason', reason);
+    message.channel.send(Banembed);
+}
+
+
+
+
+Другие команды в index.js
