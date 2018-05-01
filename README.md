@@ -39,9 +39,9 @@ if (['avatar', 'av'].includes(command)) {
                 .setColor("#0000ff")
             //отправляет
             message.channel.send({embed});
-            } ```
-команда poll
-```js
+            }
+## команда poll
+
 if (['poll'].includes(command)) {
         //Удаляет сообщение.
                 message.delete().catch(O_o => {});
