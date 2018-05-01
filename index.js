@@ -268,6 +268,13 @@ message.delete();
                 .setColor("#0000ff")
             //отправляет
             message.channel.send({embed});
+    } else if (['afk'].includes(command)) {
+        message.delete();
+        const embed = new Discord.RichEmbed()
+        .setTitle(`${message.author.name}, ненадолго отошел`)
+        .setThumbnail('https://images-ext-1.discordapp.net/external/zOQcnhsC7Ud8tPF-pJQpt51YyrvvP-xwH5c9v02p4Ys/https/thumbs.gfycat.com/SinfulCompetentBeaver-max-1mb.gif?width=80&height=80')
+        .setColor('0000ff')
+        message.channel.send((embed});
     } else if (['warn'].includes(command) && message.member.hasPermission('MANAGE_MESSAGES')) {
         let member = message.mentions.members.first();
     args.shift();
