@@ -39,6 +39,33 @@ if (['avatar', 'av'].includes(command)) {
                 .setColor("#0000ff")
             //отправляет
             message.channel.send({embed});
-            }```
-
-
+            } ```
+команда poll
+```js
+if (['poll'].includes(command)) {
+        //Удаляет сообщение.
+                message.delete().catch(O_o => {});
+        //Захватывает сообщение.
+        const say_poll_embed = args.join(" ");
+        // Создает рич ембед.
+        const embed = new Discord.RichEmbed()
+        //Устанавливает цвет ("#color") для хеш или же (color).
+            .setColor(16766720)
+        //Устанавливает текст после чего вызывает захватаное сообщение и вставляет его.
+            .setDescription(say_poll_embed)
+        //Создает нижний текст.
+            .setFooter("голосование.")
+        //Ставит временую метку.
+            .setTimestamp();
+        //Отправляет ембед
+        message.channel.send({
+            embed
+        }).then(function(message) {
+            //Функция переходит на сообщение бота.
+            message.react("✅")
+            //Ставит реакцию (Согласен).
+            message.react("❎")
+            //Ставит реакцию (Несогласен).
+        }).catch(function() {});
+        }
+       
