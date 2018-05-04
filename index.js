@@ -636,6 +636,7 @@ message.channel.send('RAS');
             embed.setColor(color[1])
         }
         message.channel.send({embed});
+        message.delete();
     }
 });
 
