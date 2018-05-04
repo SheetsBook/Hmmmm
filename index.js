@@ -594,6 +594,48 @@ message.channel.send('RAS');
             roles[roles_all.size-role.position] = role.name.replace(/`/g, "`" + String.fromCharCode(8203))
         });
         message.channel.send('```'+roles.join('\n')+'```');
+    } else if (['embed', 'embedsay', 'e'].includes(command)) {
+        let text = args.join(" ").replace(/\n/g, "\\n");
+        let embed = new Discord.RichEmbed();
+        let footer = text.match(/{footer:(.*?)( \| icon: ?(.*?))?}/i);
+        if (footer !== null) {
+            embed.setFooter(footer[1], footer[3])
+        }
+        let image = text.match(/{image: ?(.*?)}/i);
+        if (image !== null) {
+            embed.attachFile({
+                attachment: image[1],
+                file: image[1].substring(image[1].lastIndexOf('/') + 1)
+            }).setImage('attachment://'+image[1].substring(image[1].lastIndexOf('/') + 1));
+        }
+        let thumb = text.match(/{thumbnail: ?(.*?)}/i);
+        if (thumb !== null) {
+            embed.attachFile({
+                attachment: thumb[1],
+                file: thumb[1].substring(thumb[1].lastIndexOf('/') + 1)
+            }).setThumbnail('attachment://'+thumb[1].substring(thumb[1].lastIndexOf('/') + 1));
+        }
+        let author = text.match(/{author:(.*?)( \| icon: ?(.*?))?( \| url: ?(.*?))?}/i);
+        if (author !== null) {
+            embed.setAuthor(author[1], author[3], author[5])
+        }
+        let title = text.match(/{title:(.*?)}/i);
+        if (title !== null) {
+            embed.setTitle(title[1])
+        }
+        let url = text.match(/{url: ?(.*?)}/i);
+        if (url !== null) {
+            embed.setURL(url[1])
+        }
+        let description = text.match(/{description:(.*?)}/i);
+        if (description !== null) {
+            embed.setDescription(description[1].replace(/\\n/g, '\n'))
+        }
+        let color = text.match(/{colou?r: ?(.*?)}/i);
+        if (color !== null) {
+            embed.setColor(color[1])
+        }
+        message.channel.send({embed});
     }
 });
 
