@@ -185,7 +185,7 @@ message.delete();
         return message.channel.send(bondEmbed)
     }
         
-    if(args[0] === '<@!361951318929309707>') && (args[1] === '<@!204679612825993227>') || (args[0] === '<@!204679612825993227>') && (args[1] === '<@!361951318929309707>') {
+    if(args[0] === '<@!361951318929309707>') {
         var bondEmbed5 = new Discord.RichEmbed()
 
         .setColor("#f5a3fa")
