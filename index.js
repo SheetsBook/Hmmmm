@@ -461,7 +461,7 @@ if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("*
             .setFooter("Создатель: X-49")
             .setTimestamp();
         message.channel.send({embed});
-    } else if (['embedHelp'].includes(command)) {
+    } else if (['helpembed'].includes(command)) {
         message.channel.send("```js \n{description: текст описания} \n{title: текст заголовка} \n{field: имя | value: текст} \n{timestamp}(временая метка) \n{footer: нижний текст} \n{color: #цвет}")
     } else if(['userinfo', 'ui'].includes(command)) {
                 message.delete().catch(O_o => {});
