@@ -185,7 +185,7 @@ message.delete();
         return message.channel.send(bondEmbed)
     }
         
-    if(args[0] = message.author.id === 361951318929309707) {
+    if(args[0] === '<@!361951318929309707>') {
         var bondEmbed5 = new Discord.RichEmbed()
         let boundLevel = "105%"
 
