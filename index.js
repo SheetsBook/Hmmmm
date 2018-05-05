@@ -186,14 +186,13 @@ message.delete();
     }
         
     if(args[0] === '<@!361951318929309707>') {
-        let boundLevel = "105%"
         var bondEmbed5 = new Discord.RichEmbed()
 
         .setColor("#f5a3fa")
         .addField("люди", `${args[0]} ♥ ${args[1]}`)
-        .addField("Очки соместимости", `${bondLevel}%`)
-        .addField("Любовь..", bondLevelResults)
-        .addField("Ответ", ship);
+        .addField("Очки соместимости", `100%`)
+        .addField("Любовь..", `♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥`)
+        .addField("Ответ", `Идеальная пара <3_<3 :ok_hand:`);
 
 
         return message.channel.send(bondEmbed5)
