@@ -462,7 +462,8 @@ if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("*
             .setTimestamp();
         message.channel.send({embed});
     } else if (['helpembed'].includes(command)) {
-        message.channel.send("```{description: текст описания} \n{title: текст заголовка} \n{field: имя | value: текст} \n{timestamp}(временая метка) \n{footer: нижний текст} \n{color: #цвет} \n```")
+        message.channel.send("```{description: текст описания} \n{title: текст заголовка} \n{field: имя | value: текст} \n{timestamp}(временая метка) \n{footer: нижний текст} \n{color: #цвет} \n{image: url} \n{thumbnail url}```")
+        message.channel.send("Пример: ```x!embed {thumbnail: https://cdn.discordapp.com/emojis/429653035984355338.png}{title: hello world}{description: привет ☮️}{field: пункт 1 | value: содержание пункта}{timestamp}{footer: XeVAL}{color: 00ff00}{image: https://cdn.discordapp.com/avatars/441667160025333762/716f5fe7b8b3c9b6e80f1db146dc3947.png}```")
     } else if(['userinfo', 'ui'].includes(command)) {
                 message.delete().catch(O_o => {});
         let member = message.guild.members.get(message.author.id);
