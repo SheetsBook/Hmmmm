@@ -186,8 +186,8 @@ message.delete();
     }
         
     if(args[0] === '<@!361951318929309707>') {
-        var bondEmbed5 = new Discord.RichEmbed()
         let boundLevel = "105%"
+        var bondEmbed5 = new Discord.RichEmbed()
 
         .setColor("#f5a3fa")
         .addField("люди", `${args[0]} ♥ ${args[1]}`)
