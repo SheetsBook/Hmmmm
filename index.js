@@ -184,6 +184,19 @@ message.delete();
 
         return message.channel.send(bondEmbed)
     }
+        
+    if(args[0] = message.author.id === 361951318929309707) {
+        var bondEmbed5 = new Discord.RichEmbed()
+        let boundLevel = "105%"
+
+        .setColor("#f5a3fa")
+        .addField("люди", `${args[0]} ♥ ${args[1]}`)
+        .addField("Очки соместимости", `${bondLevel}%`)
+        .addField("Любовь..", bondLevelResults)
+        .addField("Ответ", ship);
+
+
+        return message.channel.send(bondEmbed5)
 
     if(!args[2]){
         var bondEmbed2 = new Discord.RichEmbed()
