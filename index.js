@@ -197,6 +197,7 @@ message.delete();
 
 
         return message.channel.send(bondEmbed5)
+    }
 
     if(!args[2]){
         var bondEmbed2 = new Discord.RichEmbed()
