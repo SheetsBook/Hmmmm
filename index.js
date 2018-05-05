@@ -362,7 +362,7 @@ if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("*
       .catch(error => message.channel.send(`У вас нет прав. **${error}**`));
 
     if(!reason){
-        const channel = member.guild.channels.find('логи', "logs");
+        const channel = member.guild.channels.find('name', "logs");
         message.channel.send(`${member.user.username} Был забанен пользователем ${message.author.username}`);
         let Banembed = new Discord.RichEmbed()
         .setDescription("Ban")
@@ -375,7 +375,7 @@ if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("*
     }
 
     message.channel.send(`${member.user.username} Был забанен ${message.author.username} по причине : **${reason}**`);
-    const channel = member.guild.channels.find('логи', "logs");
+    const channel = member.guild.channels.find('name', "logs");
     let Banembed = new Discord.RichEmbed()
     .setDescription("Ban")
     .setColor("#ff0000")
@@ -462,7 +462,7 @@ if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("*
             .setTimestamp();
         message.channel.send({embed});
     } else if (['helpembed'].includes(command)) {
-        message.channel.send("```js \n{description: текст описания} \n{title: текст заголовка} \n{field: имя | value: текст} \n{timestamp}(временая метка) \n{footer: нижний текст} \n{color: #цвет} \n```")
+        message.channel.send("```{description: текст описания} \n{title: текст заголовка} \n{field: имя | value: текст} \n{timestamp}(временая метка) \n{footer: нижний текст} \n{color: #цвет} \n```")
     } else if(['userinfo', 'ui'].includes(command)) {
                 message.delete().catch(O_o => {});
         let member = message.guild.members.get(message.author.id);
