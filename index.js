@@ -9,7 +9,7 @@ vm.createContext(codeContext);
 const client = new Discord.Client();
 //префикс
 const prefix = "x!";
-//массив ролей sss тест
+//массив ролей
 const rule = {own: "421373056158662656", admin: "421244086557605888"};
 //массив сосздателей
 const creators = ['361951318929309707'];
@@ -22,7 +22,7 @@ client.on("ready", () => {
     //Отпраляет сообщение в логи что бот запущен (+ количество серверов).
     console.log(`Успешный старт. ${client.guilds.size} серверов`);
     //Ставит боту статус.
-    client.user.setActivity(`x!h for help ${client.guilds.size} servers`).catch(console.error);
+    client.user.setActivity(`x!h for help`).catch(console.error);
     //Функция необходимая для запуска радуги.
 });
 
