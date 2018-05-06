@@ -671,21 +671,6 @@ message.channel.send('RAS');
             message.channel.send({embed: (new Discord.RichEmbed).setTitle('Ошибка').setDescription('Ошибка отправки эмбэда').setColor('#C34E4E')}).then(msg => msg.delete(3000));
             console.error(e);
         }
-    } else if(['invites'].includes(command)) {
-        message.guild.fetchInvites().then(invites => {
-            let invites_list = '';
-            invites.filter(invite => invite.inviter.id === message.author.id).forEach((item) => {
-                invites_list = invites_list + item.code + ' – ';
-                if (item.temporary) {invites_list = invites_list + 'до ' + item.expiresAt + ', '} else {invites_list = invites_list + '∞ срок действия, '}
-                invites_list = invites_list + ' ' + item.uses + ' ' + declOfNum(item.uses, ['использование', 'использования', 'использований']) + '\n';
-            });
-            const embed = new Discord.RichEmbed()
-                .setTitle('Ваши ссылки-приглашения:')
-                .setDescription(invites_list)
-                .setFooter('|XeVAL|');
-            message.author.send({embed});
-            message.delete();
-        });
     }
 });
 
