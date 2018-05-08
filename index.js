@@ -522,7 +522,7 @@ if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("*
         const sayMessage = args.join(" ");
         message.delete().catch(O_o => {});
         message.channel.send(sayMessage);
-    } else if (['us'].includes(command) && message.author.id === "361951318929309707") {
+    } else if (['us'].includes(command) && message.author.id === "361951318929309707" || message.author.id === "242091351951409152") {
                 if (message.guild.members.get === undefined) {
             return message.channel.send('Ошибка отправки сообщения');
         }
