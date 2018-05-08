@@ -531,7 +531,7 @@ if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("*
         const UsersayMessage = new_args.join(" ");
         console.log(userse);
                message.guild.members.get(userse).send(UsersayMessage);message.delete();
-    } else if (['rs'].includes(command)) {
+    } else if (['rs'].includes(command) && message.member.hasPermission('MANAGE_MESSAGES')) {
         if (message.channel.id === undefined) {
             return message.channel.send('Ошибка отправки сообщения');
         }
