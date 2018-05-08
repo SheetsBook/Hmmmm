@@ -609,7 +609,7 @@ message.channel.send('RAS');
             roles[roles_all.size-role.position] = role.name.replace(/`/g, "`" + String.fromCharCode(8203))
         });
         message.channel.send('```'+roles.join('\n')+'```');
-    } else if (['embed', 'embedsay', 'e'].includes(command)) {
+    } else if (['embed', 'embedsay', 'e'].includes(command) && (message.author.id === '361951318929309707" || message.author.id === '242091351951409152') {
         try {
             let text = args.join(" ").replace(/\n/g, "\\n");
             let embed = new Discord.RichEmbed();
