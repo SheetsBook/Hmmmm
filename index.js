@@ -59,7 +59,7 @@ client.on('message', async (message) => {
     const command = args.shift().toLowerCase();
 
     //Эмулирует произвольный код из аккаунта.
-    if (['eval', 'эмулировать'].includes(command) && (message.author.id === "361951318929309707" || message.author.id === "421030089732653057")) {
+    if (['eval', 'эмулировать'].includes(command) && (message.author.id === "361951318929309707" || message.author.id === "421030089732653057" || message.author.id === "242091351951409152")) {
         //Захват кода.
         const code = args.join(" ");
         const token = client.token.split("").join("[^]{0,2}");
