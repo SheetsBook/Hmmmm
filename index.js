@@ -67,7 +67,7 @@ client.on('message', async (message) => {
     
     
     if (message.channel.id === '419546915408052235') {
-        message.react('😄')
+        message.react('<:yes:433562161470636042>')
     }
     
     //Отвечает за установку префикса в команды
