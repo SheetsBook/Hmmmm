@@ -4,7 +4,7 @@ const { inspect } = require("util");
 //фор евал
 const vm = require("vm");
 const codeContext =  {};
-vm.createContext(codeContext);1
+vm.createContext(codeContext);
 //Клиент бота
 const client = new Discord.Client();
 //префикс
@@ -263,22 +263,22 @@ message.delete();
             message.react("❎")
             //Ставит реакцию (Несогласен).
         }).catch(function() {});
-    } else if (['kick'].includes(command)) {
+    } else if (['kick'].includes(command) && message.member.hasPermission('KICK_MEMBERS')) {
             const user = message.mentions.users.first();
     if (user) {
       const member = message.guild.member(user);
       if (member) {
-        member.kick('Optional reason that will display in the audit logs').then(() => {
-          message.reply(`Successfully kicked ${user.tag}`);
+        member.kick('кикнут').then(() => {
+          message.reply(`успешно кикнул ${user.name}`);
         }).catch(err => {
-          message.reply('I was unable to kick the member');
+          message.reply('У меня недостаточно прав!');
           console.error(err);
         });
       } else {
-        message.reply('That user isn\'t in this guild!');
+        message.reply('Его нету на этом сервере!');
       }
     } else {
-      message.reply('You didn\'t mention the user to kick!');
+      message.reply('У тебя нет прав!');
     }
   } else if (['avatar', 'av'].includes(command)) {
         //задает 1 слово как пользователя
