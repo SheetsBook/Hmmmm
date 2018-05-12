@@ -53,6 +53,18 @@ client.on('message', async (message) => {
         process.exit();
     }
     
+    function clear_count (channel, count, count_all = 0) {
+    if (count > 100) {
+        count_all = count_all + 100;
+        channel.bulkDelete(100).then(() => {clear_count(channel, count-100, count_all)});
+    } else {
+        channel.bulkDelete(count).then(messages => {
+            count_all = count_all + messages.size;
+            channel.send(`Удалено ${count_all} ${declOfNum(count_all, ['сообщение','сообщения','сообщений'])}.`).then((msg) => {msg.delete(3000);});
+        });
+    }
+}
+    
     //Отвечает за установку префикса в команды
     if(!message.content.startsWith(prefix) || message.author.bot) return;
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
