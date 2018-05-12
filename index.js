@@ -4,7 +4,7 @@ const { inspect } = require("util");
 //фор евал
 const vm = require("vm");
 const codeContext =  {};
-vm.createContext(codeContext);
+vm.createContext(codeContext);1
 //Клиент бота
 const client = new Discord.Client();
 //префикс
