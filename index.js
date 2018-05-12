@@ -488,7 +488,7 @@ if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("*
                 .addField('>Количество каналов<', message.channel.guild.channels.size)
                 .addField('>Сервер большой?<', large, true)
                 .addField('>Системный канал<', message.channel.guild.systemChannel !== null ? message.channel.guild.systemChannel : 'Нету.')
-                .addField('>ID Системного канала<', message.channel.guild.systemChannelID !== null ? message.channel.guild.systemChannelID : 'Нету.', inline)
+                .addField('>ID Системного канала<', message.channel.guild.systemChannelID !== null ? message.channel.guild.systemChannelID : 'Нету.', true)
                 .addField('>Имя сервера<', message.channel.guild.name)
                 .addField('>Сокращеное имя сервера<', message.channel.guild.nameAcronym, true)
                 .addField('>AFK канал<', message.channel.guild.afkChannel !== null ? message.channel.guild.afkChannel : 'Нету.')
