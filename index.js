@@ -487,8 +487,11 @@ if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("*
                 .addField('>Количество ролей<', message.channel.guild.roles.size)
                 .addField('>Количество каналов<', message.channel.guild.channels.size)
                 .addField('>Сервер большой?<', large)
+                .addField('>Системный канал<', message.channel.guild.systemChannel !== null ? message.channel.guild.systemChannel : 'Нету.')
+                .addField('>ID Системного канала<', message.channel.guild.systemChannelID !== null ? message.channel.guild.systemChannelID : 'Нету.')
                 .addField('>Имя сервера<', message.channel.guild.name)
                 .addField('>AFK канал<', message.channel.guild.afkChannel !== null ? message.channel.guild.afkChannel : 'Нету.')
+                .addField('>ID AFK канала<', message.channel.guild.afkChannelID !== null ? message.channel.guild.afkChannelID : 'Нету.')
                 .addField('>Регион<', message.channel.guild.region)
                 .setFooter('ServerInfo')
                 .setTimestamp(); message.react("✅");
