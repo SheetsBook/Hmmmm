@@ -269,7 +269,7 @@ message.delete();
       const member = message.guild.member(user);
       if (member) {
         member.kick('кикнут').then(() => {
-          message.reply(`успешно кикнул ${user.name}`);
+          message.reply(`успешно кикнул ${user.tag}`);
         }).catch(err => {
           message.reply('У меня недостаточно прав!');
           console.error(err);
