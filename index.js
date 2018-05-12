@@ -65,12 +65,6 @@ client.on('message', async (message) => {
     }
 }
     
-    
-    if (message.channel.id === '422775194814251019') {
-        message.react('✅')
-        message.react('❎')
-    }
-    
     //Отвечает за установку префикса в команды
     if(!message.content.startsWith(prefix) || message.author.bot) return;
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
