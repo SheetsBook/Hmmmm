@@ -66,7 +66,7 @@ client.on('message', async (message) => {
 }
     
     
-    if (message.channel.id === '423400183641145354') {
+    if (message.channel.id === '422775194814251019') {
         message.react('✅')
         message.react('❎')
     }
