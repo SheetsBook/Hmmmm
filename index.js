@@ -19,7 +19,7 @@ const emojis = {nya:'435849475865575424'}
 const colors = ['ff2828','ff3d28','ff4b28','ff5a28','ff6828','ff7628','ff8c28','ffa128','ffac28','ffb728','ffc228','ffd028','ffd728','ffe228','fff028','fffb28','edff28','deff28','d0ff28','c2ff28','b3ff28','9aff28','8cff28','7dff28','6fff28','5aff28','3dff28','28ff2b','28ff41','28ff56','28ff6c','28ff81','28ff93','28ffa9','28ffba','28ffc9','28ffde','28fff4','28ffff','28f0ff','28deff','28deff','28d3ff','28c5ff','28baff','28b0ff','28a5ff','289eff','2893ff','2885ff','2876ff','2864ff','2856ff','284bff','2841ff','2836ff','2828ff','3228ff','4428ff','5328ff','6828ff','7628ff','7e28ff','8828ff','9328ff','a128ff','b028ff','be28ff','c928ff','d328ff','db28ff','e528ff','f028ff','ff28ff','ff28f7','ff28e5','ff28de','ff28d0','ff28c9','ff28ba','ff28b3','ff28a5','ff289a','ff288c','ff2881','ff287a','ff2873','ff2868','ff2861','ff2856','ff284f','ff2848','ff2844','ff282b'];
 //Выполняет действие когда бот запустился.
 client.on("ready", () => {
-    //Отпраляет сообщение в логи что бот запущен (+ количество серверов).
+    //Отпраляет сообщение в логи что бот запущен (+ количество серверов).${i}
     console.log(`Успешный старт. ${client.guilds.size} серверов`);
     //Ставит боту статус.
     client.user.setActivity(`x!h for help`).catch(console.error);
@@ -480,29 +480,30 @@ if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("*
   let b = 0;
   message.guild.members.forEach(member => {
       if(member.user.bot) b = b + 1;
+      });
 
                 const embed = new Discord.RichEmbed()
-                .setAuthor(message.author.tag, message.author.avatarURl)
-                .setTitle('Информация об сервере', message.channel.guild.name)
-                .setColor("ff0000")
-                .setThumbnail(message.channel.guild.iconURL)
-                .addField('>ID<', message.channel.guild.id)
-                .addField('>Owner<', message.channel.guild.owner, true)
-                .addField('Owner ID', message.channel.guild.ownerID)
-                .addField('>Уровень верификации<', message.channel.guild.verificationLevel, true)
-                .addField('>Количество пользователей<', `${message.channel.guild.memberCount} пользователей из которых ${b} ботов и ${i} людей`)
-                .addField('>Количество ролей<', message.channel.guild.roles.size, true)
-                .addField('>Количество каналов<', message.channel.guild.channels.size)
-                .addField('>Сервер большой?<', large, true)
-                .addField('>Системный канал<', message.channel.guild.systemChannel !== null ? message.channel.guild.systemChannel : 'Нету.')
-                .addField('>ID Системного канала<', message.channel.guild.systemChannelID !== null ? message.channel.guild.systemChannelID : 'Нету.', true)
-                .addField('>Имя сервера<', message.channel.guild.name)
-                .addField('>Сокращеное имя сервера<', message.channel.guild.nameAcronym, true)
-                .addField('>AFK канал<', message.channel.guild.afkChannel !== null ? message.channel.guild.afkChannel : 'Нету.')
-                .addField('>ID AFK канала<', message.channel.guild.afkChannelID !== null ? message.channel.guild.afkChannelID : 'Нету.', true)
-                .addField('>Регион<', message.channel.guild.region)
-                .setFooter('ServerInfo')
-                .setTimestamp(); message.react("✅");
+                embed.setAuthor(message.author.tag, message.author.avatarURl)
+                embed.setTitle('Информация об сервере', message.channel.guild.name)
+                embed.setColor("ff0000")
+                embed.setThumbnail(message.channel.guild.iconURL)
+                embed.addField('>ID<', message.channel.guild.id)
+                embed.addField('>Owner<', message.channel.guild.owner, true)
+                embed.addField('Owner ID', message.channel.guild.ownerID)
+                embed.addField('>Уровень верификации<', message.channel.guild.verificationLevel, true)
+                embed.addField('>Количество пользователей<', `${message.channel.guild.memberCount} пользователей из которых ${b} ботов и ${i} людей`)
+                embed.addField('>Количество ролей<', message.channel.guild.roles.size, true)
+                embed.addField('>Количество каналов<', message.channel.guild.channels.size)
+                embed.addField('>Сервер большой?<', large, true)
+                embed.addField('>Системный канал<', message.channel.guild.systemChannel !== null ? message.channel.guild.systemChannel : 'Нету.')
+                embed.addField('>ID Системного канала<', message.channel.guild.systemChannelID !== null ? message.channel.guild.systemChannelID : 'Нету.', true)
+                embed.addField('>Имя сервера<', message.channel.guild.name)
+                embed.addField('>Сокращеное имя сервера<', message.channel.guild.nameAcronym, true)
+                embed.addField('>AFK канал<', message.channel.guild.afkChannel !== null ? message.channel.guild.afkChannel : 'Нету.')
+                embed.addField('>ID AFK канала<', message.channel.guild.afkChannelID !== null ? message.channel.guild.afkChannelID : 'Нету.', true)
+                embed.addField('>Регион<', message.channel.guild.region)
+                embed.setFooter('ServerInfo')
+                embed.setTimestamp(); message.react("✅");
             message.channel.send({embed});
     } else if(['h', 'help'].includes(command)) {
         const embed = new Discord.RichEmbed()
