@@ -472,7 +472,14 @@ if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("*
         }
         if (message.channel.guild.region == "russia") {
             message.channel.guild.region = "Россия"
-        }         
+        }
+        let i = 0;
+  message.guild.members.forEach(member => {
+      if(!member.user.bot) i = i + 1;
+  });
+  let b = 0;
+  message.guild.members.forEach(member => {
+      if(member.user.bot) b = b + 1;
 
                 const embed = new Discord.RichEmbed()
                 .setAuthor(message.author.tag, message.author.avatarURl)
@@ -483,7 +490,7 @@ if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("*
                 .addField('>Owner<', message.channel.guild.owner, true)
                 .addField('Owner ID', message.channel.guild.ownerID)
                 .addField('>Уровень верификации<', message.channel.guild.verificationLevel, true)
-                .addField('>Количество пользователей<', message.channel.guild.memberCount)
+                .addField('>Количество пользователей<', `${message.channel.guild.memberCount} пользователей из которых ${b} ботов и ${i} людей`)
                 .addField('>Количество ролей<', message.channel.guild.roles.size, true)
                 .addField('>Количество каналов<', message.channel.guild.channels.size)
                 .addField('>Сервер большой?<', large, true)
