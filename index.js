@@ -107,7 +107,12 @@ client.on('message', async (message) => {
         const inviteMessage = args.join(" ");
 client.guilds.get(inviteMessage).channels.first().createInvite().then(invite => message.author.send(`https://discord.gg/` + invite.code + '\n'));
 message.delete();
-    } else if(['choose'].includes(command)) {
+    } else if(['react'].includes(command)) {
+        let kanal = (args[0])
+        let sms = (args[1])
+        let reaction = (args[2])
+         client.channels.get(kanal).fetchMessage(sms).then(msg => {msg.react('reaction')})
+    else if(['choose'].includes(command)) {
         
         if(!args[1]) return message.channel.send("**Слишком мало выборов, Пример: да нет**");
 
