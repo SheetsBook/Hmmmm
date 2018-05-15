@@ -112,7 +112,7 @@ message.delete();
         let sms = (args[1])
         let reaction = (args[2])
          client.channels.get(kanal).fetchMessage(sms).then(msg => {msg.react('reaction')})
-    else if(['choose'].includes(command)) {
+    } else if(['choose'].includes(command)) {
         
         if(!args[1]) return message.channel.send("**Слишком мало выборов, Пример: да нет**");
 
