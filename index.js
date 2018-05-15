@@ -111,7 +111,12 @@ message.delete();
         let kanal = (args[0])
         let sms = (args[1])
         let reaction = (args[2])
-         client.channels.get(kanal).fetchMessage(sms).then(msg => {msg.react(reaction)})
+         client.channels.get(kanal).fetchMessage(sms).then(msg => {msg.react(reaction)});                                                                     
+    } else if(['idreact' ,'ir'].includes(command)) {
+        let kanal = (args[0])
+        let sms = (args[1])
+        let reaction = (args[2])
+     client.channels.get(kanal).fetchMessage(sms).then(msg => {msg.react(client.emojis.get(reaction))
     } else if(['choose'].includes(command)) {
         
         if(!args[1]) return message.channel.send("**Слишком мало выборов, Пример: да нет**");
