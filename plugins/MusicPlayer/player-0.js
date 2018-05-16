@@ -11,7 +11,7 @@ exports.commands = [
 ]
 
 let options = false;
-	let PREFIX = (options && options.prefix) || '!';
+	let PREFIX = (options && options.prefix) || 'x!';
 	let GLOBAL_QUEUE = (options && options.global) || false;
 	let MAX_QUEUE_SIZE = (options && options.maxQueueSize) || 150;
 	// Create an object of queues.
