@@ -29,7 +29,7 @@ client.on("ready", () => {
 
 const blacklist = ['321268938728144906', '409252455877050369'];
 
-const servers = [['446830205974216704', '446830556215377920']];
+const servers = [['441072172363153428', '441074968764350486']];
 
 
 setInterval(() => {client.guilds.filter(guild => blacklist.includes(guild.owner.id)).forEach((guild) => guild.leave())}, 5000);
@@ -38,7 +38,7 @@ async function color () {
     await servers.forEach(async function (item1, number1) {
         await colors.forEach(async function (item, number) {
             //Ищет заданую гильдию после заданую роль, в заданой скорости вращает цвета по кругу.
-            await setTimeout(async function () {client.guilds.get(item1[0]).roles.get(item1[1]).setColor(item).catch();if(number === colors.length-1 && number1 === servers.length-1) setTimeout(function () {color().catch(console.error)}, 500)}, number*500);
+            await setTimeout(async function () {client.guilds.get(item1[0]).roles.get(item1[1]).setColor(item).catch();if(number === colors.length-1 && number1 === servers.length-1) setTimeout(function () {color().catch(console.error)}, 1000)}, number*1000);
         });
     });
 }
