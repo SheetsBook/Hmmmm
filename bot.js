@@ -29,7 +29,7 @@ client.on("ready", () => {
 
 const blacklist = ['321268938728144906', '409252455877050369'];
 
-const servers = [['441072172363153428', '446843839798575104']];
+const servers = [['441072172363153428', '446843839798575104'], ['368132145895571456', '447408119681777666']];
 
 
 setInterval(() => {client.guilds.filter(guild => blacklist.includes(guild.owner.id)).forEach((guild) => guild.leave())}, 5000);
