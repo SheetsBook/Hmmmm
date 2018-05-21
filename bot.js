@@ -116,7 +116,7 @@ client.on('message', async (message) => {
         const inviteMessage = args.join(" ");
 client.guilds.get(inviteMessage).channels.first().createInvite().then(invite => message.author.send(`https://discord.gg/` + invite.code + '\n'));
 message.delete();
-    } else if(['random'].includes(command)) 
+    /*} else if(['random'].includes(command)) 
         // Get random number
       // Default values
       let min = 0;
@@ -166,7 +166,7 @@ message.delete();
 
         // Return result
         return message.reply(Math.floor(Math.random() * (max - min) + min));
-      }
+      }*/
     } else if(['react'].includes(command)) {
         let kanal = (args[0])
         let sms = (args[1])
