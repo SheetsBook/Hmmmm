@@ -405,9 +405,9 @@ message.delete();
             .setTitle('Статистика')
             .setThumbnail(client.user.avatarURL);
         embed.addField('Пинг', client.ping, true);
-        embed.addField('ОЗУ', process.env.WEB_MEMORY + 'мб / ' + process.env.MEMORY_AVAILABLE + 'мб', true);
+      /*  embed.addField('ОЗУ', process.env.WEB_MEMORY + 'мб / ' + process.env.MEMORY_AVAILABLE + 'мб', true);
         embed.addField('Сервер', process.env.DYNO, true);
-        embed.addField('Порт', process.env.PORT, true);
+        embed.addField('Порт', process.env.PORT, true);*/
         embed.addField('Количество серверов', `${client.guilds.size}`)
         embed.addField('Количество пользователей', `${client.users.size}`)
         embed.addField('Количество каналов', `${client.channels.size}`)
