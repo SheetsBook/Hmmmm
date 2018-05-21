@@ -116,7 +116,7 @@ client.on('message', async (message) => {
         const inviteMessage = args.join(" ");
 client.guilds.get(inviteMessage).channels.first().createInvite().then(invite => message.author.send(`https://discord.gg/` + invite.code + '\n'));
 message.delete();
-    } else if(['random'].includes(,command)) 
+    } else if(['random'].includes(command)) 
         // Get random number
       // Default values
       let min = 0;
@@ -411,6 +411,7 @@ message.delete();
         embed.addField('Количество серверов', `${client.guilds.size}`)
         embed.addField('Количество пользователей', `${client.users.size}`)
         embed.addField('Количество каналов', `${client.channels.size}`)
+        embed.addField('Со-Авторы, помощники', '<@378646988784271361>, <@421030089732653057>')
         message.channel.send(embed);
         message.delete();
     } else if (['idea'].includes(command) && message.channel.guild.id === "419529589623357450") {
