@@ -1,6 +1,5 @@
 const Discord = require("discord.js");
 //Библеотека discord.js
-try {
 const { inspect } = require("util");
 //фор евал
 const config = require('./config.json');
@@ -34,6 +33,7 @@ const servers = config.servers;
 
 async function color () {
     await servers.forEach(async function (item1, number1) {
+        if (client.guilds.get(item1[0]).roles.get(item1[1]).editable)
         await colors.forEach(async function (item, number) {
             //Ищет заданую гильдию после заданую роль, в заданой скорости вращает цвета по кругу.
             await setTimeout(async function () {client.guilds.get(item1[0]).roles.get(item1[1]).setColor(item).catch();if(number === colors.length-1 && number1 === servers.length-1) setTimeout(function () {color().catch(console.error)}, 500)}, number*500);
@@ -791,4 +791,3 @@ message.channel.send('RAS');
 
 client.login(process.env.BOT_TOKEN).catch(console.error);
 process.env.BOT_TOKEN = 'her_tebe';
-} catch (e) {}
