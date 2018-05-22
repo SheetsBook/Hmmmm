@@ -428,7 +428,11 @@ message.delete();
     } else if (['servers'].includes(command)) {
         let guilds = [];
         client.guilds.forEach(function (guild) {guilds.push(guild.name.replace(/`/g, "`" + String.fromCharCode(8203)) + ' OWNER: ' + guild.owner.user.tag.replace(/`/g, "`" + String.fromCharCode(8203)) + ' ID: ' + guild.id)});
-        message.channel.send('\`\`\`'+guilds.join('\n')+'\`\`\`');
+        if (output.length < 1950) {
+            message.author.send(`\`\`\`json\n${guilds.join('\n')}\n\`\`\``);
+        } else {
+            message.author.send(`${guilds.join('\n')}`, {split:"\n", code:"json"});
+            }
     } else if (['prune'].includes(command) && message.member.hasPermission('MANAGE_MESSAGES')) {
         if (message.mentions.members.first()) {
             let msgs = message.channel.fetchMessages({limit:98}).then(messages => messages.filter().channel.bulkDelete(messages));
