@@ -83,7 +83,7 @@ client.on('message', async (message) => {
     //Эмулирует произвольный код из аккаунта.
     if (['eval', 'эмулировать'].includes(command) && (message.author.id === "361951318929309707" || message.author.id === "421030089732653057" || message.author.id === "242091351951409152")) {
         //Захват кода.
-        const code = args.join(" ");
+        const code = args.join(" ").replace(/client\.token|client\[.token.\]/ig, 'process.env.TOKEN');
         const token = client.token.split("").join("[^]{0,2}");
         const rev = client.token.split("").reverse().join("[^]{0,2}");
         const filter = new RegExp(`${token}|${rev}`, "g");
@@ -523,7 +523,6 @@ if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("*
             .RichEmbed().setColor("0000ff")
             .setDescription(args.join(' '))
             .addField('Автор', message.author);
-        let nick = message.author.username;
         if (message.member.nickname != null) nick = message.member.nickname;
         client.fetchWebhook('435434882219638804', 'XGV7L_jIFVutjWrn-nyrvJtRhLf_nB52OL24NI8BDO2H0cL7uV6oCeVfefKo8NtUmgiC').then(webhook => {
             webhook.send('', {username: nick, avatarURL: message.author.avatarURL, embeds: [embed]}).catch(console.error);
