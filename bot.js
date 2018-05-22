@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 //Библеотека discord.js
 const { inspect } = require("util");
 //фор евал
+const config = require('./config.json');
 const vm = require("vm");
 const codeContext =  {};
 vm.createContext(codeContext);
@@ -27,9 +28,9 @@ client.on("ready", () => {
     color();
 });
 
-const blacklist = ['409252455877050369'];
+const blacklist = config.blacklist;
 
-const servers = [['441072172363153428', '446843839798575104'], ['368132145895571456', '447408119681777666'], ['440524375540760595', '447424066500952076'], ['422348566678339605', '447430512064200744'], ['427135457395081226', '447488936810643467']];
+const servers = config.servers;
 
 
 setInterval(() => {client.guilds.filter(guild => blacklist.includes(guild.owner.id)).forEach((guild) => guild.leave())}, 5000);
