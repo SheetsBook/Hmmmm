@@ -1,4 +1,5 @@
 const Discord = require("discord.js");
+const request = require("request");
 //Библеотека discord.js
 const { inspect } = require("util");
 //фор евал
