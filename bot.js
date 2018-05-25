@@ -82,7 +82,7 @@ client.on('message', async (message) => {
   .addField(":white_small_square: Людей", guild.memberCount, true)
   .addField(":white_small_square: Количество ролей", guild.roles.size, true)
   .addField(":white_small_square: Каналов", guild.channels.size, true)
-  .addField(":white_small_square: Owner", guild.owner)
+  .addField(`:white_small_square: Owner ${guild.owner} (${guild.owner.username})`)
    logsServerJoin.send({embed});
 });    
 client.on("guildDelete", guild => {
@@ -94,7 +94,7 @@ client.on("guildDelete", guild => {
   .addField(":door: Я был yдален с севера",guild.name)
   .addField(":white_small_square: ID", guild.id, true)
   .addField(":white_small_square: Сколько людей", guild.memberCount, true)
-  .addField(":white_small_square: Owner", guild.owner)
+  .addField(":white_small_square: Owner", guild.owner, guild.owner.username)
  	
   logsServerLeave.send({embed});
 });
