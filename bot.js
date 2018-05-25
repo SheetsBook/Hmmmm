@@ -822,6 +822,90 @@ message.channel.send('RAS');
             message.channel.send({embed: (new Discord.RichEmbed).setTitle('Ошибка').setDescription('Ошибка отправки эмбэда').setColor('#C34E4E')}).then(msg => msg.delete(3000));
             console.error(e);
         }
+    } else if(['slap'].includes(command)) {
+        message.delete();
+        let user = message.author;
+        let user1 = message.mentions.users.first();
+        if (!user1 || user1.id === user.id) {
+            user = client.user;
+            user1 = message.author;
+        }
+        message.channel.send('Загрузка...').then(msg => {
+            request('https://nekos.life/api/v2/img/slap', function (error, response, body) {
+                try {
+                    let arr = JSON.parse(body);
+                    let embed = new Discord.RichEmbed()
+                        .setTitle('>:{')
+                        .setDescription(`${user} дал(а) пощёчину ${user1}`)
+                        .setImage(arr['url'])
+                        .setColor('#ff0000');
+                    msg.edit(`${user1}`, {embed});
+                } catch (e) {console.log(e)}
+            });
+        });
+    } else if(['kiss'].includes(command)) {
+    message.delete();
+        let user = message.author;
+        let user1 = message.mentions.users.first();
+        if (!user1 || user1.id === user.id) {
+            user = client.user;
+            user1 = message.author;
+        }
+        message.channel.send('Загрузка...').then(msg => {
+            request('https://nekos.life/api/v2/img/kiss', function (error, response, body) {
+                try {
+                    let arr = JSON.parse(body);
+                    let embed = new Discord.RichEmbed()
+                        .setTitle(':3')
+                        .setDescription(`${user} поцеловал(а) ${user1}`)
+                        .setImage(arr['url'])
+                        .setColor('#ffff00');
+                    msg.edit(`${user1}`, {embed});
+                } catch (e) {console.log(e)}
+            });
+        });
+    } else if(['pat'].includes(command)) {
+        message.delete();
+        let user = message.author;
+        let user1 = message.mentions.users.first();
+        if (!user1 || user1.id === user.id) {
+            user = client.user;
+            user1 = message.author;
+        }
+        message.channel.send('Загрузка...').then(msg => {
+            request('https://nekos.life/api/v2/img/pat', function (error, response, body) {
+                try {
+                    let arr = JSON.parse(body);
+                    let embed = new Discord.RichEmbed()
+                        .setTitle(':3')
+                        .setDescription(`${user} погладил(а) по голове ${user1}`)
+                        .setImage(arr['url'])
+                        .setColor('#ffff00');
+                    msg.edit(`${user1}`, {embed});
+                } catch (e) {console.log(e)}
+            });
+        });
+    } else if(['hug'].includes(command)) 
+        message.delete();
+        let user = message.author;
+        let user1 = message.mentions.users.first();
+        if (!user1 || user1.id === user.id) {
+            user = client.user;
+            user1 = message.author;
+        }
+        message.channel.send('Загрузка...').then(msg => {
+            request('https://nekos.life/api/v2/img/hug', function (error, response, body) {
+                try {
+                    let arr = JSON.parse(body);
+                    let embed = new Discord.RichEmbed()
+                        .setTitle(':3')
+                        .setDescription(`${user} обнял(а) ${user1}`)
+                        .setImage(arr['url'])
+                        .setColor('#ffff00');
+                    msg.edit(`${user1}`, {embed});
+                } catch (e) {console.log(e)}
+            });
+        });
     }
 });
 
