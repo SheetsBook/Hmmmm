@@ -405,6 +405,11 @@ message.delete();
             //Функция переходит на сообщение бота.
             message.react('💤')
         }).catch(function() {});
+    } else if (['summon'].includes(command)) {
+        let member = message.mentions.members.first();
+        const SummonMessage = args.join(" ");
+        message.delete();
+        message.member.send(`Вас вызвали на сервере **${message.channel.guild.name}**. \nПользователем **${message.author}** (**${message.author.username}**) \nВ канале **${message.channel}** \n**Для быстрого перехода нажмите на название канала.**`)
     } else if (['warn'].includes(command) && message.member.hasPermission('MANAGE_MESSAGES')) {
         let member = message.mentions.members.first();
     args.shift();
