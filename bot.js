@@ -906,7 +906,7 @@ message.channel.send('RAS');
                 } catch (e) {console.log(e)}
             });
         });
-    })
+    }
 });
 
 client.login(process.env.BOT_TOKEN).catch(console.error);
