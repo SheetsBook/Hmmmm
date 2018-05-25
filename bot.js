@@ -373,6 +373,9 @@ message.delete();
   } else if (['avatar', 'av'].includes(command)) {
         //задает 1 слово как пользователя
         let member = message.mentions.members.first();
+      if (member == undefined) {
+          member === message.author.id
+          }
         //если пользователь не найден или вписано не правильно выдает ошибку
         let embederr = (`${message.author}, пользователя нет на данном сервере.`);
         //если пользователя нет выполняет действие
