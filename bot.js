@@ -409,7 +409,7 @@ message.delete();
         let member = message.mentions.members.first();
         const SummonMessage = args.join(" ");
         message.delete();
-        message.member.send(`Вас вызвали на сервере **${message.channel.guild.name}**. \nПользователем **${message.author}** (**${message.author.username}**) \nВ канале **${message.channel}** \n**Для быстрого перехода нажмите на название канала.**`)
+        message.member.send(`Вас вызвали на сервере **${message.channel.guild.name}**. \nПользователем **${message.author}** (**${message.author.username}**) \nВ канале **${message.channel}** \n**Для быстрого перехода нажмите на название канала.** \nНужда:**${SummonMessage}** `)
     } else if (['warn'].includes(command) && message.member.hasPermission('MANAGE_MESSAGES')) {
         let member = message.mentions.members.first();
     args.shift();
