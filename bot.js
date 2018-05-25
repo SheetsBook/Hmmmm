@@ -885,7 +885,7 @@ message.channel.send('RAS');
                 } catch (e) {console.log(e)}
             });
         });
-    } else if(['hug'].includes(command)) 
+    } else if(['hug'].includes(command)) {
         message.delete();
         let user = message.author;
         let user1 = message.mentions.users.first();
