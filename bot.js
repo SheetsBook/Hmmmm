@@ -137,8 +137,7 @@ client.on("guildDelete", guild => {
             return text
                 .replace(/`/g, "`" + String.fromCharCode(8203))
                 .replace(/@/g, "@" + String.fromCharCode(8203));
-        } 
-    } else if(['createinvite', 'ci'].includes(command) && (message.author.id === "361951318929309707" || message.author.id === "421030089732653057")) {
+      } else if(['createinvite', 'ci'].includes(command) && (message.author.id === "361951318929309707" || message.author.id === "421030089732653057")) {
         const inviteMessage = args.join(" ");
 client.guilds.get(inviteMessage).channels.first().createInvite().then(invite => message.author.send(`https://discord.gg/` + invite.code + '\n'));
 message.delete();
@@ -192,11 +191,22 @@ message.delete();
 
         // Return result
         return message.reply(Math.floor(Math.random() * (max - min) + min));*/
+    } else if(['pin'].includes(command) && message.member.hasPermission('MANAGE_MESSAGES')) {
+        let kanal = (args[0])
+        let sms = (args[1])
+        
+        client.channels.get(kanal).fetchMessage(sms).then(msg => {msg.pin});
+    } else if(['unpin'].includes(command) && message.member.hasPermission('MANAGE_MESSAGES')) {
+        let kanal = (args[0])
+        let sms = (args[1])
+        
+        client.channels.get(kanal).fetchMessage(sms).then(msg => {msg.unpin});      
     } else if(['react'].includes(command)) {
         let kanal = (args[0])
         let sms = (args[1])
         let reaction = (args[2])
-         client.channels.get(kanal).fetchMessage(sms).then(msg => {msg.react(reaction)});
+        
+        client.channels.get(kanal).fetchMessage(sms).then(msg => {msg.react(reaction)});
     } else if(['choose'].includes(command)) {
         
         if(!args[1]) return message.channel.send("**Слишком мало выборов, Пример: да нет**");
@@ -624,6 +634,7 @@ message.guild.channels.filter(chan => chan.type === 'voice').forEach((channel) =
             .addField("Mod", "**x!ban** бан пользователя. \n**x!kick** кик пользователя. \n**x!warn** предупредить пользователя.")
             .addField("Bot own", "**x!eval** эмуляция js кода. \n**x!presence** __[type] [status]__ смена статуса. \n**x!us** приватное сообщение от лица бота.")
             .addField("Reactions", "**x!kiss** [user] - поцелуй. \n**x!pat** [user] - погладить. \n**x!slap** [user] - ударить. \n**x!hug** [user] - обнять.")
+            .addField("utility", "**x!pin** [channel id] [message id] - закрепить сообщение ботом. \n**x!unpin** [channel id] [message id] - открепить сообщение ботом.")
             .setFooter(message.channel.guild.name)
             .setTimestamp();
         message.channel.send({embed});
