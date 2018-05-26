@@ -137,57 +137,6 @@ client.on("guildDelete", guild => {
             return text
                 .replace(/`/g, "`" + String.fromCharCode(8203))
                 .replace(/@/g, "@" + String.fromCharCode(8203));
-
-    /*} else if(['random'].includes(command)) 
-        // Get random number
-      // Default values
-      let min = 0;
-      let max = 100;
-
-      // Values entered by user
-      let min2 = parseInt(args[0], 10);
-      let max2 = parseInt(args[1], 10);
-      let count = parseInt(args[2], 10);
-
-      // If min value isn't number
-      if (!isNaN(min2)) {
-        min = min2;
-      }
-
-      // If max value isn't number
-      if (!isNaN(max2)) {
-        max = max2;
-      }
-
-      // If count is specified
-      if (!isNaN(count)) {
-        // Check input
-        if (count < 2) {
-          return message.reply('Количество чисел не может быть меньше 2.');
-        }
-
-        if (count > 30) {
-          return message.reply('Количество чисел не может быть больше 30.');
-        }
-
-        // Numbers
-        let numbers = '';
-
-        // Generate numbers
-        for (let i=0; i < count; i++) {
-          numbers += Math.floor(Math.random() * (max - min) + min) + ', ';
-        }
-
-        // Return result
-        return message.reply(numbers.substr(0, numbers.length - 2));
-      } else {
-        // Check input
-        if (max <= min) {
-          return message.reply('Максимальное число не может быть меньше или равно минимальномы.');
-        }
-
-        // Return result
-        return message.reply(Math.floor(Math.random() * (max - min) + min));*/
     } else if(['pin'].includes(command) && message.member.hasPermission('MANAGE_MESSAGES')) {
         let kanal = (args[0])
         let sms = (args[1])
