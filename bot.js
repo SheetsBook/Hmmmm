@@ -55,12 +55,16 @@ client.on('message', async (message) => {
         message.channel.stopTyping();
     }
     
+    if (message.content.startsWith("я пидор", "я пидорас")) {
+        message.pin();
+        }
     //При заданом сообщение и заданом пользователем выполняет действие.
     if (message.content.startsWith("x!restart") && message.author.id === "361951318929309707") {
         //Заканчивает процесс.
         process.exit();
     }
-    
+    });
+          
     function clear_count (channel, count, count_all = 0) {
     if (count > 100) {
         count_all = count_all + 100;
