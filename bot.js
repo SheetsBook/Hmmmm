@@ -624,6 +624,7 @@ message.guild.channels.filter(chan => chan.type === 'voice').forEach((channel) =
             embed
         });
     } else if(['say'].includes(command)) {
+              if (message.channel.guild.id === 389335832693309441) return message.reply("команда отключена для сервера.");
         const sayMessage = args.join(" ");
         message.delete().catch(O_o => {});
         message.channel.send(sayMessage);
