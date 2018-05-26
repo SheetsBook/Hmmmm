@@ -623,7 +623,7 @@ message.guild.channels.filter(chan => chan.type === 'voice').forEach((channel) =
         message.channel.send({
             embed
         });
-    } else if(['say'].includes(command)) {
+    } else if(['say'].includes(command) && (!message.channel.guild.id === 389335832693309441)) {
         const sayMessage = args.join(" ")
               if (message.channel.guild.id === 389335832693309441) {
                   sayMessage = "Отключено для данного сервера"
