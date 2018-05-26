@@ -63,7 +63,7 @@ client.on('message', async (message) => {
         //Заканчивает процесс.
         process.exit();
     }
-    });
+    
           
     function clear_count (channel, count, count_all = 0) {
     if (count > 100) {
@@ -151,7 +151,7 @@ client.on("guildDelete", guild => {
         let kanal = (args[0])
         let sms = (args[1])
         
-        client.channels.get(kanal).fetchMessage(sms).then(msg => {msg.unpin});      
+        client.channels.get(kanal).fetchMessage(sms).then(msg => {msg.unpin});   
     } else if(['react'].includes(command)) {
         let kanal = (args[0])
         let sms = (args[1])
