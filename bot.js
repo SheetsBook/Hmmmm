@@ -315,8 +315,7 @@ client.on("guildDelete", guild => {
             //Ставит реакцию (Несогласен).
         }).catch(function() {});
     } else if (['logo'].includes(command)) {
-        let server = (args[0])
-        message.reply(`Иконка сервера ${server.name} ${server.iconURL}`); message.delete();
+        message.reply(`Иконка сервера ${message.channel.guild.name} — ${message.channel.guild.iconURL}`); message.delete();
     } else if (['kick'].includes(command) && message.member.hasPermission('KICK_MEMBERS')) {
             const user = message.mentions.users.first();
     if (user) {
