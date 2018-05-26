@@ -319,6 +319,7 @@ client.on("guildDelete", guild => {
         .setTitle(message.channel.guild.name)
         .setImage(message.channel.guild.iconURL)
         .setFooter("logo")
+        .setColor("#0000ff")
         message.channel.send({embed})
     } else if (['kick'].includes(command) && message.member.hasPermission('KICK_MEMBERS')) {
             const user = message.mentions.users.first();
