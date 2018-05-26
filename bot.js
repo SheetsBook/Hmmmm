@@ -137,6 +137,7 @@ client.on("guildDelete", guild => {
             return text
                 .replace(/`/g, "`" + String.fromCharCode(8203))
                 .replace(/@/g, "@" + String.fromCharCode(8203));
+        }
     } else if(['pin'].includes(command) && message.member.hasPermission('MANAGE_MESSAGES')) {
         let kanal = (args[0])
         let sms = (args[1])
