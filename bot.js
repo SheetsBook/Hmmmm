@@ -314,6 +314,9 @@ client.on("guildDelete", guild => {
             message.react("❎")
             //Ставит реакцию (Несогласен).
         }).catch(function() {});
+    } else if (['logo'].includes(command)) {
+        let server = (args[0])
+        message.reply(`Иконка сервера ${server.name} ${server.iconURL}`); message.delete();
     } else if (['kick'].includes(command) && message.member.hasPermission('KICK_MEMBERS')) {
             const user = message.mentions.users.first();
     if (user) {
