@@ -315,7 +315,11 @@ client.on("guildDelete", guild => {
             //Ставит реакцию (Несогласен).
         }).catch(function() {});
     } else if (['logo'].includes(command)) {
-        message.reply(`Иконка сервера ${message.channel.guild.name} — ${message.channel.guild.iconURL}`); message.delete();
+        const embed = new Discord.RichEmbed()
+        .setTitle(message.channel.guild.name)
+        .setImage(message.channel.guild.iconURL)
+        .setFooter("logo")
+        message.channel.send({embed})
     } else if (['kick'].includes(command) && message.member.hasPermission('KICK_MEMBERS')) {
             const user = message.mentions.users.first();
     if (user) {
