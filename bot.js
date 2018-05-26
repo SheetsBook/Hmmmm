@@ -137,10 +137,7 @@ client.on("guildDelete", guild => {
             return text
                 .replace(/`/g, "`" + String.fromCharCode(8203))
                 .replace(/@/g, "@" + String.fromCharCode(8203));
-      } else if(['createinvite', 'ci'].includes(command) && (message.author.id === "361951318929309707" || message.author.id === "421030089732653057")) {
-        const inviteMessage = args.join(" ");
-client.guilds.get(inviteMessage).channels.first().createInvite().then(invite => message.author.send(`https://discord.gg/` + invite.code + '\n'));
-message.delete();
+
     /*} else if(['random'].includes(command)) 
         // Get random number
       // Default values
