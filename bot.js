@@ -176,7 +176,7 @@ async function googleCommand(msg, args) {
      searchMessage.edit('No results found!');
   });
 }
-     if(['pin'].includes(command) && message.member.hasPermission('MANAGE_MESSAGES')) {
+    } else if(['pin'].includes(command) && message.member.hasPermission('MANAGE_MESSAGES')) {
         let kanal = (args[0])
         let sms = (args[1])
         
