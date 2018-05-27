@@ -6,6 +6,9 @@ const { inspect } = require("util");
 const config = require('./config.json');
 const vm = require("vm");
 const codeContext =  {};
+const cheerio = require('cheerio'),
+const snekfetch = require('snekfetch'),
+const querystring = require('querystring');
 vm.createContext(codeContext);
 //Клиент бота
 const client = new Discord.Client();
@@ -143,9 +146,6 @@ client.on("guildDelete", guild => {
                 .replace(/@/g, "@" + String.fromCharCode(8203));
         }
     } else if(['google'].includes(command)) {
-const cheerio = require('cheerio'),
-      snekfetch = require('snekfetch'),
-      querystring = require('querystring');
 
 // Depending on your command framework (or if you use one), it doesn't have to
 // edit messages so you can rework it to fit your needs. Again, this doesn't have
