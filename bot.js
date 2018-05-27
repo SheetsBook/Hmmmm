@@ -6,8 +6,8 @@ const { inspect } = require("util");
 const config = require('./config.json');
 const vm = require("vm");
 const codeContext =  {};
-const cheerio = require('cheerio'),
-const snekfetch = require('snekfetch'),
+const cheerio = require('cheerio');
+const snekfetch = require('snekfetch');
 const querystring = require('querystring');
 vm.createContext(codeContext);
 //Клиент бота
