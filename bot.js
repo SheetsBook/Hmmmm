@@ -154,7 +154,7 @@ async function googleCommand(msg, args) {
 
    // These are our two variables. One of them creates a message while we preform a search,
    // the other generates a URL for our crawler.
-   let searchMessage = await <Message>.reply('Searching... Sec.');
+   let searchMessage = await message.reply('Searching... Sec.');
    let searchUrl = `https://www.google.com/search?q=${encodeURIComponent(msg.content)}`;
 
    // We will now use snekfetch to crawl Google.com. Snekfetch uses promises so we will
