@@ -29,6 +29,9 @@ client.on("ready", () => {
     //Ставит боту статус.
     client.user.setActivity(`x!h for help`).catch(console.error);
     //Функция необходимая для запуска радуги.
+    servers.forEach(async function (item1, number1) {
+    if (!client.guilds.get(item1[0]) || !client.guilds.get(item1[0]).roles.get(item1[1]) || !client.guilds.get(item1[0]).roles.get(item1[1]).editable) servers.splice(number1, 1);
+    });
     color();
 });
 
