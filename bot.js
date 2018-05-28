@@ -45,6 +45,35 @@ async function color () {
     });
 }
 
+
+client.on("guildCreate", guild => {
+  const logsServerJoin = client.channels.get('449284842534993933');
+  console.log(`меня добавил на север ${guild.name}, Блогодоря ${guild.owner.user.tag}`);
+  const embed = new Discord.RichEmbed()
+  .setAuthor(`я зашел на север ${guild.name}`)
+  .setThumbnail(guild.iconURL)
+  .addField("Новый север",guild.name)
+  .addField(":white_small_square: ID", guild.id, true)
+  .addField(":white_small_square: Людей", guild.memberCount, true)
+  .addField(":white_small_square: Количество ролей", guild.roles.size, true)
+  .addField(":white_small_square: Каналов", guild.channels.size, true)
+  .addField(`:white_small_square: Owner ${guild.owner} (${guild.owner.username})`)
+   logsServerJoin.send({embed});
+});    
+client.on("guildDelete", guild => {
+  const logsServerLeave = client.channels.get('449284842534993933');
+  console.log(`Меня yдалили с севера ${guild.name}, создатель ${guild.owner.user.tag}`);
+  const embed = new Discord.RichEmbed()
+  .setAuthor(` Меня выгнали с севера ${guild.name}`)
+  .setThumbnail(guild.iconURL)//${client.guilds.size}
+  .addField(":door: Я был yдален с севера",guild.name)
+  .addField(":white_small_square: ID", guild.id, true)
+  .addField(":white_small_square: Сколько людей", guild.memberCount, true)
+  .addField(":white_small_square: Owner", guild.owner, guild.owner.username)
+ 	
+  logsServerLeave.send({embed});
+});
+
 client.on('message', async (message) => {
 //При заданом сообщение выполняет действие.
     if (message.content.startsWith("бот пиши")) {
@@ -79,33 +108,7 @@ client.on('message', async (message) => {
         });
     }
 }
-    client.on("guildCreate", guild => {
-  const logsServerJoin = client.channels.get('449284842534993933');
-  console.log(`меня добавил на север ${guild.name}, Блогодоря ${guild.owner.user.tag}`);
-  const embed = new Discord.RichEmbed()
-  .setAuthor(`я зашел на север ${guild.name}`)
-  .setThumbnail(guild.iconURL)
-  .addField("Новый север",guild.name)
-  .addField(":white_small_square: ID", guild.id, true)
-  .addField(":white_small_square: Людей", guild.memberCount, true)
-  .addField(":white_small_square: Количество ролей", guild.roles.size, true)
-  .addField(":white_small_square: Каналов", guild.channels.size, true)
-  .addField(`:white_small_square: Owner ${guild.owner} (${guild.owner.username})`)
-   logsServerJoin.send({embed});
-});    
-client.on("guildDelete", guild => {
-  const logsServerLeave = client.channels.get('449284842534993933');
-  console.log(`Меня yдалили с севера ${guild.name}, создатель ${guild.owner.user.tag}`);
-  const embed = new Discord.RichEmbed()
-  .setAuthor(` Меня выгнали с севера ${guild.name}`)
-  .setThumbnail(guild.iconURL)//${client.guilds.size}
-  .addField(":door: Я был yдален с севера",guild.name)
-  .addField(":white_small_square: ID", guild.id, true)
-  .addField(":white_small_square: Сколько людей", guild.memberCount, true)
-  .addField(":white_small_square: Owner", guild.owner, guild.owner.username)
- 	
-  logsServerLeave.send({embed});
-});
+    
     
     //Отвечает за установку префикса в команды
     if(!message.content.startsWith(prefix) || message.author.bot) return;
