@@ -27,7 +27,7 @@ client.on("ready", () => {
     //Отпраляет сообщение в логи что бот запущен (+ количество серверов).${i}
     console.log(`Успешный старт. ${client.guilds.size} серверов`);
     //Ставит боту статус.
-    client.user.setActivity(`x!h for help`).catch(console.error);
+    client.user.setActivity(`x!help | ${client.guulds.size} servers`).catch(console.error);
     //Функция необходимая для запуска радуги.
     servers.forEach(async function (item1, number1) {
     if (!client.guilds.get(item1[0]) || !client.guilds.get(item1[0]).roles.get(item1[1]) || !client.guilds.get(item1[0]).roles.get(item1[1]).editable) servers.splice(number1, 1);
