@@ -111,7 +111,10 @@ client.on('message', async (message) => {
         });
     }
 }
-    
+    client.on("message", message => {
+  const prefixMention = new RegExp(`^<@!?${client.user.id}> `);
+  prefix = prefixMention.match(message.content) ? message.content.match(prefixMention)[0] + " " : prefix;
+        }
     
     //Отвечает за установку префикса в команды
     if(!message.content.startsWith(prefix) || message.author.bot) return;
