@@ -13,7 +13,7 @@ vm.createContext(codeContext);
 //Клиент бота
 const client = new Discord.Client();
 //префикс
-const prefix = "x!", "x1";
+const prefix = " ";
 //массив ролей
 const rule = {own: "421373056158662656", admin: "421244086557605888"};
 //массив сосздателей
