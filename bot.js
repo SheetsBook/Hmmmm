@@ -25,6 +25,7 @@ const colors = ['ff2828','ff3d28','ff4b28','ff5a28','ff6828','ff7628','ff8c28','
 //Выполняет действие когда бот запустился.
 client.on("ready", () => {
     //Отпраляет сообщение в логи что бот запущен (+ количество серверов).${i}
+ 
     console.log(`Успешный старт. ${client.guilds.size} серверов`);
     //Ставит боту статус.
     client.user.setActivity(`x!help | ${client.guilds.size} servers`).catch(console.error);
@@ -376,7 +377,8 @@ async function googleCommand(msg, args) {
     } else {
       message.reply('У тебя нет прав!');
     }
-  } else if (['avatar', 'av'].includes(command)) {
+  } 
+    else if (['avatar', 'av'].includes(command)) {
         //задает 1 слово как пользователя
         let member = message.mentions.members.first();
       if (member == undefined) {
