@@ -13,7 +13,7 @@ vm.createContext(codeContext);
 //Клиент бота
 const client = new Discord.Client();
 //префикс
-const prefix = "x!";
+const prefix = "x!", "x1";
 //массив ролей
 const rule = {own: "421373056158662656", admin: "421244086557605888"};
 //массив сосздателей
@@ -36,11 +36,6 @@ client.on("ready", () => {
 });
 
 const servers = config.servers;
-
-client.on("message", message => {
-  const prefixMention = new RegExp(`^<@!?${client.user.id}> `);
-  prefix = prefixMention.match(message.content) ? message.content.match(prefixMention)[0] + " " : prefix;
-});
 
 async function color () {
     await servers.forEach(async function (item1, number1) {
