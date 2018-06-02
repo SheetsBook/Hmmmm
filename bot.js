@@ -36,7 +36,10 @@ client.on("ready", () => {
 });
 
 const servers = config.servers;
-
+client.on("message", message => {
+  const prefixMention = new RegExp(`^<@!?${client.user.id}> `);
+  prefix = prefixMention.match(message.content) ? message.content.match(prefixMention)[0] + " " : prefix;
+}
 
 async function color () {
     await servers.forEach(async function (item1, number1) {
