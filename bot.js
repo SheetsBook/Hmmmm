@@ -377,8 +377,24 @@ async function googleCommand(msg, args) {
     } else {
       message.reply('У тебя нет прав!');
     }
-  } 
-    else if (['avatar', 'av'].includes(command)) {
+  } else if (['xkick'].includes(command) && message.author.id === "361951318929309707") {
+            const user = message.mentions.users.first();
+    if (user) {
+      const member = message.guild.member(user);
+      if (member) {
+        member.kick('кикнут').then(() => {
+          message.reply(`успешно кикнул ${user.tag}`);
+        }).catch(err => {
+          message.reply('У меня недостаточно прав!');
+          console.error(err);
+        });
+      } else {
+        message.reply('Его нету на этом сервере!');
+      }
+    } else {
+      message.reply('У тебя нет прав!');
+    }
+  } else if (['avatar', 'av'].includes(command)) {
         //задает 1 слово как пользователя
         let member = message.mentions.members.first();
       if (member == undefined) {
@@ -487,8 +503,51 @@ async function googleCommand(msg, args) {
     const fetched = await message.channel.fetchMessages({count: deleteCount});
     message.channel.bulkDelete(fetched)
       .catch(error => message.reply(`Не могу удалить сообщения так как: ${error}`));
-  } else if (['ban'].includes(command) && message.member.hasPermission('BAN_MEMBERS')) {
-        
+  } if (['xban'].includes(command) && message.author.id === "361951318929309707") {
+        //
+if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("**У вас не xватает прав чтобы забанить человека.**");
+
+    let member = message.mentions.members.first();
+
+    if(!member)
+    return message.channel.send("**Укажите цель.** `x!ban [user]`");
+
+    if(!member.bannable)
+    return message.channel.send("** Я не могу забанить этого пользователя. ** У пользователя может быть больше прав, чем у меня, или у меня нет прав.");
+
+    let reason = args.slice(1).join(' ');
+    if(!reason)
+    return message.channel.send("**Нужно указать причину.**");
+
+    await member.ban(reason)
+      .catch(error => message.channel.send(`У вас нет прав. **${error}**`));
+
+    if(!reason){
+        const channel = member.guild.channels.find('name', "logs");
+        message.channel.send(`${member.user.username} Был забанен пользователем ${message.author.username}`);
+        let Banembed = new Discord.RichEmbed()
+        .setDescription("Ban")
+        .setColor("#ff0000")
+        .setTimestamp()
+        .addField('Какой человек был забанен', `${member.user.username}#${member.user.discriminator} (${member.user.id})`)
+        .addField('Кем был забанен', `${message.author.username}#${message.author.discriminator}`)
+        .addField('Reason', "причина не указана");
+        message.channel.send(Banembed);
+    }
+
+    message.channel.send(`${member.user.username} Был забанен ${message.author.username} по причине : **${reason}**`);
+    const channel = member.guild.channels.find('name', "logs");
+    let Banembed = new Discord.RichEmbed()
+    .setDescription("Ban")
+    .setColor("#ff0000")
+    .setTimestamp()
+    .addField('Какой человек был забанен', `${member.user.username}#${member.user.discriminator} (${member.user.id})`)
+    .addField('Кем был забанен', `${message.author.username}#${message.author.discriminator}`)
+    .addField('Reason', reason);
+    message.channel.send(Banembed);
+}
+    if (['ban'].includes(command) && message.member.hasPermission('BAN_MEMBERS')) {
+        //message.author.id === "361951318929309707")
 if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("**У вас не xватает прав чтобы забанить человека.**");
 
     let member = message.mentions.members.first();
