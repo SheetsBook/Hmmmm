@@ -928,7 +928,7 @@ message.channel.send('RAS');
                 } catch (e) {console.log(e)}
             });
         });
-    } else if(['waifu'].includes(command)) {
+    } else if(['cuddle'].includes(command)) {
         message.delete();
         let user = message.author;
         let user1 = message.mentions.users.first();
@@ -937,14 +937,14 @@ message.channel.send('RAS');
             user1 = message.author;
         }
         message.channel.send('Загрузка...').then(msg => {
-            request('https://nekos.life/api/v2/img/waifu', function (error, response, body) {
+            request('https://nekos.life/api/v2/img/cuddle', function (error, response, body) {
                 try {
                     let arr = JSON.parse(body);
                     let embed = new Discord.RichEmbed()
                         .setTitle(':3')
-                        .setDescription(`${user} дал(а) поесть ${user1}`)
+                        .setDescription(`${user} прижался(ась) к ${user1}`)
                         .setImage(arr['url'])
-                        .setColor('#ffff00');
+                        .setColor('#00ffff');
                     msg.edit(`${user1}`, {embed});
                 } catch (e) {console.log(e)}
             });
