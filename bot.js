@@ -113,7 +113,14 @@ client.on('message', async (message) => {
 }
     
     //Отвечает за установку префикса в команды
-    if(!message.content.startsWith(prefix) || message.author.bot) return;
+    let prefixes = ['+', 'x!', '.'];
+    let prefix = false;
+    prefixes.forEach(prefix_ => {
+        if (message.content.startsWith(prefix_)) {
+            prefix = prefix_;
+        }
+    })
+    if (prefix === false) return;
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
 
