@@ -680,7 +680,7 @@ message.guild.channels.filter(chan => chan.type === 'voice').forEach((channel) =
             .addField("Fun", "**x!logo** узнать логотип сервера. \n**x!say** сообщение от бота. \n**x!embed** (x!helpembed) embed сообщение от бота. \n**x!rs [ид канала] [сообщение]** отослать сообщение из 1 чата в другой. \n**x!invite** пригласить бота на сервер.) \n**x!servers** узнать сервера бота,их создателей, их ID. \n**x!roles** узнать роли сервера. \n**x!afk** <причина> \n**x!ping** проверка. \n**x!ship** проверка совместимости \n**x!summon** [user] <reason> - вызвать пользователя с причиной (или без) \n**x!about** информация об количествах серверов, пользователей, каналов. \n**x!userinfo** информация об вас. \n**x!serverinfo** информация об сервере. \n**x!nya** тест команда эмодзи. \n**x!poll** создать голосование. \n**x!idea** идея по поводу сервера. (Quasar only) \n**x!vote** начать голосование (Galactic empire only) \n**x!avatar** просмотр аватара. \n**бот пиши** начну писать в чат где вы меня вызвали. \n**бот не пиши** перестану писать в чат где вы меня вызвали.")
             .addField("Mod", "**x!ban** бан пользователя. \n**x!kick** кик пользователя. \n**x!warn** предупредить пользователя. \n**x!prune** - удалить последние 50 сообщений.")
             .addField("Bot own", "**x!eval** эмуляция js кода. \n**x!presence** __[type] [status]__ смена статуса. \n**x!us** приватное сообщение от лица бота.")
-            .addField("Reactions", "**x!kiss** [user] - поцелуй. \n**x!pat** [user] - погладить. \n**x!slap** [user] - ударить. \n**x!hug** [user] - обнять. \n**x!cuddle** [user] - прижаться.")
+            .addField("Reactions", "**x!kiss** [user] - поцелуй. \n**x!pat** [user] - погладить. \n**x!slap** [user] - ударить. \n**x!hug** [user] - обнять. \n**x!cuddle** [user] - прижаться. \n**x!tickle** [user] - пощекотать. \n**x!poke** [user] - тыкнуть.")
             .addField("utility", "**x!pin** [channel id] [message id] - закрепить сообщение ботом. \n**x!unpin** [channel id] [message id] - открепить сообщение ботом.")
             .addField("Голос", "[Если вам нравится данный бот - вы можете проголосовать за него тут](https://discordbots.org/bot/441667160025333762) \nГолосовать за одного и того же бота можно каждые 24 часа с 1 и того же аккаунта.")
             .setFooter(message.channel.guild.name)
@@ -928,6 +928,26 @@ message.channel.send('RAS');
                 } catch (e) {console.log(e)}
             });
         });
+    } else if(['tickle'].includes(command)) {
+    message.delete();
+        let user = message.author;
+        let user1 = message.mentions.users.first();
+        if (!user1 || user1.id === user.id) {
+            user = client.user;
+            user1 = message.author;
+        }
+        message.channel.send('Загрузка...').then(msg => {
+            request('https://nekos.life/api/v2/img/tickle', function (error, response, body) {
+                try {
+                    let arr = JSON.parse(body);
+                    let embed = new Discord.RichEmbed()
+                        .setDescription(`${user} пощекотал(а) ${user1}`)
+                        .setImage(arr['url'])
+                        .setColor('#ffff00');
+                    msg.edit(`${user1}`, {embed});
+                } catch (e) {console.log(e)}
+            });
+        });
     } else if(['cuddle'].includes(command)) {
         message.delete();
         let user = message.author;
@@ -985,6 +1005,27 @@ message.channel.send('RAS');
                     let embed = new Discord.RichEmbed()
                         .setTitle(':3')
                         .setDescription(`${user} обнял(а) ${user1}`)
+                        .setImage(arr['url'])
+                        .setColor('#ffff00');
+                    msg.edit(`${user1}`, {embed});
+                } catch (e) {console.log(e)}
+            });
+        });
+    } else if(['poke'].includes(command)) {
+        message.delete();
+        let user = message.author;
+        let user1 = message.mentions.users.first();
+        if (!user1 || user1.id === user.id) {
+            user = client.user;
+            user1 = message.author;
+        }
+        message.channel.send('Загрузка...').then(msg => {
+            request('https://nekos.life/api/v2/img/poke', function (error, response, body) {
+                try {
+                    let arr = JSON.parse(body);
+                    let embed = new Discord.RichEmbed()
+                        .setTitle(':3')
+                        .setDescription(`${user} тыкнул(а) в ${user1}`)
                         .setImage(arr['url'])
                         .setColor('#ffff00');
                     msg.edit(`${user1}`, {embed});
