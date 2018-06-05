@@ -113,7 +113,7 @@ client.on('message', async (message) => {
 }
     
     //Отвечает за установку префикса в команды
-    let prefixes = ['+', 'x!', '.'];
+    let prefixes = ['+', 'x!'];
     let prefix = false;
     prefixes.forEach(prefix_ => {
         if (message.content.startsWith(prefix_)) {
