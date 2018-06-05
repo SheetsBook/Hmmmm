@@ -928,7 +928,7 @@ message.channel.send('RAS');
                 } catch (e) {console.log(e)}
             });
         });
-    } else if(['nom'].includes(command)) {
+    } else if(['waifu'].includes(command)) {
         message.delete();
         let user = message.author;
         let user1 = message.mentions.users.first();
@@ -937,7 +937,7 @@ message.channel.send('RAS');
             user1 = message.author;
         }
         message.channel.send('Загрузка...').then(msg => {
-            request('https://nekos.life/api/v2/img/nom', function (error, response, body) {
+            request('https://nekos.life/api/v2/img/waifu', function (error, response, body) {
                 try {
                     let arr = JSON.parse(body);
                     let embed = new Discord.RichEmbed()
