@@ -113,7 +113,7 @@ client.on('message', async (message) => {
 }
     
     //Отвечает за установку префикса в команды
-    let prefixes = ['x1', 'x!', 'x@','<@441667160025333762>'];
+    let prefixes = ['X1', 'X!', 'X@', 'x1', 'x!', 'x@','<@441667160025333762>'];
     let prefix = false;
     prefixes.forEach(prefix_ => {
         if (message.content.startsWith(prefix_)) {
