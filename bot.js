@@ -112,6 +112,7 @@ client.on('message', async (message) => {
     }
 }
     
+    if (message.author.bot) return;
     //Отвечает за установку префикса в команды
     let prefixes = ['X1', 'X!', 'X@', 'x1', 'x!', 'x@','<@441667160025333762>'];
     let prefix = false;
