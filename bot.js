@@ -36,6 +36,8 @@ client.on("ready", () => {
     color();
 });
 
+    
+
 const servers = config.servers;
 
 async function color () {
@@ -83,7 +85,10 @@ client.on('message', async (message) => {
         //Отвечает за то чтобы бот начал писать в вызваном чате.
         message.channel.startTyping();
     }
-    
+    if (message.channel.type === 'dm') {
+        if (['361951318929309707'].includes(message.author.id)) return;
+        client.channels.get('449845125816909834').send('Сообщение от '+message.author+': ```'+message.content.replace(/`/g, "`" + String.fromCharCode(8203))+'```')
+    }
 //При заданом сообщение выполняет действие.
     if (message.content.startsWith("бот не пиши")) {
         //Отвечает за то чтобы бот перестал писать в вызваном чате.
