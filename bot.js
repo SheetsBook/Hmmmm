@@ -650,7 +650,7 @@ if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("*
         message.channel.send(`**Голосование пользователя ${message.author} успешно начато**`);
         message.delete();
     } else if(['si', 'serverinfo'].includes(command)) {
-        const createdAt === message.channel.guild.createdTimestamp
+        
         if (message.channel.guild.large == true) {
             large = "Да"
         }
@@ -694,7 +694,7 @@ message.guild.channels.filter(chan => chan.type === 'voice').forEach((channel) =
                 embed.addField('>AFK канал<', message.channel.guild.afkChannel !== null ? message.channel.guild.afkChannel : 'Нету.', false)
                 embed.addField('>ID AFK канала<', message.channel.guild.afkChannelID !== null ? message.channel.guild.afkChannelID : 'Нету.', true)
                 embed.addField('>Регион<', message.channel.guild.region, false)
-                embed.addField('????', (createdAt.getDate() < 10 ? '0' : '') + createdAt.getDate() + "." + (createdAt.getMonth() < 10 ? '0' : '') + createdMonth + "." + createdAt.getFullYear() + " " + (createdAt.getHours() < 10 ? '0' : '') + createdAt.getHours() + ":" + (createdAt.getMinutes() < 10 ? '0' : '') + createdAt.getMinutes() + ":" + (createdAt.getSeconds() < 10 ? '0' : '') + createdAt.getSeconds(), false)
+                embed.addField('????', (message.channel.guild.createdTimestamp.getDate() < 10 ? '0' : '') + message.channel.guild.createdTimestamp.getDate() + "." + (message.channel.guild.createdTimestamp.getMonth() < 10 ? '0' : '') + createdMonth + "." + message.channel.guild.createdTimestamp.getFullYear() + " " + (message.channel.guild.createdTimestamp.getHours() < 10 ? '0' : '') + message.channel.guild.createdTimestamp.getHours() + ":" + (message.channel.guild.createdTimestamp.getMinutes() < 10 ? '0' : '') + message.channel.guild.createdTimestamp.getMinutes() + ":" + (message.channel.guild.createdTimestamp.getSeconds() < 10 ? '0' : '') + message.channel.guild.createdTimestamp.getSeconds(), false)
                 embed.setFooter('ServerInfo')
                 embed.setTimestamp(); message.react("✅");
             message.channel.send({embed});
