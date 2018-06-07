@@ -650,6 +650,7 @@ if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("*
         message.channel.send(`**Голосование пользователя ${message.author} успешно начато**`);
         message.delete();
     } else if(['si', 'serverinfo'].includes(command)) {
+        const createdAt === message.channel.guild.createdTimestamp
         if (message.channel.guild.large == true) {
             large = "Да"
         }
