@@ -88,7 +88,7 @@ client.on('message', async (message) => {
     if (message.channel.type === 'dm') {
         if ([`${client.user.id}`].includes(message.author.id)) return;
         if (['361951318929309707'].includes(message.author.id)) return client.channels.get('454011475493912586').send('Сообщение от '+message.author+': ```'+message.content.replace(/`/g, "`" + String.fromCharCode(8203))+'```');
-        client.channels.get('449845125816909834').send('Сообщение от '+message.author.userName+': ```'+message.content.replace(/`/g, "`" + String.fromCharCode(8203))+'```')
+        client.channels.get('449845125816909834').send('Сообщение от '+message.author.username+': ```'+message.content.replace(/`/g, "`" + String.fromCharCode(8203))+'```')
     }
 //При заданом сообщение выполняет действие.
     if (message.content.startsWith("бот не пиши")) {
