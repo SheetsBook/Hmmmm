@@ -2,6 +2,12 @@
 
 ------
 
+![XEVAL BANNER](https://cdn.discordapp.com/attachments/449845125816909834/454314336610025472/1528387411445.png)
+
+-----
+
+[![COMPPERS COMMUNTY](https://cdn.discordapp.com/attachments/449192179571752981/453083394038038538/Commpers-community.gif)](https://discord.gg/comppers)
+
 - Этот бот защищен блэт.
 
 -----
