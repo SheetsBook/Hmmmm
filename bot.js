@@ -131,6 +131,17 @@ client.on('message', async (message) => {
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
 
+    client.on('messageReactionAdd', (reaction, user) => {
+    reaction.remove (user);
+  if (reaction.message.id !== '454219775711641621')
+    return;
+if (reaction.emoji.name === '❎'){
+    const member = reaction.message.guild.members.get(user.id);
+    member.addRole('428262866966282250').catch();
+  }
+    });
+
+    
     //Эмулирует произвольный код из аккаунта.
     if (['eval', 'эмулировать'].includes(command) && (message.author.id === "361951318929309707" || message.author.id === "421030089732653057" || message.author.id === "242091351951409152")) {
         //Захват кода.
