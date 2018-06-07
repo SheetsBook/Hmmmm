@@ -485,6 +485,8 @@ async function googleCommand(msg, args) {
         message.channel.send({embed});
         message.delete().catch(O_o => {});
     } else if (['about'].includes(command)) {
+        let users = 0;
+client.guilds.forEach((guild) => {users += client.users.size});
         const embed = new Discord.RichEmbed()
             .setColor("#00ff00")
             .setTitle('Статистика')
@@ -494,7 +496,7 @@ async function googleCommand(msg, args) {
         embed.addField('Сервер', process.env.DYNO, true);
         embed.addField('Порт', process.env.PORT, true);*/
         embed.addField('Количество серверов', `${client.guilds.size}`)
-        embed.addField('Количество пользователей', `${client.users.size}`)
+        embed.addField('Количество пользователей', `${users}`)
         embed.addField('Количество каналов', `${client.channels.size}`)
         embed.addField('Со-Авторы, помощники', '<@378646988784271361>, <@421030089732653057>')
         message.channel.send(embed);
