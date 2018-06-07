@@ -1,10 +1,10 @@
-[![Discord Bots](https://discordbots.org/api/widget/441667160025333762.svg)](https://discordbots.org/bot/441667160025333762)
-
-------
 
 ![XEVAL BANNER](https://cdn.discordapp.com/attachments/449845125816909834/454314336610025472/1528387411445.png)
 
 -----
+
+[![Discord Bots](https://discordbots.org/api/widget/441667160025333762.svg)](https://discordbots.org/bot/441667160025333762)
+ ---
 
 [![COMPPERS COMMUNTY](https://cdn.discordapp.com/attachments/449192179571752981/453083394038038538/Commpers-community.gif)](https://discord.gg/comppers)
 
