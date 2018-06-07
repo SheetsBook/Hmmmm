@@ -457,6 +457,7 @@ async function googleCommand(msg, args) {
         }).catch(function() {});
     } else if (['summon'].includes(command)) {
         let summoned = message.mentions.members.first();
+        if (summoned.id === '421030089732653057') return message.channel.send('соси хуй :3');
         const SummonMessage = args.join(" ");
         args.shift();
         message.delete();
