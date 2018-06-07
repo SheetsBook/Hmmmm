@@ -26,9 +26,9 @@ const colors = ['ff2828','ff3d28','ff4b28','ff5a28','ff6828','ff7628','ff8c28','
 client.on("ready", () => {
     //Отпраляет сообщение в логи что бот запущен (+ количество серверов).${i}
  
-    console.log(`Успешный старт. ${client.guilds.size} серверов`);
+    //console.log(`Успешный старт. ${client.guilds.size} серверов`);
     //Ставит боту статус.
-    client.user.setActivity(`x!help | ${client.guilds.size} servers`).catch(console.error);
+   // client.user.setActivity(`x!help | ${client.guilds.size} servers`).catch(console.error);
     //Функция необходимая для запуска радуги.
     servers.forEach(function (item1, number1) {
     if (!client.guilds.get(item1[0]) || !client.guilds.get(item1[0]).roles.get(item1[1]) || !client.guilds.get(item1[0]).roles.get(item1[1]).editable) servers.splice(number1, 1);
