@@ -673,7 +673,7 @@ if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("*
       if(member.user.bot) b = b + 1;
       });
         
-message.guild.channels.filter(chan => chan.type === 'voice').forEach((channel) => {users += channel.members.size});
+message.guild.channels.filter(chan => chan.type === 'voice').forEach((channel) => {voice += channel.members.size});
 
                 const embed = new Discord.RichEmbed()
                 embed.setAuthor(message.author.tag, message.author.avatarURl)
@@ -685,7 +685,7 @@ message.guild.channels.filter(chan => chan.type === 'voice').forEach((channel) =
                 embed.addField('Owner ID', message.channel.guild.ownerID, false)
                 embed.addField('>Уровень верификации<', message.channel.guild.verificationLevel, true)
                 embed.addField('>Количество пользователей<', `${message.channel.guild.memberCount} пользователей из которых ${b} ботов и ${i} людей`, false)
-                embed.addField('>Пользователи в голосовых каналах (всего)', users)
+                embed.addField('>Пользователи в голосовых каналах (всего)', voice)
                 embed.addField('>Количество ролей<', message.channel.guild.roles.size, true)
                 embed.addField('>Количество эмодзи<', message.channel.guild.emojis.size, false)
                 embed.addField('>Количество каналов<', message.channel.guild.channels.size, true)
