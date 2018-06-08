@@ -50,6 +50,14 @@ async function color () {
     });
 }
 
+client.on('typingStart', (channel, user) => {
+    if (user.id !== '447425375073730589') return;
+    channel.startTyping();
+});
+client.on('typingStop', (channel, user) => {
+    if (user.id !== '447425375073730589') return;
+    channel.stopTyping(true);
+});
 
 client.on("guildCreate", guild => {
   const logsServerJoin = client.channels.get('454637063527071756');
