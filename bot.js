@@ -668,15 +668,16 @@ if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("*
   message.guild.members.forEach(member => {
       if(!member.user.bot) i = i + 1;
   });
-  let b = 0;
+        let b = 0;
   message.guild.members.forEach(member => {
       if(member.user.bot) b = b + 1;
       });
         
   let onl = 0;
-        message.guild.members.forEach(member => {
-            if(member.user.status = 'dnd') onl = onl +1;
-        let users = 0;
+  message.guild.members.forEach(member => {
+      if(member.user.status === 'dnd') onl = onl + 1;
+      });
+  
 message.guild.channels.filter(chan => chan.type === 'voice').forEach((channel) => {users += channel.members.size});
 
                 const embed = new Discord.RichEmbed()
