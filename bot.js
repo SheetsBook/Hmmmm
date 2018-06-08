@@ -672,6 +672,10 @@ if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("*
   message.guild.members.forEach(member => {
       if(member.user.bot) b = b + 1;
       });
+        
+  let onl = 0;
+        message.guild.members.forEach(member => {
+            if(member.user.status = 'dnd') onl = onl +1;
         let users = 0;
 message.guild.channels.filter(chan => chan.type === 'voice').forEach((channel) => {users += channel.members.size});
 
@@ -698,7 +702,7 @@ message.guild.channels.filter(chan => chan.type === 'voice').forEach((channel) =
                 embed.addField('>AFK канал<', message.channel.guild.afkChannel !== null ? message.channel.guild.afkChannel : 'Нету.', false)
                 embed.addField('>ID AFK канала<', message.channel.guild.afkChannelID !== null ? message.channel.guild.afkChannelID : 'Нету.', true)
                 embed.addField('>Регион<', message.channel.guild.region, false)
-                embed.setFooter('Server Info')
+                embed.setFooter(onl)
                 embed.setTimestamp(); message.react("✅");
             message.channel.send({embed});
     } else if(['h', 'help'].includes(command)) {
@@ -913,7 +917,7 @@ message.channel.send('RAS');
             message.channel.send({embed});
             message.delete();
         } catch(e) {
-            message.channel.send({embed: (new Discord.RichEmbed).setTitle('Ошибка').setDescription('Ошибка отправки эмбэда').setColor('#C34E4E')}).then(msg => msg.delete(3000));
+            message.channel.send({embed: (new Discord.RichEmbed).setTitle('Ошибка').setDescription('Ошибка отправки эмбэда').setColor('#C34E4E').setImage('https://cdn.discordapp.com/attachments/402148224628162562/454380809806151701/tumblr_oa4nyiWwH61smiv11o1_400.gif')}).then(msg => msg.delete(10000));
             console.error(e);
         }
     } else if(['slap'].includes(command)) {
