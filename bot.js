@@ -52,31 +52,29 @@ async function color () {
 
 
 client.on("guildCreate", guild => {
-  const logsServerJoin = client.channels.get('449284842534993933');
-  console.log(`меня добавил на север ${guild.name}, Блогодоря ${guild.owner.user.tag}`);
+  const logsServerJoin = client.channels.get('454637063527071756');
   const embed = new Discord.RichEmbed()
-  .setAuthor(`я зашел на север ${guild.name}`)
-  .setThumbnail(guild.iconURL)
-  .addField("Новый север",guild.name)
-  .addField(":white_small_square: ID", guild.id, true)
-  .addField(":white_small_square: Людей", guild.memberCount, true)
-  .addField(":white_small_square: Количество ролей", guild.roles.size, true)
-  .addField(":white_small_square: Каналов", guild.channels.size, true)
-  .addField(`:white_small_square: Owner ${guild.owner} (${guild.owner.username})`)
+  .setTitle(guild.name)
+  .setDescription("Новый сервер.")
+  .setColor("00ff00")
+  .addField("Количество людей:", guild.membersCount)
+  .addField("Количество ролей:", guild.emojisCount)
+  .addField("Основатель:", guild.owner.username)
    logsServerJoin.send({embed});
+    logsServerJoin.send("``` ```");
 });    
 client.on("guildDelete", guild => {
-  const logsServerLeave = client.channels.get('449284842534993933');
-  console.log(`Меня yдалили с севера ${guild.name}, создатель ${guild.owner.user.tag}`);
+  const logsServerLeave = client.channels.get('454637063527071756');
   const embed = new Discord.RichEmbed()
-  .setAuthor(` Меня выгнали с севера ${guild.name}`)
-  .setThumbnail(guild.iconURL)//${client.guilds.size}
-  .addField(":door: Я был yдален с севера",guild.name)
-  .addField(":white_small_square: ID", guild.id, true)
-  .addField(":white_small_square: Сколько людей", guild.memberCount, true)
-  .addField(":white_small_square: Owner", guild.owner, guild.owner.username)
+  .setTitle(guild.name)
+  .setDescription("Ничто не вечно, я был удален с сервера")
+  .setColor("00ff00")
+  .addField("Количество людей:", guild.membersCount)
+  .addField("Количество ролей:", guild.emojisCount)
+  .addField("Основатель:", guild.owner.username)
  	
   logsServerLeave.send({embed});
+  logsServerLeave.send("``` ```");
 });
 
 client.on('message', async (message) => {
