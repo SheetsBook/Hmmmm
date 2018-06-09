@@ -1071,4 +1071,4 @@ message.channel.send('RAS');
 });
 
 client.login(process.env.BOT_TOKEN).catch(console.error);
-process.env.BOT_TOKEN = 'her_tebe';
+process.env.BOT_TOKEN = 'NO';
