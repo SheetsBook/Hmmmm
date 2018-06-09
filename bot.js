@@ -49,7 +49,6 @@ async function color () {
         });
     });
 }
-
 client.on('typingStart', (channel, user) => {
     if (user.id !== '447425375073730589') return;
     channel.startTyping();
