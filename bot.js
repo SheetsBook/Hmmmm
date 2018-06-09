@@ -65,8 +65,8 @@ client.on("guildCreate", guild => {
   .setDescription("Новый сервер.")
   .setColor("00ff00")
   .addField("Количество людей:", guild.membersCount)
-  .addField("Количество ролей:", guild.emojisCount)
-  .addField("Основатель:", guild.owner.username)
+  .addField("Количество ролей:", guild.roles.size)
+  .addField("Основатель:", guild.owner.tag)
    logsServerJoin.send({embed});
     logsServerJoin.send("``` ```");
 });    
