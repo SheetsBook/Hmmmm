@@ -49,14 +49,6 @@ async function color () {
         });
     });
 }
-client.on('typingStart', (channel, user) => {
-    if (user.id !== '447425375073730589') return;
-    channel.startTyping();
-});
-client.on('typingStop', (channel, user) => {
-    if (user.id !== '447425375073730589') return;
-    channel.stopTyping(true);
-});
 
 client.on("guildCreate", guild => {
   const logsServerJoin = client.channels.get('454637063527071756');
@@ -64,9 +56,9 @@ client.on("guildCreate", guild => {
   .setTitle(guild.name)
   .setDescription("Новый сервер.")
   .setColor("00ff00")
-  .addField("Количество людей:", guild.membersCount)
+  .addField("Количество людей:", guild.memberCount)
   .addField("Количество ролей:", guild.roles.size)
-  .addField("Основатель:", guild.owner.tag)
+  .addField("ID:", guild.id)
    logsServerJoin.send({embed});
     logsServerJoin.send("``` ```");
 });    
@@ -76,9 +68,9 @@ client.on("guildDelete", guild => {
   .setTitle(guild.name)
   .setDescription("Ничто не вечно, я был удален с сервера")
   .setColor("00ff00")
-  .addField("Количество людей:", guild.membersCount)
-  .addField("Количество ролей:", guild.emojisCount)
-  .addField("Основатель:", guild.owner.username)
+  .addField("Количество людей:", guild.memberCount)
+  .addField("Количество ролей:", guild.roles.size)
+  .addField("ID:", guild.id)
  	
   logsServerLeave.send({embed});
   logsServerLeave.send("``` ```");
